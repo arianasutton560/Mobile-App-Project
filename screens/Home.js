@@ -15,7 +15,7 @@ export default function Home() {
 
       <Text style={styles.title}>My App</Text>
 
-      //Search input field  
+      {/* Search input field */}  
       <TextInput
         style={styles.searchInput}
         placeholder="Search..."

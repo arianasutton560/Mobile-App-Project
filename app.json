@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "569e08dd-01e4-4926-aa0d-d54ab5ce9313"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.arianasutton560.mobileappproject",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    }
+  }
+}
