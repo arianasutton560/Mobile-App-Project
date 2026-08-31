@@ -1,19 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './screens/Home';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Welcome to your Expo app! 
-        lets do it
-      </Text>
-    </View>
-  );
+    return <Home />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
