@@ -1,6 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
+import RecipeDetails from './screens/RecipeDetails';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-    return <Home />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: 'PantryPal' }}
+        />
+        <Stack.Screen
+          name="RecipeDetails"
+          component={RecipeDetails}
+          options={{ title: 'Recipe Details' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
