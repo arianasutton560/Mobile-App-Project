@@ -12,19 +12,19 @@ import { recipes } from '../data/recipes';
 const categories = [
   {
     name: 'Breakfast',
-    image: require('../images/categories/breakfast.jpg'),
+    image: require('../images/categories/breakfast.png'),
   },
   {
     name: 'Lunch',
-    image: require('../images/categories/lunch.jpg'),
+    image: require('../images/categories/lunch.png'),
   },
   {
     name: 'Dinner',
-    image: require('../images/categories/dinner.jpg'),
+    image: require('../images/categories/dinner.png'),
   },
   {
     name: 'Dessert',
-    image: require('../images/categories/dessert.jpg'),
+    image: require('../images/categories/dessert.png'),
   },
 ];
 
