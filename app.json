@@ -2,7 +2,10 @@
   "expo": {
     "extra": {
       "eas": {
-        "projectId": "569e08dd-01e4-4926-aa0d-d54ab5ce9313"
+        "projectId": "569e08dd-01e4-4926-aa0d-d54ab5ce9313",
+        "name": "Ariana Sutton",
+        "slug": "mobileappproject",
+        "owner": "smu-c3-mobile-fall-26"
       }
     },
     "ios": {
@@ -10,6 +13,16 @@
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
+    },
+    "android": {
+      "package": "com.arianasutton560.mobileappproject"
+    },
+    "owner": "smu-c3-mobile-fall-26",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/569e08dd-01e4-4926-aa0d-d54ab5ce9313"
     }
   }
 }
