@@ -9,7 +9,24 @@ import {
 import CategoryButton from '../components/CategoryButton';
 import { recipes } from '../data/recipes';
 
-const categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert'];
+const categories = [
+  {
+    name: 'Breakfast',
+    image: require('../images/categories/breakfast.jpg'),
+  },
+  {
+    name: 'Lunch',
+    image: require('../images/categories/lunch.jpg'),
+  },
+  {
+    name: 'Dinner',
+    image: require('../images/categories/dinner.jpg'),
+  },
+  {
+    name: 'Dessert',
+    image: require('../images/categories/dessert.jpg'),
+  },
+];
 
 export default function Home() {
   const [searchText, setSearchText] = useState('');
@@ -48,12 +65,13 @@ export default function Home() {
       <View style={styles.categoryRow}>
         {categories.map((category) => (
           <CategoryButton
-            key={category}
-            label={category}
-            isSelected={selectedCategory === category}
-            onPress={() => handleCategoryPress(category)}
+            key={category.name}
+            label={category.name}
+            image={category.image}
+            isSelected={selectedCategory === category.name}
+            onPress={() => handleCategoryPress(category.name)}
           />
-        ))}
+      ))}
       </View>
 
       <Text style={styles.heading}>
