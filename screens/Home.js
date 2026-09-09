@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
+  ActivityIndicator,
   FlatList,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 import CategoryButton from '../components/CategoryButton';
-import { recipes } from '../data/recipes';
+import RecipeCard from '../components/RecipeCard';
+import { getRecipes } from '../data/recipes';
 
 const categories = [
   {
@@ -28,9 +31,27 @@ const categories = [
   },
 ];
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    async function loadRecipes() {
+      try {
+        const importedRecipes = await getRecipes();
+        setRecipes(importedRecipes);
+      } catch {
+        setError('Unable to load recipes. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadRecipes();
+  }, []);
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesCategory =
@@ -62,35 +83,51 @@ export default function Home() {
 
       <Text style={styles.heading}>Categories</Text>
 
-      <View style={styles.categoryRow}>
-        {categories.map((category) => (
-          <CategoryButton
-            key={category.name}
-            label={category.name}
-            image={category.image}
-            isSelected={selectedCategory === category.name}
-            onPress={() => handleCategoryPress(category.name)}
-          />
-      ))}
+      <View style={styles.categorySection}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.categoryRow}>
+            {categories.map((category) => (
+              <CategoryButton
+                key={category.name}
+                label={category.name}
+                image={category.image}
+                isSelected={selectedCategory === category.name}
+                onPress={() => handleCategoryPress(category.name)}
+              />
+            ))}
+          </View>
+        </ScrollView>
       </View>
 
-      <Text style={styles.heading}>
+      <Text style={[styles.heading, styles.recipesHeading]}>
         {selectedCategory ? `${selectedCategory} recipes` : 'All recipes'}
       </Text>
 
+      {isLoading ? (
+        <ActivityIndicator size="large" color="#d97745" />
+      ) : error ? (
+        <Text style={styles.emptyText}>{error}</Text>
+      ) : (
+
       <FlatList
-        data={filteredRecipes}
-        keyExtractor={(recipe) => recipe.id}
-        renderItem={({ item }) => (
-          <View style={styles.recipeCard}>
-            <Text style={styles.recipeTitle}>{item.title}</Text>
-            <Text style={styles.recipeCategory}>{item.category}</Text>
-          </View>
-        )}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>No recipes found.</Text>
-        }
-      />
+          data={filteredRecipes}
+          keyExtractor={(recipe) => recipe.id}
+          numColumns={2}
+          columnWrapperStyle={styles.recipeRow}
+          contentContainerStyle={styles.recipeList}
+          renderItem={({ item }) => (
+            <RecipeCard
+              recipe={item}
+              onPress={() =>
+                navigation.navigate('RecipeDetails', { recipe: item })
+              }
+            />
+          )}
+          ListEmptyComponent={
+            <Text style={styles.emptyText}>No recipes found.</Text>
+          }
+        />
+      )}
     </View>
   );
 }
@@ -105,7 +142,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
     textAlign: 'center',
   },
   searchInput: {
@@ -122,14 +159,20 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 12,
   },
+  categorySection: {
+    height: 130,
+  },
+  recipesHeading: {
+    marginTop: 10,
+  },
   categoryRow: {
     flexDirection: 'row',
   },
-  recipeCard: {
-    padding: 16,
-    borderRadius: 12,
-    backgroundColor: '#f8f5f2',
-    marginBottom: 10,
+  recipeList: {
+    paddingBottom: 20,
+  },
+  recipeRow: {
+    justifyContent: 'space-between',
   },
   recipeTitle: {
     fontSize: 16,
@@ -141,5 +184,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     color: '#777',
+    textAlign: 'center',
+    marginTop: 20,
   },
 });

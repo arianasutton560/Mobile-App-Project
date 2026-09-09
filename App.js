@@ -12,7 +12,7 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ title: 'PantryPal' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="RecipeDetails"
