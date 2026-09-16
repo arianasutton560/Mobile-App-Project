@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -31,7 +32,7 @@ const categories = [
   },
 ];
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [recipes, setRecipes] = useState([]);
@@ -73,6 +74,13 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>PantryPal</Text>
+
+      <Pressable
+        style={styles.favoritesLink}
+        onPress={() => navigation.navigate('Favorites')}
+      >
+        <Text style={styles.favoritesLinkText}>♥ Favorites</Text>
+      </Pressable>
 
       <TextInput
         style={styles.searchInput}
@@ -118,6 +126,8 @@ export default function Home({ navigation }) {
           renderItem={({ item }) => (
             <RecipeCard
               recipe={item}
+              isFavorite={favoriteIds.includes(item.id)}
+              onToggleFavorite={onToggleFavorite}
               onPress={() =>
                 navigation.navigate('RecipeDetails', { recipe: item })
               }
@@ -181,6 +191,15 @@ const styles = StyleSheet.create({
   recipeCategory: {
     marginTop: 4,
     color: '#765c4d',
+  },
+  favoritesLink: {
+    alignSelf: 'center',
+    marginBottom: 8,
+    padding: 8,
+  },
+  favoriteLinkText: {
+    color: '#d9534f',
+    fontWeight: '700',
   },
   emptyText: {
     color: '#777',
