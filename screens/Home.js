@@ -73,71 +73,73 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>PantryPal</Text>
+      <View style={styles.headerRow}>
+        <Pressable
+          style={styles.favoritesLink}
+          onPress={() => navigation.navigate('Favorites')}
+        >
+          <Text style={styles.favoritesHeart}>♥</Text>
+        </Pressable>
 
-      <Pressable
-        style={styles.favoritesLink}
-        onPress={() => navigation.navigate('Favorites')}
-      >
-        <Text style={styles.favoritesLinkText}>♥ Favorites</Text>
-      </Pressable>
+          <Text style={styles.title}>PantryPal</Text>
+        </View>
 
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search recipes..."
-        value={searchText}
-        onChangeText={setSearchText}
-      />
-
-      <Text style={styles.heading}>Categories</Text>
-
-      <View style={styles.categorySection}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.categoryRow}>
-            {categories.map((category) => (
-              <CategoryButton
-                key={category.name}
-                label={category.name}
-                image={category.image}
-                isSelected={selectedCategory === category.name}
-                onPress={() => handleCategoryPress(category.name)}
-              />
-            ))}
-          </View>
-        </ScrollView>
-      </View>
-
-      <Text style={[styles.heading, styles.recipesHeading]}>
-        {selectedCategory ? `${selectedCategory} recipes` : 'All recipes'}
-      </Text>
-
-      {isLoading ? (
-        <ActivityIndicator size="large" color="#d97745" />
-      ) : error ? (
-        <Text style={styles.emptyText}>{error}</Text>
-      ) : (
-
-      <FlatList
-          data={filteredRecipes}
-          keyExtractor={(recipe) => recipe.id}
-          numColumns={2}
-          columnWrapperStyle={styles.recipeRow}
-          contentContainerStyle={styles.recipeList}
-          renderItem={({ item }) => (
-            <RecipeCard
-              recipe={item}
-              isFavorite={favoriteIds.includes(item.id)}
-              onToggleFavorite={onToggleFavorite}
-              onPress={() =>
-                navigation.navigate('RecipeDetails', { recipe: item })
-              }
-            />
-          )}
-          ListEmptyComponent={
-            <Text style={styles.emptyText}>No recipes found.</Text>
-          }
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search recipes..."
+          value={searchText}
+          onChangeText={setSearchText}
         />
-      )}
+
+        <Text style={styles.heading}>Categories</Text>
+
+        <View style={styles.categorySection}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={styles.categoryRow}>
+              {categories.map((category) => (
+                <CategoryButton
+                  key={category.name}
+                  label={category.name}
+                  image={category.image}
+                  isSelected={selectedCategory === category.name}
+                  onPress={() => handleCategoryPress(category.name)}
+                />
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+
+        <Text style={[styles.heading, styles.recipesHeading]}>
+          {selectedCategory ? `${selectedCategory} recipes` : 'All recipes'}
+        </Text>
+
+        {isLoading ? (
+          <ActivityIndicator size="large" color="#d97745" />
+        ) : error ? (
+          <Text style={styles.emptyText}>{error}</Text>
+        ) : (
+
+        <FlatList
+            data={filteredRecipes}
+            keyExtractor={(recipe) => recipe.id}
+            numColumns={2}
+            columnWrapperStyle={styles.recipeRow}
+            contentContainerStyle={styles.recipeList}
+            renderItem={({ item }) => (
+              <RecipeCard
+                recipe={item}
+                isFavorite={favoriteIds.includes(item.id)}
+                onToggleFavorite={onToggleFavorite}
+                onPress={() =>
+                  navigation.navigate('RecipeDetails', { recipe: item })
+                }
+              />
+            )}
+            ListEmptyComponent={
+              <Text style={styles.emptyText}>No recipes found.</Text>
+            }
+          />
+        )}
     </View>
   );
 }
@@ -145,14 +147,21 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     paddingTop: 55,
+    paddingRight: 20,
+    paddingBottom: 20,
+    paddingLeft: 8,
     backgroundColor: '#fff',
+  },
+  headerRow: {
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 10,
     textAlign: 'center',
   },
   searchInput: {
@@ -193,13 +202,17 @@ const styles = StyleSheet.create({
     color: '#765c4d',
   },
   favoritesLink: {
-    alignSelf: 'center',
-    marginBottom: 8,
-    padding: 8,
+    position: 'absolute',
+    left: 0,
+    padding: 6,
+  },
+  favoritesHeart: {
+    fontSize: 36,
   },
   favoriteLinkText: {
     color: '#d9534f',
     fontWeight: '700',
+    fontSize: '30'
   },
   emptyText: {
     color: '#777',
