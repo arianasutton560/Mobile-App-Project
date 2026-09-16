@@ -6,28 +6,28 @@ export default function RecipeCard({
   isFavorite,
   onToggleFavorite,
 }){
-  return (
-    <Pressable style={styles.card} onPress={onPress}>
-      <Image source={{ uri: recipe.image }} style={styles.image} />
+return (
+    <View style={styles.card}>
+      <Pressable style={styles.recipeButton} onPress={onPress}>
+        <Image source={{ uri: recipe.image }} style={styles.image} />
 
-    <Pressable
-      style={styles.favoriteButton}
-      onPress={(event) => {
-        event.stopPropagation();
-        onToggleFavorite(recipe.id);
-      }}
-    >
-      <Text style={styles.heart}>{isFavorite ? '♥' : '♡'}</Text>
+        <View style={styles.content}>
+          <Text numberOfLines={2} style={styles.title}>
+            {recipe.title}
+          </Text>
+          <Text style={styles.meta}>{recipe.time}</Text>
+          <Text style={styles.category}>{recipe.category}</Text>
+        </View>
       </Pressable>
 
-      <View style={styles.content}>
-        <Text numberOfLines={2} style={styles.title}>
-          {recipe.title}
-        </Text>
-        <Text style={styles.meta}>{recipe.time}</Text>
-        <Text style={styles.category}>{recipe.category}</Text>
-      </View>
-    </Pressable>
+      <Pressable
+        style={styles.favoriteButton}
+        hitSlop={10}
+        onPress={() => onToggleFavorite(recipe.id)}
+      >
+        <Text style={styles.heart}>{isFavorite ? '♥' : '♡'}</Text>
+      </Pressable>
+    </View>
   );
 }
 
