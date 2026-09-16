@@ -8,7 +8,7 @@ import RecipeDetails from './screens/RecipeDetails';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [favorites, setFavoriteIds] = useState([]);
+  const [favoriteIds, setFavoriteIds] = useState([]);
 
   function toggleFavorite(recipeId) {
     setFavoriteIds((currentIds) => currentIds.includes(recipeId) ? 
@@ -22,7 +22,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" options={{ headerShown: false}}>
           {(props) => (
-            <Home{...props}
+            <Home
+            {...props}
             favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
             />
