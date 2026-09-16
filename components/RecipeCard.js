@@ -1,9 +1,24 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
-export default function RecipeCard({ recipe, onPress }) {
+export default function RecipeCard({ 
+  recipe,
+  onPress,
+  isFavorite,
+  onToggleFavorite,
+}){
   return (
     <Pressable style={styles.card} onPress={onPress}>
       <Image source={{ uri: recipe.image }} style={styles.image} />
+
+    <Pressable
+      style={styles.favoriteButton}
+      onPress={(event) => {
+        event.stopPropagation();
+        onToggleFavorite(recipe.id);
+      }}
+    >
+      <Text style={styles.heart}>{isFavorite ? '♥' : '♡'}</Text>
+      </Pressable>
 
       <View style={styles.content}>
         <Text numberOfLines={2} style={styles.title}>
@@ -27,6 +42,21 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     aspectRatio: 1,
+  },
+  favoriteButton: {
+    position: 'absolute',
+    right: 10,
+    bottom: 10,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heart: {
+    color: '#d9534f',
+    fontSize: 26,
   },
   content: {
     padding: 10,
