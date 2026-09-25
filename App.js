@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
 import Favorites from './screens/Favorites';
 import RecipeDetails from './screens/RecipeDetails';
+import WhatCanIMake from './screens/WhatCanIMake';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,18 @@ export default function App() {
           component={RecipeDetails}
           options={{ title: 'Recipe Details' }}
         />
+        <Stack.Screen
+          name="WhatCanIMake"
+          options={{ title: 'What Can I Make?' }}
+        >
+          {(props) => (
+            <WhatCanIMake
+              {...props}
+              favoriteIds={favoriteIds}
+              onToggleFavorite={toggleFavorite}
+            />
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -90,6 +90,12 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
           value={searchText}
           onChangeText={setSearchText}
         />
+        <Pressable
+          style={styles.whatCanIMakeButton}
+          onPress={() => navigation.navigate('WhatCanIMake')}
+        >
+          <Text style={styles.whatCanIMakeText}>What can I make?</Text>
+        </Pressable>
 
         <Text style={styles.heading}>Categories</Text>
 
@@ -171,6 +177,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 15,
     fontSize: 16,
+  },
+  whatCanIMakeButton: {
+    marginTop: 12,
+    backgroundColor: '#d97745',
+    borderRadius: 10,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  whatCanIMakeText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '700',
   },
   heading: {
     fontSize: 18,
