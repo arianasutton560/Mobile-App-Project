@@ -5,11 +5,37 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 import RecipeCard from '../components/RecipeCard';
 import { getRecipes } from '../data/recipes';
+
+const basicIngredients = [
+  'Chicken',
+  'Beef',
+  'Eggs',
+  'Milk',
+  'Cheese',
+  'Butter',
+  'Bread',
+  'Rice',
+  'Pasta',
+  'Potatoes',
+  'Onions',
+  'Tomatoes',
+  'Garlic',
+  'Carrots',
+  'Broccoli',
+  'Mushrooms',
+  'Lettuce',
+  'Flour',
+  'Sugar',
+  'Oil',
+  'Salt',
+  'Pepper',
+  'Fruit',
+  'Beans',
+];
 
 export default function WhatCanIMake({
   navigation,
@@ -17,8 +43,8 @@ export default function WhatCanIMake({
   onToggleFavorite,
 }) {
   const [recipes, setRecipes] = useState([]);
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
-  const [ingredientSearch, setIngredientSearch] = useState('');
+  const [ingredientChoices, setIngredientChoices] = useState({});
+  const [showChecklist, setShowChecklist] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,32 +57,58 @@ export default function WhatCanIMake({
     loadRecipes();
   }, []);
 
-  const ingredients = useMemo(() => {
-    return [...new Set(
-      recipes.flatMap((recipe) => recipe.ingredients.map((ingredient) =>
-        ingredient.toLowerCase()
-      ))
-    )].sort();
-  }, [recipes]);
-
-  const filteredIngredients = ingredients.filter((ingredient) =>
-    ingredient.includes(ingredientSearch.toLowerCase())
+  const includedIngredients = Object.keys(ingredientChoices).filter(
+    (ingredient) => ingredientChoices[ingredient] === 'include'
+  );
+  const excludedIngredients = Object.keys(ingredientChoices).filter(
+    (ingredient) => ingredientChoices[ingredient] === 'exclude'
   );
 
-  const matchedRecipes = recipes.filter((recipe) =>
-    selectedIngredients.length > 0 &&
-    recipe.ingredients.some((ingredient) =>
-      selectedIngredients.includes(ingredient.toLowerCase())
-    )
-  );
-
-  function toggleIngredient(ingredient) {
-    setSelectedIngredients((currentIngredients) =>
-      currentIngredients.includes(ingredient)
-        ? currentIngredients.filter((item) => item !== ingredient)
-        : [...currentIngredients, ingredient]
-    );
+  const matchedRecipes = useMemo(() => {
+  if (includedIngredients.length === 0) {
+    return [];
   }
+
+  return recipes.filter((recipe) => {
+    const recipeIngredients = recipe.ingredients.map((ingredient) =>
+      ingredient.toLowerCase()
+    );
+
+    const matchesIncludedIngredient = includedIngredients.some(
+      (selectedIngredient) =>
+        recipeIngredients.some((recipeIngredient) =>
+          recipeIngredient.includes(selectedIngredient.toLowerCase())
+        )
+    );
+
+    const containsExcludedIngredient = excludedIngredients.some(
+      (excludedIngredient) =>
+        recipeIngredients.some((recipeIngredient) =>
+          recipeIngredient.includes(excludedIngredient.toLowerCase())
+        )
+    );
+
+    return matchesIncludedIngredient && !containsExcludedIngredient;
+  });
+}, [recipes, includedIngredients, excludedIngredients]);
+
+  function cycleIngredient(ingredient) {
+  setIngredientChoices((currentChoices) => {
+    const currentChoice = currentChoices[ingredient];
+
+    if (currentChoice === 'include') {
+      return { ...currentChoices, [ingredient]: 'exclude' };
+    }
+
+    if (currentChoice === 'exclude') {
+      const updatedChoices = { ...currentChoices };
+      delete updatedChoices[ingredient];
+      return updatedChoices;
+    }
+
+    return { ...currentChoices, [ingredient]: 'include' };
+  });
+}
 
   if (isLoading) {
     return (
@@ -87,66 +139,73 @@ export default function WhatCanIMake({
       ListHeaderComponent={
         <>
           <Text style={styles.description}>
-            Select ingredients you have. Recipes containing any selected
+            Check the ingredients you have. Recipes with any checked
             ingredient will appear below.
           </Text>
 
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search ingredients..."
-            value={ingredientSearch}
-            onChangeText={setIngredientSearch}
-          />
-
-          <View style={styles.selectionRow}>
+          <View style={styles.checklistHeader}>
             <Text style={styles.heading}>
-              Ingredients ({selectedIngredients.length} selected)
+              Ingredients ({includedIngredients.length} included, {excludedIngredients.length} excluded)
             </Text>
 
-            {selectedIngredients.length > 0 && (
-              <Pressable onPress={() => setSelectedIngredients([])}>
-                <Text style={styles.clearText}>Clear</Text>
-              </Pressable>
-            )}
+            <Pressable onPress={() => setShowChecklist(!showChecklist)}>
+              <Text style={styles.actionText}>
+                {showChecklist ? 'Hide ingredients' : 'Show ingredients'}
+              </Text>
+            </Pressable>
           </View>
 
-          <View style={styles.ingredients}>
-            {filteredIngredients.map((ingredient) => {
-              const isSelected = selectedIngredients.includes(ingredient);
+          {showChecklist && (
+            <View style={styles.checklist}>
+              {basicIngredients.map((ingredient) => {
+                const choice = ingredientChoices[ingredient];
+                const isIncluded = choice === 'include';
+                const isExcluded = choice === 'exclude';
 
-              return (
-                <Pressable
-                  key={ingredient}
-                  style={[
-                    styles.ingredientButton,
-                    isSelected && styles.ingredientButtonSelected,
-                  ]}
-                  onPress={() => toggleIngredient(ingredient)}
-                >
-                  <Text
-                    style={[
-                      styles.ingredientText,
-                      isSelected && styles.ingredientTextSelected,
-                    ]}
+                return (
+                  <Pressable
+                    key={ingredient}
+                    style={styles.ingredientRow}
+                    onPress={() => cycleIngredient(ingredient)}
                   >
-                    {isSelected ? '✓ ' : ''}{ingredient}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </View>
+                    <View
+                      style={[
+                        styles.checkbox,
+                        isIncluded && styles.checkboxSelected,
+                        isExcluded && styles.checkboxExcluded,
+                      ]}
+                    >
+                      {isIncluded && <Text style={styles.checkmark}>✓</Text>}
+                      {isExcluded && <Text style={styles.checkmark}>✕</Text>}
+                    </View>
+
+                    <Text style={styles.ingredientText}>{ingredient}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          )}
+
+          {includedIngredients.length > 0 && (
+            <Pressable
+              style={styles.clearButton}
+              onPress={() => setIngredientChoices({})}
+            >
+              <Text style={styles.clearText}>Clear selection</Text>
+            </Pressable>
+          )}
 
           <Text style={styles.heading}>
-            {selectedIngredients.length
+            {includedIngredients.length
               ? `Recipes (${matchedRecipes.length})`
-              : 'Choose an ingredient to see recipes'}
+              : 'Select ingredients to see recipes'}
           </Text>
         </>
       }
       ListEmptyComponent={
-        selectedIngredients.length > 0 ? (
+        includedIngredients.length > 0 ? (
           <Text style={styles.emptyText}>
-            No recipes match those ingredients.
+            No recipes match the selected ingredients.
           </Text>
         ) : null
       }
@@ -172,55 +231,68 @@ const styles = StyleSheet.create({
     color: '#765c4d',
     fontSize: 16,
     lineHeight: 22,
-    marginBottom: 16,
+    marginBottom: 12,
   },
-  searchInput: {
-    height: 48,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 10,
-    paddingHorizontal: 14,
-    fontSize: 16,
-  },
-  selectionRow: {
+  checklistHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
   },
   heading: {
     fontSize: 18,
     fontWeight: '700',
-    marginTop: 20,
+    marginTop: 16,
     marginBottom: 12,
+  },
+  actionText: {
+    color: '#d97745',
+    fontWeight: '700',
+  },
+  checklist: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  ingredientRow: {
+    width: '33.33%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 14,
+    paddingRight: 4,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderWidth: 2,
+    borderColor: '#a98774',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 6,
+  },
+  checkboxSelected: {
+    backgroundColor: '#d97745',
+    borderColor: '#d97745',
+  },
+  checkboxExcluded: {
+  backgroundColor: '#d9534f',
+  borderColor: '#d9534f',
+  },
+  checkmark: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  ingredientText: {
+    flexShrink: 1,
+    color: '#4f3b31',
+    fontSize: 14,
+  },
+  clearButton: {
+    alignSelf: 'flex-start',
+    marginTop: 4,
   },
   clearText: {
     color: '#d9534f',
-    fontWeight: '700',
-  },
-  ingredients: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  ingredientButton: {
-    borderWidth: 1,
-    borderColor: '#d7c7bd',
-    borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: '#fff',
-  },
-  ingredientButtonSelected: {
-    borderColor: '#d97745',
-    backgroundColor: '#fce8dc',
-  },
-  ingredientText: {
-    color: '#765c4d',
-    textTransform: 'capitalize',
-  },
-  ingredientTextSelected: {
-    color: '#a94e22',
     fontWeight: '700',
   },
   recipeRow: {
@@ -229,7 +301,7 @@ const styles = StyleSheet.create({
   emptyText: {
     color: '#777',
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 8,
     fontSize: 16,
   },
 });
