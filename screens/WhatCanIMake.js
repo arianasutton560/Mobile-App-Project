@@ -144,9 +144,12 @@ export default function WhatCanIMake({
           </Text>
 
           <View style={styles.checklistHeader}>
-            <Text style={styles.heading}>
-              Ingredients ({includedIngredients.length} included, {excludedIngredients.length} excluded)
-            </Text>
+            <View>
+              <Text style={styles.checklistHeading}>Ingredients</Text>
+              <Text style={styles.selectionCount}>
+                {includedIngredients.length} included · {excludedIngredients.length} excluded
+              </Text>
+            </View>
 
             <Pressable onPress={() => setShowChecklist(!showChecklist)}>
               <Text style={styles.actionText}>
@@ -234,9 +237,24 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   checklistHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginTop: 16,
+  marginBottom: 12,
+  },
+  checklistHeading: {
+    fontSize: 18,
+    fontWeight: '700',
+  },
+  selectionCount: {
+    color: '#765c4d',
+    marginTop: 3,
+  },
+  actionText: {
+    color: '#d97745',
+    fontWeight: '700',
+    marginLeft: 12,
   },
   heading: {
     fontSize: 18,
@@ -281,6 +299,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontWeight: '700',
+  },
+  selectionCount: {
+  color: '#765c4d',
+  marginBottom: 12,
   },
   ingredientText: {
     flexShrink: 1,
