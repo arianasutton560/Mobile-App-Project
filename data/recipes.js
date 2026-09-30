@@ -5,31 +5,34 @@ const supportedCategories = new Set([
   'lunch',
   'dinner',
   'dessert',
+  'autumn',
+  'winter',
+  'vegan',
+  'indian',
+  'asian',
+  'italian',
+  'drinks',
 ]);
 
 function formatCategory(category) {
   return `${category.charAt(0).toUpperCase()}${category.slice(1)}`;
 }
 
-function formatTime(prepTime, cookTime) {
-  const prep = Number(prepTime) || 0;
-  const cook = Number(cookTime) || 0;
-  const total = prep + cook;
-
-  return total ? `${total} min` : 'Time not available';
-}
 
 function formatRecipe(recipe) {
   return {
-    id: String(recipe.id),
-    title: recipe.name,
-    image: recipe.image,
-    category: formatCategory(recipe.category),
-    time: formatTime(recipe.prepTime, recipe.cookTime),
-    ingredients: recipe.ingredients ?? [],
-    instructions: (recipe.instructions ?? []).join('\n\n'),
-    servings: recipe.servings,
-    description: recipe.description,
+      id: String(recipe.id),
+      title: recipe.name,
+      image: recipe.image,
+      category: formatCategory(recipe.category),
+
+      prepTime: recipe.prepTime,
+      cookTime: recipe.cookTime,
+
+      ingredients: recipe.ingredients ?? [],
+      instructions: (recipe.instructions ?? []).join('\n\n'),
+      servings: recipe.servings,
+      description: recipe.description,
   };
 }
 
