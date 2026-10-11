@@ -24,22 +24,22 @@ export default function CategoryButton({
 
 const styles = StyleSheet.create({
   button: {
-    width: 86,
-    height: 110,
+    width: 80,
+    height: 100,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 16,
     backgroundColor: '#f1e8dc',
-    marginRight: 12,
+    marginRight: 10,
   },
   selectedButton: {
     backgroundColor: '#d97745',
   },
   image: {
-    width: 62,
-    height: 62,
-    borderRadius: 31,
-    marginBottom: 8,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    marginBottom: 6,
   },
   label: {
     textAlign: 'center',
