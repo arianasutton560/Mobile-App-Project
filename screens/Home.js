@@ -30,6 +30,34 @@ const categories = [
     name: 'Dessert',
     image: require('../images/categories/dessert.png'),
   },
+  {
+    name: 'Vegan',
+    image: require('../images/categories/vegan.png'),
+  },
+  {
+    name: 'Drinks',
+    image: require('../images/categories/drinks.png'),
+  },
+  {
+    name: 'Asian',
+    image: require('../images/categories/asian.png'),
+  },
+  {
+    name: 'Italian',
+    image: require('../images/categories/italian.png'),
+  },
+  {
+    name: 'Indian',
+    image: require('../images/categories/indian.png'),
+  },
+  {
+    name: 'Autumn',
+    image: require('../images/categories/autumn.png'),
+  },
+  {
+    name: 'Winter',
+    image: require('../images/categories/winter.png'),
+  },
 ];
 
 export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
@@ -56,7 +84,8 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesCategory =
-      !selectedCategory || recipe.category === selectedCategory;
+      !selectedCategory ||
+      recipe.categories.includes(selectedCategory.toLowerCase());
 
     const matchesSearch = recipe.title
       .toLowerCase()
