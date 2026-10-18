@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#d97745',
   },
   image: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     marginBottom: 6,
   },
   label: {
