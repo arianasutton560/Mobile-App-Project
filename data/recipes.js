@@ -14,17 +14,14 @@ const supportedCategories = new Set([
   'drinks',
 ]);
 
-function formatCategory(category) {
-  return `${category.charAt(0).toUpperCase()}${category.slice(1)}`;
-}
-
-
 function formatRecipe(recipe) {
   return {
       id: String(recipe.id),
       title: recipe.name,
       image: recipe.image,
-      category: formatCategory(recipe.category),
+      categories: recipe.categories.filter((category) =>
+        supportedCategories.has(category)
+      ),
 
       prepTime: recipe.prepTime,
       cookTime: recipe.cookTime,
@@ -38,7 +35,6 @@ function formatRecipe(recipe) {
 
 export async function getRecipes() {
   return recipes
-    .filter((recipe) => supportedCategories.has(recipe.category))
     .map(formatRecipe);
 }
 

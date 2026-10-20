@@ -16,7 +16,7 @@ return (
             {recipe.title}
           </Text>
           <Text style={styles.meta}>{recipe.time}</Text>
-          <Text style={styles.category}>{recipe.category}</Text>
+          <Text style={styles.category}>{recipe.categories.join('/')}</Text>
         </View>
       </Pressable>
 

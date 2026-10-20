@@ -272,7 +272,7 @@ async function scrapeRecipe(url) {
                 recipe.image?.url ||
                 recipe.image,
 
-            category: getCategory(recipe),
+            categories: [getCategory(recipe)],
 
             prepTime: `${prepMinutes} min`,
             cookTime: `${cookMinutes} min`,
