@@ -1,4 +1,15 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import * as Haptics from 'expo-haptics';
+
+async function playFavoriteHeartbeat() {
+  try {
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+  } catch {
+    // Keep favoriting available if haptics are unavailable on the device.
+  }
+}
 
 export default function RecipeCard({ 
   recipe,
@@ -23,7 +34,10 @@ return (
       <Pressable
         style={styles.favoriteButton}
         hitSlop={10}
-        onPress={() => onToggleFavorite(recipe.id)}
+        onPress={() => {
+          void playFavoriteHeartbeat();
+          onToggleFavorite(recipe.id);
+        }}
       >
         <Text style={styles.heart}>{isFavorite ? '♥' : '♡'}</Text>
       </Pressable>

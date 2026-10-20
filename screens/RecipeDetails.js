@@ -17,7 +17,7 @@ export default function RecipeDetails({ route }) {
   useEffect(() => {
     async function loadRecipeDetails() {
       try {
-        const details = await getRecipeDetails(recipe.id, recipe.category);
+        const details = await getRecipeDetails(recipe.id);
         setRecipeDetails(details);
       } finally {
         setIsLoading(false);
