@@ -1,11 +1,12 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import * as Haptics from 'expo-haptics';
 
-async function playFavoriteHeartbeat() {
+function playFavoriteHeartbeat() {
   try {
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    await new Promise((resolve) => setTimeout(resolve, 120));
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+    void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
+    setTimeout(() => {
+      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy).catch(() => {});
+    }, 350);
   } catch {
     // Keep favoriting available if haptics are unavailable on the device.
   }
