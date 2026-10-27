@@ -66,6 +66,17 @@ const drinkTypes = [
   { id: 'smoothie', label: 'Smoothies' },
 ];
 
+function shuffleRecipes(recipes) {
+  const shuffled = [...recipes];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+
+  return shuffled;
+}
+
 export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -78,7 +89,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     async function loadRecipes() {
       try {
         const importedRecipes = await getRecipes();
-        setRecipes(importedRecipes);
+        setRecipes(shuffleRecipes(importedRecipes));
       } catch {
         setError('Unable to load recipes. Please try again.');
       } finally {
