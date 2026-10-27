@@ -22,6 +22,7 @@ function formatRecipe(recipe) {
       categories: recipe.categories.filter((category) =>
         supportedCategories.has(category)
       ),
+      drinkType: recipe.drinkType,
 
       prepTime: recipe.prepTime,
       cookTime: recipe.cookTime,

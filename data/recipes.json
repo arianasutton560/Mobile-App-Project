@@ -295,7 +295,8 @@
       "Pour espresso into a mug. Stir in salt. Top with foamed milk, then sprinkle with turmeric. Garnish with cinnamon stick."
     ],
     "servings": "1 serving(s)",
-    "description": "Creamy, warmly spiced, and just sweet enough to feel like a treat, our butternut squash latte is everything you love about the season in a single, sippable mug."
+    "description": "Creamy, warmly spiced, and just sweet enough to feel like a treat, our butternut squash latte is everything you love about the season in a single, sippable mug.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242467257",
@@ -436,7 +437,8 @@
       "Garnish each flute with whipped topping and a fresh pineapple wedge."
     ],
     "servings": "6 serving(s)",
-    "description": "Want to jazz up your boozy brunch? Try these Dole Whip Mimosas from Delish.com."
+    "description": "Want to jazz up your boozy brunch? Try these Dole Whip Mimosas from Delish.com.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242474112",
@@ -743,7 +745,8 @@
       "Pour drink into prepared glass and top with whipped marshmallow cream and a drizzle of chocolate syrup. Crush remaining graham cracker and sprinkle on top.&nbsp;"
     ],
     "servings": "1",
-    "description": "Coffee, marshmallow, chocolate, graham crackers, AND ice cream? Yes, please! "
+    "description": "Coffee, marshmallow, chocolate, graham crackers, AND ice cream? Yes, please! ",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242479954",
@@ -2345,7 +2348,8 @@
       "Strain into a martini glass. Dust with cinnamon, then garnish with star anise."
     ],
     "servings": "1 serving(s)",
-    "description": "Our dirty chai martini is the drink you didn't know you neededâ€”a boldly spiced, espresso-spiked cocktail that bridges the gap between your morning ritual and your evening plans."
+    "description": "Our dirty chai martini is the drink you didn't know you neededâ€”a boldly spiced, espresso-spiked cocktail that bridges the gap between your morning ritual and your evening plans.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242505747",
@@ -2373,7 +2377,8 @@
       "Place ice in a large punch bowl. Add cider, Prosecco, beer, and vodka. Add apples, orange slices, and cinnamon sticks. Ladle punch into prepared glasses."
     ],
     "servings": "12 serving(s)",
-    "description": "Apple cider and ginger beer might seem like a weird pairing, but with fresh fruit and cinnamon (plus bubbly!), we promise you, this harvest punch works. "
+    "description": "Apple cider and ginger beer might seem like a weird pairing, but with fresh fruit and cinnamon (plus bubbly!), we promise you, this harvest punch works. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242506220",
@@ -2421,7 +2426,8 @@
       "Fill a collins or other cocktail glass with ice; Add St. Germaine and stir to chill. Top with wine and soda water and stir gently to combine. Garnish with celery and cucumber.<br>"
     ],
     "servings": "1",
-    "description": "If youâ€™re a fan of the refreshing, low-alcohol Hugo Spritz, you're going to love this lightly sweet, fruity, easy St. Germain Spritz cocktail. "
+    "description": "If youâ€™re a fan of the refreshing, low-alcohol Hugo Spritz, you're going to love this lightly sweet, fruity, easy St. Germain Spritz cocktail. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242508269",
@@ -2449,7 +2455,8 @@
       "Divide margarita among prepared glasses. Garnish with more blackberries, lime wedges, and mint."
     ],
     "servings": "4 serving(s)",
-    "description": "The stars of Practical Magic 2, Joey King and Maisie Williams, stopped by the Delish Test Kitchen to show us how to make their black magic midnight margaritas."
+    "description": "The stars of Practical Magic 2, Joey King and Maisie Williams, stopped by the Delish Test Kitchen to show us how to make their black magic midnight margaritas.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242511718",
@@ -2476,7 +2483,8 @@
       "Strain into an ice-filled rocks glass. Garnish with quartered pineapple crown."
     ],
     "servings": "1 serving(s)",
-    "description": "The Jungle Bird is a gorgeous tiki drink made with rum and Campari for a slightly bitter, surprisingly refreshing cocktail."
+    "description": "The Jungle Bird is a gorgeous tiki drink made with rum and Campari for a slightly bitter, surprisingly refreshing cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242512440",
@@ -2508,7 +2516,8 @@
       "Fill glass with ice. Add sparkling water, grapefruit juice, and 3/4 oz. rosemary syrup. Using a cocktail spoon, stir to combine. Push rosemary sprig through center of reserved grapefruit wedge and garnish glass."
     ],
     "servings": "1",
-    "description": "This easy to make, booze-free cocktail recipe hits all the marks: Itâ€™s tart, herby, slightly sweet, and a little smokey. "
+    "description": "This easy to make, booze-free cocktail recipe hits all the marks: Itâ€™s tart, herby, slightly sweet, and a little smokey. ",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242514634",
@@ -2537,7 +2546,8 @@
       "Fill glasses with ice. Add 1/2 cup raspberry shrub to each. Top off with seltzer. Garnish with a mint sprig and more raspberries."
     ],
     "servings": "2 serving(s)",
-    "description": "Muddled with raspberries and mint, then topped with seltzer, this Raspberry Mint Shrub is a fun mocktail that's perfect for slow summer afternoons."
+    "description": "Muddled with raspberries and mint, then topped with seltzer, this Raspberry Mint Shrub is a fun mocktail that's perfect for slow summer afternoons.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242515185",
@@ -2562,7 +2572,8 @@
       "Crush 3 Oreos with your fingertips or place in a zip-top bag and crush with the bottom of a glass or rolling pin. Sprinkle crushed Oreos over half of whipped cream. Gently open enough of remaining 2 Oreos to attach to side of each glass."
     ],
     "servings": "2",
-    "description": "Our espresso mocktail packs a punch with an espresso base, creamy top, and tons of Oreo crunch with none of the alcohol. "
+    "description": "Our espresso mocktail packs a punch with an espresso base, creamy top, and tons of Oreo crunch with none of the alcohol. ",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242515669",
@@ -2593,7 +2604,8 @@
       "Strain mocktail into a chilled stem glass. Top off with club soda. Garnish with lemon peel and sugared rosemary sprig."
     ],
     "servings": "1 serving(s)",
-    "description": "This Beeâ€™s Knees mocktail spritz, inspired by the gin-based classic drink, has lemon, a sweet honey syrup, and is topped off with a sparkling club soda."
+    "description": "This Beeâ€™s Knees mocktail spritz, inspired by the gin-based classic drink, has lemon, a sweet honey syrup, and is topped off with a sparkling club soda.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242516094",
@@ -2614,7 +2626,8 @@
     ],
     "instructions": [],
     "servings": "1 serving(s)",
-    "description": "Chilled bourbon, bitters, and a hint of sugar combine to make our classic old fashioned recipe."
+    "description": "Chilled bourbon, bitters, and a hint of sugar combine to make our classic old fashioned recipe.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242516602",
@@ -2637,7 +2650,8 @@
       "Skewer olives and place in glass. Serve cold."
     ],
     "servings": "1 serving(s)",
-    "description": "Let this be your go-to guide to create the perfect dirty martini with chilled gin, dry vermouth, and olive brine."
+    "description": "Let this be your go-to guide to create the perfect dirty martini with chilled gin, dry vermouth, and olive brine.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242517141",
@@ -2660,7 +2674,8 @@
       "Strain into a (preferably frosty) coupe glass. Garnish with cherries and a few dashes of bitters."
     ],
     "servings": "1 serving(s)",
-    "description": "When it comes to booze-forward classic cocktails, the whiskey-based Manhattan cocktail is as iconic as they come."
+    "description": "When it comes to booze-forward classic cocktails, the whiskey-based Manhattan cocktail is as iconic as they come.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242517677",
@@ -2684,7 +2699,8 @@
       "Fill mugs with ice and add vodka. Top off with ginger beer and gently stir to combine. Garnish with more mint and a lime wedge."
     ],
     "servings": "2 serving(s)",
-    "description": "Vodka, fresh lime juice, and spicy-sweet ginger beer combine in an adorable little copper mug to make the iconic Moscow Mule cocktail."
+    "description": "Vodka, fresh lime juice, and spicy-sweet ginger beer combine in an adorable little copper mug to make the iconic Moscow Mule cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242518195",
@@ -2707,7 +2723,8 @@
       "Strain into 2 chilled martini glasses. Skewer lychee onto 2 cocktail picks and place in glasses."
     ],
     "servings": "2 serving(s)",
-    "description": "Our sweet, floral, fruity lychee martini is just what you need for the summer."
+    "description": "Our sweet, floral, fruity lychee martini is just what you need for the summer.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242518698",
@@ -2730,7 +2747,8 @@
       "Strain into a rocks glass with a large ice cube. Garnish with lemon peel."
     ],
     "servings": "1 serving(s)",
-    "description": "Featuring fortified wine, Lillet, and the aperitif Suze, the white Negroni is a floral, complex spin on the classic cocktail. "
+    "description": "Featuring fortified wine, Lillet, and the aperitif Suze, the white Negroni is a floral, complex spin on the classic cocktail. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242519227",
@@ -2778,7 +2796,8 @@
       "Strain into a martini glass. Skewer peperoncini and feta cube and garnish glass."
     ],
     "servings": "1 serving(s)",
-    "description": "Use peperoncini brine in place of olive juice to add a spicy-sour, antipasti-inspired kick that pairs well with crisp gin and vermouth."
+    "description": "Use peperoncini brine in place of olive juice to add a spicy-sour, antipasti-inspired kick that pairs well with crisp gin and vermouth.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242524949",
@@ -2802,7 +2821,8 @@
       "Strain mixture into prepared glasses and serve ice cold. Repeat with remaining vodka mixture."
     ],
     "servings": "6 serving(s)",
-    "description": "Ina Garten reveals her recipe for the perfect, classic cosmopolitan."
+    "description": "Ina Garten reveals her recipe for the perfect, classic cosmopolitan.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242530601",
@@ -2826,7 +2846,8 @@
       "Fill glass with ice. Top off with ginger ale. Garnish with frozen grapes."
     ],
     "servings": "1 serving(s)",
-    "description": "Long considered the best-kept secret among golfers, the transfusion is a boozy grape soda that has fueled back nines and victory putts for years"
+    "description": "Long considered the best-kept secret among golfers, the transfusion is a boozy grape soda that has fueled back nines and victory putts for years",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242531091",
@@ -2857,7 +2878,8 @@
       "Strain cocktail into prepared glass. Carefully adhere mini Reese's cup onto rim of glass."
     ],
     "servings": "1 serving(s)",
-    "description": "This peanut butter cup-inspired cocktail is a treat disguised as a boozy drink thatâ€™s guaranteed to satisfy your sweet tooth."
+    "description": "This peanut butter cup-inspired cocktail is a treat disguised as a boozy drink thatâ€™s guaranteed to satisfy your sweet tooth.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242534728",
@@ -2883,7 +2905,8 @@
       "Strain cocktail into prepared glass. Garnish with lemon peel."
     ],
     "servings": "1 serving(s)",
-    "description": "The Yacht Club cocktail is a timeless libation, heavy on the alcohol with rum at the helm, designed to set you up for successâ€”whether that be sailing the open sea, basking in the sun at the club, or simply sipping from your deck."
+    "description": "The Yacht Club cocktail is a timeless libation, heavy on the alcohol with rum at the helm, designed to set you up for successâ€”whether that be sailing the open sea, basking in the sun at the club, or simply sipping from your deck.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242538520",
@@ -2910,7 +2933,8 @@
       "Strain into prepared glass. Top off with seltzer. Garnish with a cherry, whipped cream, and cookies (if using)."
     ],
     "servings": "1 serving(s)",
-    "description": "This spiked Chips Ahoy inspired cocktail combines chocolate syrup, milk, and seltzer with amaretto and rum for a deliciously drinkable dessert in a glass."
+    "description": "This spiked Chips Ahoy inspired cocktail combines chocolate syrup, milk, and seltzer with amaretto and rum for a deliciously drinkable dessert in a glass.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242538949",
@@ -2938,7 +2962,8 @@
       "Using a spoon, divide whipped cream between glasses, using the back of the spoon to smooth into an even layer that covers surface of drink. Dust tops with cocoa powder. Top with a cookie half."
     ],
     "servings": "2",
-    "description": "Somewhere between cocktail and dessert, this Italian-influenced White Russian is hard to resist."
+    "description": "Somewhere between cocktail and dessert, this Italian-influenced White Russian is hard to resist.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242539518",
@@ -2965,7 +2990,8 @@
       "Garnish with pineapple and maraschino cherries. "
     ],
     "servings": "1 serving(s)",
-    "description": "A Bahama Mama is a classic fruity, tropical cocktail made from orange and pineapple juice, two types of rum, lime juice, and grenadine. "
+    "description": "A Bahama Mama is a classic fruity, tropical cocktail made from orange and pineapple juice, two types of rum, lime juice, and grenadine. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242540042",
@@ -6820,7 +6846,7 @@
     "name": "Marry Me Chicken Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/marry-me-chicken-dip-socialindex-web-501-del099925-697ce39f5d92d.jpg?crop=0.502xw:1.00xh;0.353xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "Dinner"
     ],
     "prepTime": "20 min",
     "cookTime": "25 min",
@@ -6846,7 +6872,8 @@
       "Bake dip until top is golden and bubbly, about 20 minutes."
     ],
     "servings": "14 - 16 serving(s)",
-    "description": "Take all the best parts of our viral Marry Me Chicken to create a crowd-pleasing dish for game days, potlucks, or holiday spreads.\r\n"
+    "description": "Take all the best parts of our viral Marry Me Chicken to create a crowd-pleasing dish for game days, potlucks, or holiday spreads.\r\n",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242597416",
@@ -7660,7 +7687,8 @@
       "When ready to serve, add apple slices and cider to pitcher and stir to combine."
     ],
     "servings": "6 serving(s)",
-    "description": "This fall-flavored iced tea is made with brewed black tea, apple cider, and maple syrup for a cooling drink to welcome the transition between summer and fall."
+    "description": "This fall-flavored iced tea is made with brewed black tea, apple cider, and maple syrup for a cooling drink to welcome the transition between summer and fall.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242616379",
@@ -7692,6 +7720,7 @@
     "name": "Spiked Pumpkin Chai Latte",
     "image": "https://hips.hearstapps.com/hmg-prod/images/del089924-spikedpumpkinchailatte-web-0405-bjg-index-66e18ce7bfda2.jpg?crop=0.49988726042841036xw:1xh;center,top&resize=1200:*",
     "categories": [
+      "autumn",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -7715,13 +7744,15 @@
       "Pour into mug with tea, spooning any remaining foam on top. Sprinkle lattes with pumpkin pie spice. Garnish with whipped cream.  "
     ],
     "servings": "2 serving(s)",
-    "description": "Freshly steeped chai is spiked with a shot of whiskey and blended with milk, pumpkin puree, and cinnamon, then topped with whipped cream. "
+    "description": "Freshly steeped chai is spiked with a shot of whiskey and blended with milk, pumpkin puree, and cinnamon, then topped with whipped cream. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242617538",
     "name": "Apple Cider Margaritas",
     "image": "https://hips.hearstapps.com/hmg-prod/images/apple-cider-margaritas-index-654a92e4e2e10.jpg?crop=0.502xw:1.00xh;0.428xw,0&resize=1200:*",
     "categories": [
+      "autumn",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -7742,14 +7773,16 @@
       " Fill with margarita, and garnish with an apple slice and cinnamon stick."
     ],
     "servings": "2 serving(s)",
-    "description": "The classic year-round cocktail gets a fall spin with apple cider and a cinnamon-sugar rim. These margaritas are the best way to transition to fall."
+    "description": "The classic year-round cocktail gets a fall spin with apple cider and a cinnamon-sugar rim. These margaritas are the best way to transition to fall.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242617849",
     "name": "Apple Cider Spritz",
     "image": "https://hips.hearstapps.com/hmg-prod/images/apple-cider-spritz1-1663882620.jpg?crop=0.670xw:1.00xh;0.167xw,0&resize=1200:*",
     "categories": [
-      "vegan"
+      "autumn",
+      "drinks"
     ],
     "prepTime": "5 min",
     "cookTime": "5 min",
@@ -7766,7 +7799,8 @@
       "Fill glass with ice and garnish with apple and cinnamon. Top off with Prosecco and enjoy!"
     ],
     "servings": "1 serving(s)",
-    "description": "Apple cider spritz takes its cues from the popular Aperol spritz, but with apple cider and a dash of pumpkin spice."
+    "description": "Apple cider spritz takes its cues from the popular Aperol spritz, but with apple cider and a dash of pumpkin spice.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242618849",
@@ -7795,7 +7829,8 @@
       "Shake well before serving.&nbsp;"
     ],
     "servings": "6 serving(s)",
-    "description": "This fall-flavored moonshine is not only the perfect easy, boozy addition to any fall party, but is also the ideal way to consume apple pie, in our opinion. "
+    "description": "This fall-flavored moonshine is not only the perfect easy, boozy addition to any fall party, but is also the ideal way to consume apple pie, in our opinion. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242619262",
@@ -7822,15 +7857,17 @@
       "Serve apple cider warm."
     ],
     "servings": "2 qt.",
-    "description": "Homemade apple cider is not only a cup of comfort, but makes your house smell heavenly. It's a must-have fall drink for every autumn party. "
+    "description": "Homemade apple cider is not only a cup of comfort, but makes your house smell heavenly. It's a must-have fall drink for every autumn party. ",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242619616",
     "name": "Pumpkin Spice Syrup",
     "image": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-spice-syrup1-1661194464.jpg?crop=0.671xw:1.00xh;0.166xw,0&resize=1200:*",
     "categories": [
-      "vegan",
-      "breakfast"
+      "breakfast",
+      "drinks",
+      "autumn"
     ],
     "prepTime": "5 min",
     "cookTime": "35 min",
@@ -7849,13 +7886,15 @@
       "<strong>Make Ahead: </strong>Syrup can be made 1 week ahead. Store in refrigerator. Shake or whisk before using."
     ],
     "servings": "1 c.",
-    "description": "Homemade pumpkin spice syrup tastes just like what you get at fancy cafÃ©s. It's packed with pumpkin puree, pumpkin pie spice, and pure vanilla extract."
+    "description": "Homemade pumpkin spice syrup tastes just like what you get at fancy cafÃ©s. It's packed with pumpkin puree, pumpkin pie spice, and pure vanilla extract.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242619978",
     "name": "Pumpkin Margarita",
     "image": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-margaritas-index-66e310e564b07.jpg?crop=0.505xw:1.00xh;0,0&resize=1200:*",
     "categories": [
+      "autumn",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -7888,7 +7927,8 @@
       "Fill prepared glass with ice. Strain margarita into glass. Garnish with lime wheel and cinnamon stick (if using)."
     ],
     "servings": "1",
-    "description": "Our pumpkin margaritas combine pumpkin pie filling, pumpkin spice syrup, and aged reposado tequila for a perfectly mixed autumnal blend cocktail."
+    "description": "Our pumpkin margaritas combine pumpkin pie filling, pumpkin spice syrup, and aged reposado tequila for a perfectly mixed autumnal blend cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242620770",
@@ -7914,7 +7954,8 @@
       "Fill prepared glass with ice. Add grapefruit juice, tequila, simple syrup, lime juice, and a pinch of salt. Top off with club soda and gently stir with a bar spoon. Garnish with grapefruit wedge."
     ],
     "servings": "1 serving(s)",
-    "description": "The palomaâ€”a grapefruit-based tequila cocktailâ€”is the drink you should reach for when your craving a fruity, sweet twist on the classic margarita."
+    "description": "The palomaâ€”a grapefruit-based tequila cocktailâ€”is the drink you should reach for when your craving a fruity, sweet twist on the classic margarita.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242621295",
@@ -7943,7 +7984,8 @@
       "Garnish with grapefruit and skewered apple slices."
     ],
     "servings": "1",
-    "description": "Crisp tequila meets the warmth of cinnamon, while bright lime and grapefruit keep things lively in this spiced apple paloma. It's the perfect drink for fall!"
+    "description": "Crisp tequila meets the warmth of cinnamon, while bright lime and grapefruit keep things lively in this spiced apple paloma. It's the perfect drink for fall!",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242621955",
@@ -7964,7 +8006,8 @@
     ],
     "instructions": [],
     "servings": "1 serving(s)",
-    "description": "Our Lambrusco smash pairs the sparkling pop of Lambrusco with smoky mezcal, bright orange citrus, and ginger beer for a zingy, sweet-ish, refreshing cocktail."
+    "description": "Our Lambrusco smash pairs the sparkling pop of Lambrusco with smoky mezcal, bright orange citrus, and ginger beer for a zingy, sweet-ish, refreshing cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242622726",
@@ -8056,6 +8099,7 @@
     "name": "Cranberry-Aperol Spritz",
     "image": "https://hips.hearstapps.com/hmg-prod/images/cranberry-aperol-spritz-index-65146d0057a47.jpg?crop=0.503xw:1.00xh;0.122xw,0&resize=1200:*",
     "categories": [
+      "winter",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -8073,13 +8117,15 @@
       "Fill wine glasses with ice and pour in spritz. Top each with cranberries, an orange slice, and a rosemary sprig."
     ],
     "servings": "4 serving(s)",
-    "description": "A winter twist on a classic summer favorite, the cranberry Aperol spritz recipe is perfect cocktail to make for all of your holiday entertaining. "
+    "description": "A winter twist on a classic summer favorite, the cranberry Aperol spritz recipe is perfect cocktail to make for all of your holiday entertaining. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242624524",
     "name": "Cranberry-Apple Sangria",
     "image": "https://hips.hearstapps.com/hmg-prod/images/cran-apple-sangria-index-654a8a53303fe.jpg?crop=0.502xw:1.00xh;0.125xw,0&resize=1200:*",
     "categories": [
+      "winter",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -8099,13 +8145,15 @@
       "To serve, fill a wine glass with ice. Pour in sangria until glass is three-quarters full. Top off with seltzer. Garnish with cranberries, sliced apples, and a cinnamon stick."
     ],
     "servings": "6 - 8 serving(s)",
-    "description": "Get your cranberry fix in the winter with this fruity and festive cranberry apple sangria recipe. "
+    "description": "Get your cranberry fix in the winter with this fruity and festive cranberry apple sangria recipe. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242624852",
     "name": "Pumpkin Spice Mules",
     "image": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-spice-mules-index-654a6ada6deae.jpg?crop=0.500xw:1.00xh;0.244xw,0&resize=1200:*",
     "categories": [
+      "autmun",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -8123,13 +8171,15 @@
       "Sprinkle a little pumpkin spice on top and garnish with a cinnamon stick.&nbsp;"
     ],
     "servings": "2 serving(s)",
-    "description": "Give the classic cocktail a fall twist with these pumpkin spice mules that mix pumpkin spice and apple cider flavors. "
+    "description": "Give the classic cocktail a fall twist with these pumpkin spice mules that mix pumpkin spice and apple cider flavors. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242625488",
     "name": "Campfire Mules",
     "image": "https://hips.hearstapps.com/hmg-prod/images/campfire-mules-index-64d0f87607e80.jpg?crop=0.502xw:1.00xh;0.239xw,0&resize=1200:*",
     "categories": [
+      "autumn",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -8147,7 +8197,8 @@
       "Toast marshmallows (if using) with a blowtorch or directly over the flame of a gas stove. Thread marshmallows onto a stick and garnish glass."
     ],
     "servings": "1 serving(s)",
-    "description": "In this recipe, we replaced the vodka with some bourbon, added maple syrup, kept our lemon juice and ginger beer, and included a roasted marshmallow to garnish."
+    "description": "In this recipe, we replaced the vodka with some bourbon, added maple syrup, kept our lemon juice and ginger beer, and included a roasted marshmallow to garnish.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242626282",
@@ -8174,13 +8225,15 @@
       "Refrigerate until ready to serve, at least 2 hours and preferably overnight."
     ],
     "servings": "6 - 8 serving(s)",
-    "description": "For the perfect red sangria, having the ideal ratio of wine to brandy is essentialâ€”read our top tips to learn how to perfect this traditional cocktail recipe."
+    "description": "For the perfect red sangria, having the ideal ratio of wine to brandy is essentialâ€”read our top tips to learn how to perfect this traditional cocktail recipe.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242626806",
     "name": "Halloween Sangria",
     "image": "https://hips.hearstapps.com/hmg-prod/images/del089923-halloween-sangria-web-002-ab-index-64e785b0bffbf.jpg?crop=0.505xw:1.00xh;0.231xw,0&resize=1200:*",
     "categories": [
+      "autumn",
       "drinks"
     ],
     "prepTime": "15 min",
@@ -8203,7 +8256,8 @@
       "<strong>Make Ahead: </strong>Apple ghosts can be made 3 hours ahead. Store in an airtight container with lemon juice and refrigerate. Wine, crÃ©me de cassis, and simple syrup can be mixed 1 day ahead. Store in an airtight container and refrigerate. Pour over ice, add fruit, and mix in soda right before serving."
     ],
     "servings": "7 c.",
-    "description": "This recipe is spookier than your average sangria: Blood oranges, pomegranate seeds, and blackberries all work together to make a Halloween-approved brew. "
+    "description": "This recipe is spookier than your average sangria: Blood oranges, pomegranate seeds, and blackberries all work together to make a Halloween-approved brew. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242627274",
@@ -8228,7 +8282,8 @@
       "Strain into an ice-filled rocks glass. Slowly pour wine over to create a red layer. Garnish with lemon peel."
     ],
     "servings": "1",
-    "description": "This spin on a NY Sour celebrates the return of the best season with a bold mix of bourbon, apple cider, lemon, and ginger, crowned with a red wine float."
+    "description": "This spin on a NY Sour celebrates the return of the best season with a bold mix of bourbon, apple cider, lemon, and ginger, crowned with a red wine float.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242627649",
@@ -8252,7 +8307,8 @@
       "Fill prepared glasses with ice. Pour tequila, triple sec, and lime juice into glasses and stir to combine. Garnish with lime wheels."
     ],
     "servings": "2 serving(s)",
-    "description": "The secret to the perfect margarita is the right ratio of tequila to triple sec. This recipe works for both a margarita on the rocks and a blended margarita."
+    "description": "The secret to the perfect margarita is the right ratio of tequila to triple sec. This recipe works for both a margarita on the rocks and a blended margarita.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242628468",
@@ -8278,7 +8334,8 @@
       "Fill prepared glass with ice. Add cranberry juice cocktail, tequila, and grapefruit juice. Top off with club soda and gently stir with a bar spoon. Garnish with grapefruit twist and cranberries."
     ],
     "servings": "1 serving(s)",
-    "description": "If you want a more festive paloma to enjoy during the holiday season, meet its cranberry-spiked cousin."
+    "description": "If you want a more festive paloma to enjoy during the holiday season, meet its cranberry-spiked cousin.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242628865",
@@ -9486,7 +9543,8 @@
     "name": "Slow-Cooker Hot Cocoa",
     "image": "https://hips.hearstapps.com/del.h-cdn.co/assets/16/51/1024x1024/square-1482338553-delish-slow-cooker-hot-cocoa-01.jpg?resize=1200:*",
     "categories": [
-      "drinks"
+      "drinks",
+      "dessert"
     ],
     "prepTime": "5 min",
     "cookTime": "120 min",
@@ -9506,7 +9564,8 @@
       "Garnish with more mini marshmallows, if desired."
     ],
     "servings": "8",
-    "description": "Is there anything your slow cooker can't do?! Combining chocolate chips, cocoa powder, heavy cream, and milk in your slow cooker makes the best hot cocoa EVER from Delish.com."
+    "description": "Is there anything your slow cooker can't do?! Combining chocolate chips, cocoa powder, heavy cream, and milk in your slow cooker makes the best hot cocoa EVER from Delish.com.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242649622",
@@ -11439,7 +11498,8 @@
       "Place purple ice cubes in glasses and divide margarita between them. Garnish with a lime wedge and serve. "
     ],
     "servings": "4 serving(s)",
-    "description": "These color-changing margaritas use a secret ingredient to transform a regular ice cube into a magic color-changing ingredient."
+    "description": "These color-changing margaritas use a secret ingredient to transform a regular ice cube into a magic color-changing ingredient.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242685456",
@@ -11467,7 +11527,8 @@
       "Add ice and garnish with a slice of lime before serving."
     ],
     "servings": "2 serving(s)",
-    "description": "Black magic margaritas are a scary good cocktail to serve at your Halloween bash. All you need are the ingredients for a classic marg, plus food coloring."
+    "description": "Black magic margaritas are a scary good cocktail to serve at your Halloween bash. All you need are the ingredients for a classic marg, plus food coloring.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242685834",
@@ -11495,7 +11556,8 @@
       "Top off with ginger beer. Garnish with bay leaf and more blackberries."
     ],
     "servings": "1 serving(s)",
-    "description": "This riff on the El Diablo uses mezcal instead of tequila, plus a dark fruit bomb of Concord grapes and blackberries, and keeps the fresh lime and ginger beer."
+    "description": "This riff on the El Diablo uses mezcal instead of tequila, plus a dark fruit bomb of Concord grapes and blackberries, and keeps the fresh lime and ginger beer.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242686177",
@@ -11789,7 +11851,8 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/candy-apples-index-650dfeeda2424.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
     "categories": [
       "vegan",
-      "dessert"
+      "dessert",
+      "autumn"
     ],
     "prepTime": "5 min",
     "cookTime": "25 min",
@@ -12022,7 +12085,8 @@
     "name": "Mexican Hot Chocolate",
     "image": "https://hips.hearstapps.com/hmg-prod/images/20190905-delish-mexican-hot-chocolate-ehg-1314-jpg-1569007276.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "drinks",
+      "dessert"
     ],
     "prepTime": "5 min",
     "cookTime": "5 min",
@@ -12041,7 +12105,8 @@
       "Divide into mugs and top with marshmallows, a sprinkle of cinnamon, and chopped chocolate before serving."
     ],
     "servings": "2 serving(s)",
-    "description": "Mexican Hot Chocolate from Delish.com is as rich and hearty as can be."
+    "description": "Mexican Hot Chocolate from Delish.com is as rich and hearty as can be.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242697205",
@@ -12049,7 +12114,8 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/cranberry-sauce-index-64f79351b20d3.jpg?crop=0.502xw:1.00xh;0.251xw,0&resize=1200:*",
     "categories": [
       "vegan",
-      "dinner"
+      "dinner",
+      "winter"
     ],
     "prepTime": "5 min",
     "cookTime": "15 min",
@@ -12191,31 +12257,6 @@
     ],
     "servings": "12 serving(s)",
     "description": "Thanksgiving rolls are perfect, pillowy yeasted rolls. Serve them with your holiday meal or for any special occasion."
-  },
-  {
-    "id": "1791242699338",
-    "name": "Homemade Cranberry Sauce",
-    "image": "https://hips.hearstapps.com/hmg-prod/images/cranberry-sauce-index-64f79351b20d3.jpg?crop=0.502xw:1.00xh;0.251xw,0&resize=1200:*",
-    "categories": [
-      "vegan",
-      "dinner"
-    ],
-    "prepTime": "5 min",
-    "cookTime": "15 min",
-    "ingredients": [
-      "1 c. (200 g.)&nbsp;granulated sugar",
-      "12 oz. fresh or frozen cranberries",
-      "2 tsp. finely grated&nbsp;orange zest",
-      "Pinch of kosher salt"
-    ],
-    "instructions": [
-      "In a small saucepan over low heat, combine sugar and 1 c. water, stirring until sugar dissolves. Add cranberries and bring to a boil over medium-high heat.",
-      "Reduce heat to medium and simmer, stirring occasionally, until cranberries burst and&nbsp;mixture is thickened, about 10 minutes.",
-      "Stir in orange zest and salt. Let cool.",
-      "<strong>Make Ahead:</strong> Cranberry sauce can be made 1 week ahead. Transfer to an airtight container and refrigerate."
-    ],
-    "servings": "6 - 8 serving(s)",
-    "description": "Forget the canned stuff and make this super-easy (and perfectly tart) homemade cranberry sauce recipeâ€”you only need 5 ingredients and just 20 minutes!"
   },
   {
     "id": "1791242699865",
@@ -12804,6 +12845,7 @@
     "name": "Homemade Eggnog",
     "image": "https://hips.hearstapps.com/hmg-prod/images/homemade-eggnog-index-65720b2598ed5.jpg?crop=0.502xw:1.00xh;0.303xw,0&resize=1200:*",
     "categories": [
+      "winter",
       "drinks"
     ],
     "prepTime": "10 min",
@@ -12827,7 +12869,8 @@
       "When ready to serve, divide eggnog among mugs. Top with whipped cream and cinnamon."
     ],
     "servings": "4 serving(s)",
-    "description": "Whether you prefer it boozy or non-alcoholic, follow our easy recipe to make perfect eggnog every Christmas."
+    "description": "Whether you prefer it boozy or non-alcoholic, follow our easy recipe to make perfect eggnog every Christmas.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242714883",
@@ -13349,7 +13392,8 @@
     "name": "Cranberry Cream Cheese Spread",
     "image": "https://hips.hearstapps.com/hmg-prod/images/cranberry-cream-cheese-spread-index-6724167e2d9b1.jpg?crop=0.506xw:1.00xh;0.429xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "winter",
+      "dinner"
     ],
     "prepTime": "10 min",
     "cookTime": "15 min",
@@ -13374,7 +13418,8 @@
       "Dollop cream cheese mixture into a serving bowl. Spoon cranberry sauce over. Sprinkle with almonds and scallions; season with pepper (if using). Drizzle with oil. Serve with crackers alongside.&nbsp;"
     ],
     "servings": "6 - 8 serving(s)",
-    "description": "Tangy sweet cranberry sauce finished with brandy dresses fluffy whipped lemon cream cheese in this holiday dip recipe."
+    "description": "Tangy sweet cranberry sauce finished with brandy dresses fluffy whipped lemon cream cheese in this holiday dip recipe.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242728084",
@@ -14320,7 +14365,8 @@
       "Strain into a coupe. Garnish with lemon and thyme."
     ],
     "servings": "1",
-    "description": "For those who love gin, this bright, juicy Bee's Knees Cocktail will definitely live up to its name."
+    "description": "For those who love gin, this bright, juicy Bee's Knees Cocktail will definitely live up to its name.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242763306",
@@ -14343,7 +14389,8 @@
       "Strain into a (preferably frosty) coupe glass. Garnish with cherries and a few dashes of bitters."
     ],
     "servings": "1 serving(s)",
-    "description": "When it comes to booze-forward classic cocktails, the whiskey-based Manhattan cocktail is as iconic as they come."
+    "description": "When it comes to booze-forward classic cocktails, the whiskey-based Manhattan cocktail is as iconic as they come.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242763805",
@@ -14371,7 +14418,8 @@
       "Pour drink into prepared glass. Garnish with lemon peel."
     ],
     "servings": "1 serving(s)",
-    "description": "This cocktailâ€”which features gin, the French aperitif Lillet Blanc, St-Germain liqueur, and grapefruit juiceâ€”is bright, citrusy, and just a touch floral."
+    "description": "This cocktailâ€”which features gin, the French aperitif Lillet Blanc, St-Germain liqueur, and grapefruit juiceâ€”is bright, citrusy, and just a touch floral.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242764139",
@@ -14397,7 +14445,8 @@
       "Fill prepared glass with ice. Add cranberry juice cocktail, tequila, and grapefruit juice. Top off with club soda and gently stir with a bar spoon. Garnish with grapefruit twist and cranberries."
     ],
     "servings": "1 serving(s)",
-    "description": "If you want a more festive paloma to enjoy during the holiday season, meet its cranberry-spiked cousin."
+    "description": "If you want a more festive paloma to enjoy during the holiday season, meet its cranberry-spiked cousin.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242765020",
@@ -14421,7 +14470,8 @@
       "Garnish with orange wheel and star anise."
     ],
     "servings": "1 serving(s)",
-    "description": "There's a new hot drink in town, and the name is fireside negroni. We dressed up the tried and true negroni with Earl Grey tea and a touch of maple syrup."
+    "description": "There's a new hot drink in town, and the name is fireside negroni. We dressed up the tried and true negroni with Earl Grey tea and a touch of maple syrup.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242765623",
@@ -14461,7 +14511,8 @@
     "name": "Whipped Brie",
     "image": "https://hips.hearstapps.com/hmg-prod/images/whipped-brie-socialindex-web-005-mg-del109925-691ca4eb8ebc6.jpg?crop=0.503xw:1.00xh;0.249xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "breakfast",
+      "dessert"
     ],
     "prepTime": "5 min",
     "cookTime": "10 min",
@@ -14476,7 +14527,8 @@
       "Transfer brie to a serving bowl. Top with preserves, a drizzle of honey, and some sea salt. Serve with crackers alongside."
     ],
     "servings": "6 - 8 serving(s)",
-    "description": "A few minutes in your food processor turns brie into a smooth, spreadable, and somehow even creamier appetizer that your guests will love."
+    "description": "A few minutes in your food processor turns brie into a smooth, spreadable, and somehow even creamier appetizer that your guests will love.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242766544",
@@ -14605,7 +14657,8 @@
     "name": "Fried Goat Cheese Bites",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-221129-friedgoatcheesebites-320-ls-1670271441.jpg?crop=0.668xw:1.00xh;0.207xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "lunch",
+      "dinner"
     ],
     "prepTime": "5 min",
     "cookTime": "55 min",
@@ -14629,14 +14682,15 @@
       "Arrange goat cheese bites on a platter. Drizzle with honey and top with fresh thyme."
     ],
     "servings": "12",
-    "description": "Coated in crispy herby bread crumbs and drizzled with honey, these creamy, melt-in-your-mouth fried goat cheese bites are the perfect party appetizer."
+    "description": "Coated in crispy herby bread crumbs and drizzled with honey, these creamy, melt-in-your-mouth fried goat cheese bites are the perfect party appetizer.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242768612",
     "name": "Bacon-Wrapped Dates",
     "image": "https://hips.hearstapps.com/hmg-prod/images/20200107-bacon-wrapped-dates-delish-ehg-8965-jpg-1580412455.jpg?crop=0.883xw:0.883xh;0.0545xw,0.0545xh&resize=1200:*",
     "categories": [
-      "drinks"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "55 min",
@@ -14657,14 +14711,15 @@
       "Continue to bake brushed dates until bacon is crispy, 15 to 20 minutes more."
     ],
     "servings": "2 dz.",
-    "description": "These bacon-wrapped dates filled with goat cheese are the perfect quick and easy party appetizer."
+    "description": "These bacon-wrapped dates filled with goat cheese are the perfect quick and easy party appetizer.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242769147",
     "name": "Buffalo Chicken Meatballs",
     "image": "https://hips.hearstapps.com/hmg-prod/images/buffalo-chicken-meatballs1-1671199673.jpg?crop=0.670xw:1.00xh;0.236xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "15 min",
@@ -14690,7 +14745,8 @@
       "Toss meatballs in remaining Buffalo sauce and sprinkle with green onions."
     ],
     "servings": "4 serving(s)",
-    "description": "Looking for an easy buffalo chicken recipe for your game day appetizer? These Buffalo chicken meatballs are out favorite variation on the classic app. "
+    "description": "Looking for an easy buffalo chicken recipe for your game day appetizer? These Buffalo chicken meatballs are out favorite variation on the classic app. ",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791242769574",
@@ -14796,7 +14852,8 @@
       "Strain into a chilled martini glass. Garnish with lemon twist."
     ],
     "servings": "1 serving(s)",
-    "description": "Named for James Bondâ€™s love interest in the 1953 novel Casino Royale, this infamously shaken and not stirred cocktail is a three-ingredient heavy hitter."
+    "description": "Named for James Bondâ€™s love interest in the 1953 novel Casino Royale, this infamously shaken and not stirred cocktail is a three-ingredient heavy hitter.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242770997",
@@ -14823,7 +14880,8 @@
       "Pour Prosecco into a shot glass. Drink separately or pour into cocktail."
     ],
     "servings": "1 serving(s)",
-    "description": "Vanilla vodka, simple syrup, tart passion fruit (purÃ©e and liqueur), and bubbly Prosecco combine to make this summer-in-a-glass cocktail. "
+    "description": "Vanilla vodka, simple syrup, tart passion fruit (purÃ©e and liqueur), and bubbly Prosecco combine to make this summer-in-a-glass cocktail. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242771519",
@@ -14891,7 +14949,8 @@
       "Double-strain through a fine-mesh sieve into a chilled martini glass. Skewer remaining 4 cherries and garnish glass. If desired, using a small spoon, dot top of drink with 5 to 7 small drops of cherry syrup and drag a toothpick through each to create heart shapes."
     ],
     "servings": "1 serving(s)",
-    "description": "Muddled Luxardo cherries pair with strong espresso in this espresso martini twist that's perfect for a romantic date night or fun Galentine's cocktail."
+    "description": "Muddled Luxardo cherries pair with strong espresso in this espresso martini twist that's perfect for a romantic date night or fun Galentine's cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242772623",
@@ -16177,7 +16236,8 @@
       "Garnish with a lemon peel and maraschino cherry.&nbsp;"
     ],
     "servings": "1 serving(s)",
-    "description": "Cherry Sazerac adds a fun and sweet spin on the timeless classic."
+    "description": "Cherry Sazerac adds a fun and sweet spin on the timeless classic.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242810505",
@@ -16204,7 +16264,8 @@
       "Cover and vigorously shake until outside of shaker is very frosty, about 20 seconds. Strain into a crushed ice-filled glass. Garnish with pineapple wedge and blackberries."
     ],
     "servings": "1",
-    "description": "The Rum Runner is a tropical cocktail that will quench all thirsts on a hot day. This drink is packed with pineapple juice, banana and black berry liqueurs."
+    "description": "The Rum Runner is a tropical cocktail that will quench all thirsts on a hot day. This drink is packed with pineapple juice, banana and black berry liqueurs.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242810969",
@@ -16230,7 +16291,8 @@
       "In a blender, combine ice cream, bourbon, vanilla, honey, and cinnamon and blend until smooth. Pour mixture into glasses and garnish with whipped cream and ground cinnamon. "
     ],
     "servings": "4 serving(s)",
-    "description": "Check out this easy recipe for the best bourbon milk punch from Delish.com!"
+    "description": "Check out this easy recipe for the best bourbon milk punch from Delish.com!",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242811496",
@@ -16257,7 +16319,8 @@
       "Strain into rimmed glass and garnish with a grapefruit slice."
     ],
     "servings": "1 serving(s)",
-    "description": "Spicy Grapefruit Sidecar puts a twist on the classic drink with a sweetened chili powder rim and a citrus switch!"
+    "description": "Spicy Grapefruit Sidecar puts a twist on the classic drink with a sweetened chili powder rim and a citrus switch!",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242815085",
@@ -16287,7 +16350,8 @@
       "<strong>Make Ahead: </strong>Bourbon balls can be made 3 weeks ahead. Store in an airtight container and refrigerate, or freeze up to 1 month."
     ],
     "servings": "24 - 28",
-    "description": "Made with finely chopped pecans, crushed vanilla wafer cookies, and of course, bourbon, these no-bake cookie truffles are our new favorite boozy bites."
+    "description": "Made with finely chopped pecans, crushed vanilla wafer cookies, and of course, bourbon, these no-bake cookie truffles are our new favorite boozy bites.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242815451",
@@ -16849,7 +16913,8 @@
       "Fill prepared glass with ice. Strain mezcalita into glass. Garnish with lime or orange slice."
     ],
     "servings": "1 serving(s)",
-    "description": "One of our favorite cocktails, mezcalitas are fresh, fruity, and a little bit smoky."
+    "description": "One of our favorite cocktails, mezcalitas are fresh, fruity, and a little bit smoky.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242826732",
@@ -16874,7 +16939,8 @@
       "Fill shot glasses with chopped fruit and margarita mixture."
     ],
     "servings": "4 serving(s)",
-    "description": "Switch up your shot game with these adorable frozen margarita shots, topped with plenty of fresh fruit. "
+    "description": "Switch up your shot game with these adorable frozen margarita shots, topped with plenty of fresh fruit. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242827118",
@@ -16901,7 +16967,8 @@
       "Fill prepared glass with ice. Add lime juice, hot sauce, and Worcestershire. Top off with tomato juice and beer and stir to combine. Garnish more lime wedges."
     ],
     "servings": "1 serving(s)",
-    "description": "Traditionally from Mexico, michelada is the savory, spicy beer cocktail with countless variations. "
+    "description": "Traditionally from Mexico, michelada is the savory, spicy beer cocktail with countless variations. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242827759",
@@ -16928,7 +16995,8 @@
       "Strain margarita into prepared glass. Garnish glass with skewered olives and remaining lime wedge."
     ],
     "servings": "1 serving(s)",
-    "description": "Olive brine joins tequila, lime, and triple sec for a more mild, slightly sweeter take on the typical cocktail that even the biggest dirty martini skeptics will enjoy."
+    "description": "Olive brine joins tequila, lime, and triple sec for a more mild, slightly sweeter take on the typical cocktail that even the biggest dirty martini skeptics will enjoy.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242828205",
@@ -18372,7 +18440,8 @@
       "Pour beer into glass. Add as much food coloring as desired and stir to mix."
     ],
     "servings": "1 serving(s)",
-    "description": "This easy recipe will teach you how to turn ordinary beer into Green Beer for your St. Patty's Day celebrations."
+    "description": "This easy recipe will teach you how to turn ordinary beer into Green Beer for your St. Patty's Day celebrations.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242893819",
@@ -18393,7 +18462,8 @@
     ],
     "instructions": [],
     "servings": "1 serving(s)",
-    "description": "A playful twist on the beloved Irish coffee, this Magically Delicious cocktail is the perfect way to start your St. Patrickâ€™s Day."
+    "description": "A playful twist on the beloved Irish coffee, this Magically Delicious cocktail is the perfect way to start your St. Patrickâ€™s Day.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242897444",
@@ -18416,7 +18486,8 @@
       "Give it a quick stir, then garnish with a lime wedge and mint sprig."
     ],
     "servings": "1 serving(s)",
-    "description": "These Irish mules are the slight twist on the classic cocktail that whiskey lovers won't be able to get enough of. "
+    "description": "These Irish mules are the slight twist on the classic cocktail that whiskey lovers won't be able to get enough of. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242897970",
@@ -18443,7 +18514,8 @@
       "Strain into a coupe or small wine glass. Garnish with small mint sprig."
     ],
     "servings": "1",
-    "description": "This minty green apple cocktail is the perfect St. Patrick's Day drink: It's easy to make yet so tasty because it uses some of our favorite bartender tricks.\r\n"
+    "description": "This minty green apple cocktail is the perfect St. Patrick's Day drink: It's easy to make yet so tasty because it uses some of our favorite bartender tricks.\r\n",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242900991",
@@ -18470,7 +18542,8 @@
       "Strain into prepared ice-filled glass. Garnish with shamrock apple slice."
     ],
     "servings": "1",
-    "description": "Spiked with sour apple liqueur, this seasonal take on the classic margarita will add the perfect festive flair to your St. Patrickâ€™s Day party. "
+    "description": "Spiked with sour apple liqueur, this seasonal take on the classic margarita will add the perfect festive flair to your St. Patrickâ€™s Day party. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242903902",
@@ -20538,7 +20611,8 @@
       "Pour ice to reach halfway up sides of glass and stir to combine. Top off with more ice."
     ],
     "servings": "1 serving(s)",
-    "description": "This modern classic cocktail combines muddled blackberries with gin, blackberry liqueur, and fresh lemon juice for a refreshing summer sip."
+    "description": "This modern classic cocktail combines muddled blackberries with gin, blackberry liqueur, and fresh lemon juice for a refreshing summer sip.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242958465",
@@ -20564,7 +20638,8 @@
       "Divide slushie between glasses. Garnish with a lime wheel, maraschino cherry, and more Popsicles (if using)."
     ],
     "servings": "2 serving(s)",
-    "description": "Cherry Coke? Yeah. Margarita? Uh-huh. Slushie? Yes please. These cherry coke margarita slushies are the official frozen drink of having it all."
+    "description": "Cherry Coke? Yeah. Margarita? Uh-huh. Slushie? Yes please. These cherry coke margarita slushies are the official frozen drink of having it all.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242959035",
@@ -20595,7 +20670,8 @@
       "Carefully spoon red slushie over white layer to prevent mixing. Top each with a Bomb Pop (if using) and serve immediately."
     ],
     "servings": "4 serving(s)",
-    "description": "Inspired by the flavors of a classic margarita, this refreshing frozen cocktail features layers of red, white, and blue just as vibrant as the iconic treat."
+    "description": "Inspired by the flavors of a classic margarita, this refreshing frozen cocktail features layers of red, white, and blue just as vibrant as the iconic treat.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242962449",
@@ -20620,7 +20696,8 @@
       "Pour 4 oz. sparkling wine into 6 wine glasses. Top with a splash of club soda. Place a popsicle into glass and serve immediately."
     ],
     "servings": "6 serving(s)",
-    "description": "We swap the ice in a spritz for a boozy Popsicle in this recipe. As it melts, the pop infuses your drink with summer flavors all while keeping it cold."
+    "description": "We swap the ice in a spritz for a boozy Popsicle in this recipe. As it melts, the pop infuses your drink with summer flavors all while keeping it cold.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242962824",
@@ -21751,14 +21828,16 @@
       "Sprinkle with margarita salt."
     ],
     "servings": "18 serving(s)",
-    "description": "These margarita pops are the ultimate boozy treat to serve a crowd this summer. "
+    "description": "These margarita pops are the ultimate boozy treat to serve a crowd this summer. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242985611",
     "name": "Mojitos, 3 Ways",
     "image": "https://hips.hearstapps.com/hmg-prod/images/1d380cbb-940f-41bc-81c7-b06480157dce.jpg?crop=0.5xw:1xh;0.242xw,0xh&resize=1200:*",
     "categories": [
-      "vegan"
+      "vegan",
+      "drinks"
     ],
     "prepTime": "15 min",
     "cookTime": "5 min",
@@ -21782,7 +21861,8 @@
       "Garnish with fruit, mint, and lime. "
     ],
     "servings": "3 serving(s)",
-    "description": "Three different types of fruit makes these mojitos leagues better than your average cocktail."
+    "description": "Three different types of fruit makes these mojitos leagues better than your average cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242986177",
@@ -21807,7 +21887,8 @@
       "Divide cocktail between 2 glasses. Garnish with lime wheels, cucumber slices, and more mint."
     ],
     "servings": "2 serving(s)",
-    "description": "Built with vodka, vanilla, frozen limeade, fresh cucumber, mint, and plenty of ice, this cocktail comes together with minimal effort and maximum payoff."
+    "description": "Built with vodka, vanilla, frozen limeade, fresh cucumber, mint, and plenty of ice, this cocktail comes together with minimal effort and maximum payoff.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242986726",
@@ -21834,7 +21915,8 @@
       "Pour into wine glasses. Garnish with reserved cucumber (if using) and mint sprig."
     ],
     "servings": "2 serving(s)",
-    "description": "We took all the floral, minty coolness of a classic Hugo spritz and turned it into an even more refreshing frozen cocktial."
+    "description": "We took all the floral, minty coolness of a classic Hugo spritz and turned it into an even more refreshing frozen cocktial.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242987321",
@@ -21854,7 +21936,8 @@
     ],
     "instructions": [],
     "servings": "4 - 6 serving(s)",
-    "description": "This Aperol spritz punch combines a classic spritz with scoops of sherbet for a fizzy, sunset orange party centerpiece."
+    "description": "This Aperol spritz punch combines a classic spritz with scoops of sherbet for a fizzy, sunset orange party centerpiece.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242987779",
@@ -21879,7 +21962,8 @@
       "Transfer to a large wine glass. Fill glass with ice, then top off with seltzer. Garnish with a cherry and pineapple wedge (if using)."
     ],
     "servings": "1 serving(s)",
-    "description": "Want a piÃ±a colada, but donâ€™t want to get out the blender? Try this delightfully effervescent piÃ±a colada spritz: Itâ€™s fast, and still hits all the right notes."
+    "description": "Want a piÃ±a colada, but donâ€™t want to get out the blender? Try this delightfully effervescent piÃ±a colada spritz: Itâ€™s fast, and still hits all the right notes.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242988318",
@@ -21902,7 +21986,8 @@
       "Pour 3 ounces Prosecco and 2 ounces seltzer into each glass. Add a thin grapefruit slice, then fill glasses with ice."
     ],
     "servings": "4 serving(s)",
-    "description": "The Campari spritzâ€”bubbly, bitter, and very refreshingâ€”is the perfect drink for a leisurely pre-dinner hang or happy hour with friends."
+    "description": "The Campari spritzâ€”bubbly, bitter, and very refreshingâ€”is the perfect drink for a leisurely pre-dinner hang or happy hour with friends.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242991626",
@@ -21927,7 +22012,8 @@
       "Fill glass halfway with ice and pour coconut water over. Top off with seltzer water. Squeeze juice from lime wedge into glass and drop wedge into glass. Garnish with pineapple wedge and leaves."
     ],
     "servings": "1 serving(s)",
-    "description": "With pineapple, coconut water, rum, and seltzer water, this coconut pineapple spritz is the most refreshing tropical summer drink. "
+    "description": "With pineapple, coconut water, rum, and seltzer water, this coconut pineapple spritz is the most refreshing tropical summer drink. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242992092",
@@ -21959,7 +22045,8 @@
       "Divide margarita among prepared glasses. Top off with more ice. Garnish with fresh blackberries and lime wedges."
     ],
     "servings": "4 serving(s)",
-    "description": "While classics are classics for a reason, we love to riff on the margarita. Up next is our new-for-the-summer tequila cocktail: the blackberry margarita. \r\n"
+    "description": "While classics are classics for a reason, we love to riff on the margarita. Up next is our new-for-the-summer tequila cocktail: the blackberry margarita. \r\n",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242992571",
@@ -21985,7 +22072,8 @@
       "Divide mixture into 2 glasses and garnish with a lime wedge."
     ],
     "servings": "2 serving(s)",
-    "description": "This sweet blended frozen strawberry margarita recipe works best with frozen strawberries, so you can make it year-round! "
+    "description": "This sweet blended frozen strawberry margarita recipe works best with frozen strawberries, so you can make it year-round! ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242994868",
@@ -22014,7 +22102,8 @@
       "Pour into prepared ice-filled glass. Garnish with grapefruit. Repeat with remaining ingredients for a second drink."
     ],
     "servings": "2 serving(s)",
-    "description": "Those who love mezcal really love mezcal, and we think this refreshing margarita is one of the best ways to enjoy this unique spirit."
+    "description": "Those who love mezcal really love mezcal, and we think this refreshing margarita is one of the best ways to enjoy this unique spirit.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242995251",
@@ -22040,14 +22129,16 @@
       "Double strain into prepared glasses. Garnish with grape tomatoes a basil leaf. "
     ],
     "servings": "2 serving(s)",
-    "description": "If youâ€™re the kind of person who loves garnishing their drink with an olive (or three), youâ€™ll love this summery spin on a savory cocktail."
+    "description": "If youâ€™re the kind of person who loves garnishing their drink with an olive (or three), youâ€™ll love this summery spin on a savory cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242995669",
     "name": "Sex On The Beach Cocktail",
     "image": "https://hips.hearstapps.com/hmg-prod/images/sex-on-the-beach-index-6442f7c402c66.jpg?crop=0.502xw:1.00xh;0.440xw,0&resize=1200:*",
     "categories": [
-      "vegan"
+      "vegan",
+      "drinks"
     ],
     "prepTime": "5 min",
     "cookTime": "5 min",
@@ -22064,14 +22155,16 @@
       "Garnish with an orange wedge and cherries."
     ],
     "servings": "1 serving(s)",
-    "description": "Our Sex On The Beach cocktail recipe includes everything you need to know about making the sweet summer drink (including where it got its provocative name!). "
+    "description": "Our Sex On The Beach cocktail recipe includes everything you need to know about making the sweet summer drink (including where it got its provocative name!). ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242996156",
     "name": "Mai Tai Cocktail",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-230412-maitai-0735-ns-index-644ae01d67be5.jpg?crop=0.479xw:0.958xh;0.138xw,0.0353xh&resize=1200:*",
     "categories": [
-      "vegan"
+      "vegan",
+      "drinks"
     ],
     "prepTime": "0 min",
     "cookTime": "5 min",
@@ -22088,7 +22181,8 @@
       "Strain into an ice-filled rocks glass. Slowly pour dark rum on top to float. Garnish with mint, a lime wheel, and a cherry."
     ],
     "servings": "1 serving(s)",
-    "description": "This refreshing and iconic tiki drink is made with shaken light rum, almond syrup, lime juice, and CuraÃ§ao and topped with a dark rum floater. "
+    "description": "This refreshing and iconic tiki drink is made with shaken light rum, almond syrup, lime juice, and CuraÃ§ao and topped with a dark rum floater. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242996539",
@@ -22115,7 +22209,8 @@
       "Fill glasses with ice and strain mojito into prepared glasses. Garnish with more mint and a Key lime round."
     ],
     "servings": "2 serving(s)",
-    "description": " The tart juice of Key limes makes the mojito a bit sharper and more citrusy, and the cream makes it taste like a creamy slice of key lime pie."
+    "description": " The tart juice of Key limes makes the mojito a bit sharper and more citrusy, and the cream makes it taste like a creamy slice of key lime pie.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242996945",
@@ -22142,7 +22237,8 @@
       "Muddle until blueberries and mint are broken down. Add lemonade and tequila, then fill pitcher about halfway with ice. Top off with seltzer. Add lemon slices and remaining 1/2 cup blueberries."
     ],
     "servings": "8 - 10 serving(s)",
-    "description": "Our blueberry mint punch comes together easily with plenty of blueberries, mint, lemonade, tequila, and seltzer for an easy big-batch cocktail."
+    "description": "Our blueberry mint punch comes together easily with plenty of blueberries, mint, lemonade, tequila, and seltzer for an easy big-batch cocktail.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242997338",
@@ -22170,7 +22266,8 @@
       "<strong>Make Ahead:</strong> Syrup can be made 1 week ahead. Keep refrigerated. "
     ],
     "servings": "1 serving(s)",
-    "description": "The dragon fruit drop martini is perfect for summer sipping or any type of celebration that could benefit from some bright color."
+    "description": "The dragon fruit drop martini is perfect for summer sipping or any type of celebration that could benefit from some bright color.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791242999959",
@@ -22200,7 +22297,8 @@
       "To serve, pour piÃ±a colada and daiquiri into glasses, either alternating flavors or stacking one over the other. Garnish with a pineapple wedge, fresh strawberry, and a couple of pineapple leaves."
     ],
     "servings": "4 - 6 serving(s)",
-    "description": "This nostalgic cocktail combines two iconic frozen drinksâ€”the piÃ±a colada and strawberry daiquiriâ€”for a two-in-one summer dream. \r\n"
+    "description": "This nostalgic cocktail combines two iconic frozen drinksâ€”the piÃ±a colada and strawberry daiquiriâ€”for a two-in-one summer dream. \r\n",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243000456",
@@ -22964,7 +23062,8 @@
       "Divide among ice-filled glasses. Garnish with lime wheels."
     ],
     "servings": "1 serving(s)",
-    "description": "With the combo of mezcal, yellow Chartreuse, Aperol, and fresh lime juice in perfect harmony, the Naked & Famous is a true showstopper."
+    "description": "With the combo of mezcal, yellow Chartreuse, Aperol, and fresh lime juice in perfect harmony, the Naked & Famous is a true showstopper.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243021503",
@@ -22991,7 +23090,8 @@
       "Pour drink into prepared glass. Garnish as desired."
     ],
     "servings": "1 serving(s)",
-    "description": "Our Bushwacker cocktailâ€”featuring cream of coconut, dark rum, crÃ¨me de cacao, and KahlÃºaâ€”is like an adult milkshake."
+    "description": "Our Bushwacker cocktailâ€”featuring cream of coconut, dark rum, crÃ¨me de cacao, and KahlÃºaâ€”is like an adult milkshake.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243024507",
@@ -23016,7 +23116,8 @@
       "Pour mixture into a martini or coupe glass. Garnish with an orange wheel."
     ],
     "servings": "1 serving(s)",
-    "description": "This frozen Aperol Spritz is an elevated take on the classic cocktail, featuring all the traditional ingredients, plus a tropical twist of ripe mango."
+    "description": "This frozen Aperol Spritz is an elevated take on the classic cocktail, featuring all the traditional ingredients, plus a tropical twist of ripe mango.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243027445",
@@ -23045,7 +23146,8 @@
       "Fill prepared glasses with ice. Pour cocktail into glasses. Garnish with grapefruit wedges."
     ],
     "servings": "2 serving(s)",
-    "description": "All you need are 5 ingredients and some ice to create the frozen version of a paloma, a classic grapefruit-based cocktail. "
+    "description": "All you need are 5 ingredients and some ice to create the frozen version of a paloma, a classic grapefruit-based cocktail. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243027858",
@@ -23070,7 +23172,8 @@
       "Pour into glasses and garnish with lime rounds."
     ],
     "servings": "4 serving(s)",
-    "description": "The Frozen Margarita is the king of boozy summer slushies. After your first lime-packed sip you'll wonder why you ever drink a one on the rocks. "
+    "description": "The Frozen Margarita is the king of boozy summer slushies. After your first lime-packed sip you'll wonder why you ever drink a one on the rocks. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243028704",
@@ -23285,8 +23388,8 @@
     "name": "Golden Girl Salad With Sweet Corn Vinaigrette",
     "image": "https://hips.hearstapps.com/hmg-prod/images/golden-girl-salad-index-647dffd4431e9.jpg?crop=0.503xw:1.00xh;0.252xw,0&resize=1200:*",
     "categories": [
-      "dinner",
-      "vegan"
+      "vegan",
+      "dinner"
     ],
     "prepTime": "0 min",
     "cookTime": "35 min",
@@ -23833,7 +23936,7 @@
     "name": "Candied Bacon Smokies",
     "image": "https://hips.hearstapps.com/hmg-prod/images/candied-bacon-smokies-socialindex-web-171-rv-del089925-68bef78b8f690.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "35 min",
@@ -23848,7 +23951,8 @@
       "Bake until bacon is crisp, 30 to 35 minutes."
     ],
     "servings": "30 serving(s)",
-    "description": "Bacon-wrapped Little Smokies, sprinkled with brown sugar, are the most crowd-pleasing game day appetizer."
+    "description": "Bacon-wrapped Little Smokies, sprinkled with brown sugar, are the most crowd-pleasing game day appetizer.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243046836",
@@ -24065,7 +24169,8 @@
       "Top off with ice. Garnish with mint sprigs and lime wedges."
     ],
     "servings": "1 serving(s)",
-    "description": "NO booze, no problem, with our NO-jito! This mojito-inspired mocktail is light and refreshing and has all of the flavor and none of the alcohol."
+    "description": "NO booze, no problem, with our NO-jito! This mojito-inspired mocktail is light and refreshing and has all of the flavor and none of the alcohol.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243051516",
@@ -24089,7 +24194,8 @@
       "Slowly add coconut milk to achieve the gradient color. Garnish with lime wedge."
     ],
     "servings": "1 serving(s)",
-    "description": "In our dirty coconut coke, the creaminess from the coconut milk and cream mix effortlessly with lime juice and cola to create this delicious mocktail."
+    "description": "In our dirty coconut coke, the creaminess from the coconut milk and cream mix effortlessly with lime juice and cola to create this delicious mocktail.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243052163",
@@ -24118,7 +24224,8 @@
       "Divide mixture among prepared glasses. Garnish with lime wheels and skewered fresh blueberries."
     ],
     "servings": "4 serving(s)",
-    "description": "Wine lovers will absolutely love these bright blue margarita slushies because of the tasty addition of sweet moscato."
+    "description": "Wine lovers will absolutely love these bright blue margarita slushies because of the tasty addition of sweet moscato.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243052529",
@@ -24271,7 +24378,8 @@
       "Divide giggle juice among prepared glasses."
     ],
     "servings": "8 serving(s)",
-    "description": "This recipe for giggle juiceâ€”a moscato and fruit punchâ€”is so deceptively sweet, it will have your entire crew ready to get the party started. "
+    "description": "This recipe for giggle juiceâ€”a moscato and fruit punchâ€”is so deceptively sweet, it will have your entire crew ready to get the party started. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243059728",
@@ -24298,7 +24406,8 @@
       "Skewer 3 blueberries (if using) and place in jar. Garnish with basil and lemon peel (if using)."
     ],
     "servings": "1 serving(s)",
-    "description": "This easy, delicious summer cocktail is the perfect way to use up that last bit of jam from the jar AND enjoy a refreshing spritz in a creative glass."
+    "description": "This easy, delicious summer cocktail is the perfect way to use up that last bit of jam from the jar AND enjoy a refreshing spritz in a creative glass.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243062790",
@@ -24326,7 +24435,8 @@
       "Top with sherbet and maraschino cherries and serve immediately."
     ],
     "servings": "16 serving(s)",
-    "description": "Sherbet Punch is the prettiest punch around. "
+    "description": "Sherbet Punch is the prettiest punch around. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243063266",
@@ -24674,7 +24784,8 @@
     ],
     "instructions": [],
     "servings": "6 serving(s)",
-    "description": "Nothing kicks off brunch quite like a mimosa, and this easy recipe has the perfect balance of juice to bubbles."
+    "description": "Nothing kicks off brunch quite like a mimosa, and this easy recipe has the perfect balance of juice to bubbles.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243079792",
@@ -24699,7 +24810,8 @@
       "Top with whipped cream, a sprinkle of Nilla crumbs, and a strawberry for garnish. Serve."
     ],
     "servings": "10 serving(s)",
-    "description": "Classic mimosas are great and all, but these strawberry shortcake mimosas are the perfect sweet, springy upgrade. Vanilla vodka, strawberry ice cream, whipped cream, and crushed Nilla Wafers transform the classic brunch cocktail into a  dessert  +  drink  all in one. Serve these up, and no one will even need a sweet after-dinner treat."
+    "description": "Classic mimosas are great and all, but these strawberry shortcake mimosas are the perfect sweet, springy upgrade. Vanilla vodka, strawberry ice cream, whipped cream, and crushed Nilla Wafers transform the classic brunch cocktail into a  dessert  +  drink  all in one. Serve these up, and no one will even need a sweet after-dinner treat.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243080199",
@@ -25582,7 +25694,8 @@
     ],
     "instructions": [],
     "servings": "2 serving(s)",
-    "description": "Bubbly ginger ale, sweet Grenadine, and creamy vanilla ice cream are combined into the perfect summer treat. Don't skip that maraschino cherry garnish!"
+    "description": "Bubbly ginger ale, sweet Grenadine, and creamy vanilla ice cream are combined into the perfect summer treat. Don't skip that maraschino cherry garnish!",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243104169",
@@ -25609,7 +25722,8 @@
       "Add blueberry preserves and vodka and gently stir to combine. Top with soda water. Garnish with gummy bears (if using)."
     ],
     "servings": "1 serving(s)",
-    "description": "This creative cocktail recipe utilizes the leftover honey in your honey bottle for an easy summer drink. "
+    "description": "This creative cocktail recipe utilizes the leftover honey in your honey bottle for an easy summer drink. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243107781",
@@ -25637,7 +25751,8 @@
       "Dollop with whipped topping (if using). Top with espresso beans and espresso powder (if using)."
     ],
     "servings": "2 serving(s)",
-    "description": "This frosty drink is made by freezing concentrated cold brew, blending it with Kahlua and vodka, and topping it with an instant espresso Baileyâ€™s whipped cream."
+    "description": "This frosty drink is made by freezing concentrated cold brew, blending it with Kahlua and vodka, and topping it with an instant espresso Baileyâ€™s whipped cream.",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243108237",
@@ -27978,7 +28093,8 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-230516-starbucks-pink-drink-056-rl-index-647e30faf0093.jpg?crop=0.502xw:1.00xh;0.0513xw,0&resize=1200:*",
     "categories": [
       "vegan",
-      "breakfast"
+      "breakfast",
+      "drink"
     ],
     "prepTime": "15 min",
     "cookTime": "15 min",
@@ -29614,7 +29730,8 @@
       "Fill pitcher with ice (2 to 3 c.). Refrigerate until cold, 10 to 15 minutes."
     ],
     "servings": "8 serving(s)",
-    "description": "This copycat recipe mimics Hawaiian Punch, a red tropical fruit punch with the fruit flavors of pineapple, passion fruit, apple, lime, cherry, and orange."
+    "description": "This copycat recipe mimics Hawaiian Punch, a red tropical fruit punch with the fruit flavors of pineapple, passion fruit, apple, lime, cherry, and orange.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243185098",
@@ -30394,7 +30511,8 @@
     ],
     "instructions": [],
     "servings": "1 serving(s)",
-    "description": " This comforting, warming lemonade is the perfect summer drink turned winter-appropriate, great for any post-holiday woes."
+    "description": " This comforting, warming lemonade is the perfect summer drink turned winter-appropriate, great for any post-holiday woes.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243197296",
@@ -30424,7 +30542,8 @@
       "Double strain into a coupe glass. Top off with club soda. Garnish with passion fruit slice."
     ],
     "servings": "1 serving(s)",
-    "description": "Our porn star mock-tini is a mocktail with all the refreshing passion fruit and vanilla flavors of the original cocktail, but none of the hangover."
+    "description": "Our porn star mock-tini is a mocktail with all the refreshing passion fruit and vanilla flavors of the original cocktail, but none of the hangover.",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243197701",
@@ -30447,7 +30566,8 @@
       "Garnish with sliced blood orange, ginger, and mint."
     ],
     "servings": "1",
-    "description": "This blood orange-ginger spritzer hits all the right notes: a little sweet, a little sour, and a little spiced thanks to a few drops of aromatic bitters. "
+    "description": "This blood orange-ginger spritzer hits all the right notes: a little sweet, a little sour, and a little spiced thanks to a few drops of aromatic bitters. ",
+    "drinkType": "non-alcoholic"
   },
   {
     "id": "1791243198645",
@@ -30475,7 +30595,8 @@
       "Strain into prepared glass. Garnish with lime wheel."
     ],
     "servings": "1 serving(s)",
-    "description": "This skinny margarita recipe is just like the classic, but removes some of the refined sugar and replaces it with more natural ingredients. "
+    "description": "This skinny margarita recipe is just like the classic, but removes some of the refined sugar and replaces it with more natural ingredients. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243199146",
@@ -30504,7 +30625,8 @@
       "Add 3 ounces lemonade to each glass, then slowly pour in 3 ounces iced tea for the layered effect. Garnish with a lemon slice and mint sprig."
     ],
     "servings": "2 serving(s)",
-    "description": "We upgraded the simple, classic Arnold Palmer recipe with a splash of vodka for the ultimate game day cocktail. "
+    "description": "We upgraded the simple, classic Arnold Palmer recipe with a splash of vodka for the ultimate game day cocktail. ",
+    "drinkType": "alcoholic"
   },
   {
     "id": "1791243199585",
@@ -30536,11 +30658,11 @@
   },
   {
     "id": "1791243202513",
-    "name": "Robin ArzÃ³nâ€™s Vegan Big Stack",
+    "name": "Vegan Big Stack",
     "image": "https://hips.hearstapps.com/hmg-prod/images/90912373-7441-4205-b116-87c139cbe5fa.jpg?crop=0.499952994265xw:1xh;center,top&resize=1200:*",
     "categories": [
       "vegan",
-      "breakfast"
+      "lunch"
     ],
     "prepTime": "15 min",
     "cookTime": "45 min",
@@ -30577,7 +30699,7 @@
       "Transfer to an airtight container and refrigerate until ready to use or up to 5 days",
       "In a large bowl, whisk together the mayonnaise, flaxseed, nutritional yeast, miso, soy sauce, Worcestershire sauce, onion powder, garlic powder, paprika, liquid smoke, and black pepper. Add the TVP and stir to coat. Add the breadcrumbs and flour and stir until it forms a solid mixture.",
       "Lay a piece of parchment or wax paper on a clean work surface and coat with nonstick spray. Divide the burger mix into 8 equal portions (about 2 ounces each) and roll into balls. Evenly space the balls across the parchment. Coat another piece of parchment with nonstick spray and place it on top of the balls. Use a drinking glass to press each ball into a Â¼-inch-thick patty. Cut the parchment into squares around each patty and stack the patties on a plate. (The plate can be wrapped and refrigerated for up to 3 days if you want to make these ahead â€”or freeze in a zip-top freezer bag for up to 1 month.)",
-      "Separate all the buns. Weâ€™re going to use all 8 of the bottom buns and 4 of the top buns. (Reserve those other tops for your own extra delicious top bunâ€“ only sandwiches.) Each burger will get a base, center, and top bun; I like to organize them cut side up in vertical lines so I can do a quick burger assembly line. On all of the top, bottom, and center buns, spread 1 tablespoon of sauce. On all of the bottom buns, layer some onion and lettuce. On all of the center buns, layer onion, lettuce, and pickles. Keep the buns at the ready for the burgers.",
+      "Separate all the buns. We're going to use all 8 of the bottom buns and 4 of the top buns. (Reserve those other tops for your own extra delicious top bunâ€“ only sandwiches.) Each burger will get a base, center, and top bun; I like to organize them cut side up in vertical lines so I can do a quick burger assembly line. On all of the top, bottom, and center buns, spread 1 tablespoon of sauce. On all of the bottom buns, layer some onion and lettuce. On all of the center buns, layer onion, lettuce, and pickles. Keep the buns at the ready for the burgers.",
       "In a large nonstick skillet, heat the avocado oil over medium heat. When the oil is shimmering, peel the top parchment off two patties. Set them, burger side down, in the skillet, then peel the other parchment off. Sear for about 3 minutes, then flip. Lay a slice of cheese on each burger and add a splash of water to the skillet (to help melt the cheese faster). Cover and cook until the cheese is melted and the burgers are nicely browned, about another 3 minutes. Transfer one patty to the bottom bun. Stack the center bun on top, then lay on the second patty. Press on the top bun.",
       "Continue searing and assembling the remaining burgers, adding more oil to the skillet as needed. Serve hot."
     ],
@@ -31425,6 +31547,7 @@
     "name": "Peanut Butter Banana Smoothie",
     "image": "https://hips.hearstapps.com/hmg-prod/images/peanut-butter-banana-smoothie-index-64e6355f938fd.jpg?crop=0.5xw:1xh;center,top&resize=1200:*",
     "categories": [
+      "breakfast",
       "drinks"
     ],
     "prepTime": "5 min",
@@ -31443,7 +31566,8 @@
       "Combine all&nbsp;ingredients in a blender and blend until smooth."
     ],
     "servings": "1 serving(s)",
-    "description": "This easy peanut butter banana smoothie recipe is super customizable and sweetened just enough for a satisfying sip."
+    "description": "This easy peanut butter banana smoothie recipe is super customizable and sweetened just enough for a satisfying sip.",
+    "drinkType": "smoothie"
   },
   {
     "id": "1791243233825",

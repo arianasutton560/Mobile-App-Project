@@ -60,9 +60,16 @@ const categories = [
   },
 ];
 
+const drinkTypes = [
+  { id: 'non-alcoholic', label: 'Non-alcoholic' },
+  { id: 'alcoholic', label: 'Alcoholic' },
+  { id: 'smoothie', label: 'Smoothies' },
+];
+
 export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedDrinkType, setSelectedDrinkType] = useState(null);
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -86,18 +93,25 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     const matchesCategory =
       !selectedCategory ||
       recipe.categories.includes(selectedCategory.toLowerCase());
+    const matchesDrinkType =
+      selectedCategory !== 'Drinks' ||
+      !selectedDrinkType ||
+      recipe.drinkType === selectedDrinkType;
 
     const matchesSearch = recipe.title
       .toLowerCase()
       .includes(searchText.toLowerCase());
 
-    return matchesCategory && matchesSearch;
+    return matchesCategory && matchesDrinkType && matchesSearch;
   });
 
   function handleCategoryPress(category) {
     setSelectedCategory((currentCategory) =>
       currentCategory === category ? null : category
     );
+    if (category !== 'Drinks' || selectedCategory === 'Drinks') {
+      setSelectedDrinkType(null);
+    }
   }
 
   return (
@@ -142,6 +156,39 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
           <Text style={[styles.heading, styles.recipesHeading]}>
             {selectedCategory ? `${selectedCategory} recipes` : 'All recipes'}
           </Text>
+
+          {selectedCategory === 'Drinks' && (
+            <View style={styles.drinkTypeRow}>
+              {drinkTypes.map((drinkType) => {
+                const isSelected = selectedDrinkType === drinkType.id;
+                return (
+                  <Pressable
+                    key={drinkType.id}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: isSelected }}
+                    onPress={() =>
+                      setSelectedDrinkType((current) =>
+                        current === drinkType.id ? null : drinkType.id
+                      )
+                    }
+                    style={[
+                      styles.drinkTypeButton,
+                      isSelected && styles.selectedDrinkTypeButton,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.drinkTypeLabel,
+                        isSelected && styles.selectedDrinkTypeLabel,
+                      ]}
+                    >
+                      {drinkType.label}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          )}
 
           {isLoading ? (
             <ActivityIndicator size="large" color="#d97745" />
@@ -243,6 +290,30 @@ const styles = StyleSheet.create({
   },
   categorySection: {
     height: 100,
+  },
+  drinkTypeRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 2,
+  },
+  drinkTypeButton: {
+    borderWidth: 1,
+    borderColor: '#d97745',
+    borderRadius: 18,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  selectedDrinkTypeButton: {
+    backgroundColor: '#d97745',
+  },
+  drinkTypeLabel: {
+    color: '#765c4d',
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  selectedDrinkTypeLabel: {
+    color: '#fff',
   },
   recipesHeading: {
     marginTop: 10,
