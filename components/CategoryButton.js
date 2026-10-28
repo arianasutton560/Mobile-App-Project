@@ -3,6 +3,7 @@ import { Image, Pressable, StyleSheet, Text } from 'react-native';
 export default function CategoryButton({
   label,
   image,
+  placeholder,
   isSelected,
   onPress,
 }) {
@@ -14,7 +15,11 @@ export default function CategoryButton({
       onPress={onPress}
       style={[styles.button, isSelected && styles.selectedButton]}
     >
-      <Image source={image} style={styles.image} />
+      {image ? (
+        <Image source={image} style={styles.image} />
+      ) : (
+        <Text style={[styles.image, styles.placeholder]}>{placeholder}</Text>
+      )}
       <Text style={[styles.label, isSelected && styles.selectedLabel]}>
         {label}
       </Text>
@@ -40,6 +45,13 @@ const styles = StyleSheet.create({
     height: 64,
     borderRadius: 32,
     marginBottom: 6,
+  },
+  placeholder: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontSize: 30,
+    overflow: 'hidden',
+    backgroundColor: '#e7d7c5',
   },
   label: {
     textAlign: 'center',
