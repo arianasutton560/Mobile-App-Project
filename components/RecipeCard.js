@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
   },
   favoriteButton: {
     position: 'absolute',
-    right: 10,
-    bottom: 10,
+    top: 5,
+    right: 5,
     width: 38,
     height: 38,
     borderRadius: 19,
