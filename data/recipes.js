@@ -11,6 +11,10 @@ const supportedCategories = new Set([
   'indian',
   'asian',
   'italian',
+  'side-dish',
+  'latin-american',
+  'german',
+  'european',
   'drinks',
 ]);
 

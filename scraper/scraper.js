@@ -10,9 +10,6 @@ const urls = fs.readFileSync("urls.txt", "utf8")
 
 const outputPath = "../data/recipes.json";
 
-// Maximum recipes to collect from each page
-const MAX_RECIPES = 25;
-
 function convertTime(time) {
     if (!time) {
         return 0;
@@ -35,83 +32,32 @@ function convertTime(time) {
 }
 
 function getCategory(recipe) {
+    const values = [recipe.recipeCategory, recipe.recipeCuisine, recipe.keywords]
+        .flatMap(value => Array.isArray(value) ? value : [value])
+        .filter(Boolean);
+    const text = values.join(" ").toLowerCase();
+    const categoryRules = [
+        ["vegan", /\bvegan\b/],
+        ["indian", /\bindian\b/],
+        ["italian", /\bitalian\b/],
+        ["side-dish", /side[\s-]?dish(?:es)?/],
+        ["latin-american", /latin[\s-]?american|mexican|central american|south american|brazilian|argentinian|peruvian|colombian|chilean|cuban|puerto rican/],
+        ["german", /\bgerman\b|\bgermany\b/],
+        ["european", /\beuropean\b|\bgerman\b|\bgermany\b|\bitalian\b|\bgreek\b|\bgreece\b|\bfrench\b|\bfrance\b|\bspanish\b|\bspain\b|\bbritish\b|\birish\b|\bdutch\b|\bpolish\b|\baustrian\b|\bscandinavian\b|\bswedish\b|\bnorwegian\b|\bswiss\b|\bportuguese\b/],
+        ["asian", /\basian\b|chinese|japanese|korean|thai|filipino/],
+        ["drinks", /drink|cocktail|beverage/],
+        ["autumn", /autumn|fall/],
+        ["winter", /\bwinter\b/],
+        ["breakfast", /breakfast|brunch/],
+        ["lunch", /\blunch\b/],
+        ["dinner", /\bdinner\b|main dish|main course/],
+        ["dessert", /dessert|baking|sweet/],
+    ];
+    const categories = categoryRules
+        .filter(([, pattern]) => pattern.test(text))
+        .map(([category]) => category);
 
-    const categories = [];
-
-    // Get categories
-    if (Array.isArray(recipe.recipeCategory)) {
-        categories.push(...recipe.recipeCategory);
-    } else if (recipe.recipeCategory) {
-        categories.push(recipe.recipeCategory);
-    }
-
-    // Get keywords
-    if (Array.isArray(recipe.keywords)) {
-        categories.push(...recipe.keywords);
-    } else if (recipe.keywords) {
-        categories.push(recipe.keywords);
-    }
-
-    const text = categories
-        .join(" ")
-        .toLowerCase();
-
-
-    // Check for specific categories
-    if (text.includes("vegan")) {
-        return "vegan";
-    }
-
-    if (text.includes("indian")) {
-        return "indian";
-    }
-
-    if (text.includes("italian")) {
-        return "italian";
-    }
-
-    if (text.includes("asian")) {
-        return "asian";
-    }
-
-    if (
-        text.includes("drink") ||
-        text.includes("cocktail") ||
-        text.includes("beverage")
-    ) {
-        return "drinks";
-    }
-
-    if (text.includes("autumn") || text.includes("fall")) {
-        return "autumn";
-    }
-
-    if (text.includes("winter")) {
-        return "winter";
-    }
-
-    if (
-        text.includes("breakfast") ||
-        text.includes("brunch")
-    ) {
-        return "breakfast";
-    }
-
-    if (text.includes("lunch")) {
-        return "lunch";
-    }
-
-    if (text.includes("dinner")) {
-        return "dinner";
-    }
-
-    if (text.includes("dessert") || text.includes("baking")) {
-        return "dessert";
-    }
-
-
-    // Default category
-    return "dinner";
+    return categories.length ? categories : ["dinner"];
 }
 
 // Find recipe links on a page
@@ -136,17 +82,18 @@ async function findRecipeLinks(pageUrl) {
 
             const fullUrl = new URL(href, pageUrl).href;
 
-            // Only accept actual Delish recipe URLs
+            const parsedUrl = new URL(fullUrl);
+
             if (
-                fullUrl.includes("delish.com") &&
-                fullUrl.includes("/recipe-ideas/") &&
-                fullUrl.includes("-recipe/")
+                parsedUrl.hostname === "www.delish.com" &&
+                parsedUrl.pathname.includes("/recipe-ideas/") &&
+                parsedUrl.pathname.includes("-recipe/")
             ) {
-                links.add(fullUrl);
+                links.add(`${parsedUrl.origin}${parsedUrl.pathname}`);
             }
         });
 
-        const recipeLinks = Array.from(links).slice(0, MAX_RECIPES);
+        const recipeLinks = Array.from(links);
 
         console.log(`Found ${recipeLinks.length} possible recipe links.`);
 
@@ -198,6 +145,32 @@ function getInstructions(instructions) {
 
     return result.filter(step => step.trim() !== "");
 }
+
+function findRecipeData(data) {
+    if (Array.isArray(data)) {
+        for (const item of data) {
+            const recipe = findRecipeData(item);
+            if (recipe) return recipe;
+        }
+        return null;
+    }
+
+    if (!data || typeof data !== "object") return null;
+
+    const type = data["@type"];
+    if (type === "Recipe" || (Array.isArray(type) && type.includes("Recipe"))) {
+        return data;
+    }
+
+    return findRecipeData(data["@graph"] || data.mainEntity);
+}
+
+function getImageUrl(image) {
+    const firstImage = Array.isArray(image) ? image[0] : image;
+    if (typeof firstImage === "string") return firstImage;
+    return firstImage?.url || firstImage?.contentUrl || "";
+}
+
 // Scrape one recipe
 async function scrapeRecipe(url) {
 
@@ -220,21 +193,7 @@ async function scrapeRecipe(url) {
 
                 const data = JSON.parse($(element).html());
 
-                if (Array.isArray(data)) {
-
-                    const foundRecipe = data.find(
-                        item => item["@type"] === "Recipe"
-                    );
-
-                    if (foundRecipe) {
-                        recipe = foundRecipe;
-                    }
-
-                } else if (data["@type"] === "Recipe") {
-
-                    recipe = data;
-
-                }
+                recipe = findRecipeData(data) || recipe;
 
             } catch (error) {
                 // Ignore invalid JSON-LD
@@ -252,7 +211,8 @@ async function scrapeRecipe(url) {
 
 
         // Make sure the recipe has an image
-        if (!recipe.image) {
+        const imageUrl = getImageUrl(recipe.image);
+        if (!imageUrl) {
 
             console.log("Skipping recipe because it has no image.");
 
@@ -261,18 +221,16 @@ async function scrapeRecipe(url) {
 
         const prepMinutes = convertTime(recipe.prepTime);
         const totalMinutes = convertTime(recipe.totalTime);
-        const cookMinutes = totalMinutes - prepMinutes;
+        const cookMinutes = convertTime(recipe.cookTime) ||
+            Math.max(totalMinutes - prepMinutes, 0);
 
         const cleanedRecipe = {
             id: Date.now().toString(),
-            name: recipe.name,
+            name: recipe.name || recipe.headline || "",
 
-            image:
-                recipe.image?.[0]?.url ||
-                recipe.image?.url ||
-                recipe.image,
+            image: imageUrl,
 
-            categories: [getCategory(recipe)],
+            categories: getCategory(recipe),
 
             prepTime: `${prepMinutes} min`,
             cookTime: `${cookMinutes} min`,
@@ -334,6 +292,11 @@ async function scrapeAllRecipes() {
             recipes.push(recipe);
         }
 
+    }
+
+    if (recipes.length === 0) {
+        console.error("No recipes were scraped; leaving the existing recipes.json unchanged.");
+        return;
     }
 
 
