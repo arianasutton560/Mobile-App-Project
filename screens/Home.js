@@ -27,6 +27,15 @@ const categories = [
     image: require('../images/categories/dinner.png'),
   },
   {
+    name: 'Spanish',
+    category: 'latin-american',
+    image: require('../images/categories/spanish.png'),
+  },
+  {
+    name: 'Seafood',
+    image: require('../images/categories/seafood.png'),
+  },
+  {
     name: 'Dessert',
     image: require('../images/categories/dessert.png'),
   },
@@ -45,10 +54,6 @@ const categories = [
   {
     name: 'Italian',
     image: require('../images/categories/italian.png'),
-  },
-  {
-    name: 'Indian',
-    image: require('../images/categories/indian.png'),
   },
   {
     name: 'Autumn',
@@ -100,10 +105,14 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     loadRecipes();
   }, []);
 
+  const selectedCategoryValue =
+    categories.find((category) => category.name === selectedCategory)?.category ??
+    selectedCategory?.toLowerCase();
+
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesCategory =
-      !selectedCategory ||
-      recipe.categories.includes(selectedCategory.toLowerCase());
+      !selectedCategoryValue ||
+      recipe.categories.includes(selectedCategoryValue);
     const matchesDrinkType =
       selectedCategory !== 'Drinks' ||
       !selectedDrinkType ||
@@ -256,7 +265,7 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 4,
   },
   mainContent: {
     flex: 1,
@@ -267,7 +276,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   searchInput: {
-    height: 44,
+    height: 36,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 10,

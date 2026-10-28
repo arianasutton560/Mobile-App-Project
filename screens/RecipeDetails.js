@@ -2,19 +2,61 @@ import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
-  Linking,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { useVideoPlayer, VideoView } from 'expo-video';
 import { getRecipeDetails } from '../data/recipes';
+
+function getPlayableVideo(video) {
+  if (/\.(mp4|m4v|mov|webm|m3u8|mpd)(?:$|[?#])/i.test(video.url || '')) {
+    return video.url;
+  }
+
+  // Older scraper output saved the recipe page URL. Delish's video poster URL
+  // contains the media ID needed to rebuild its direct MP4 stream URL.
+  if (/www\.delish\.com$/i.test(new URL(video.url).hostname)) {
+    const videoId = video.thumbnailUrl?.match(/\/vidthumb\/([\da-f-]{36})\//i)?.[1];
+    if (videoId) {
+      return `https://mos-streaming.hearst.io/${videoId}/video_9x16_1080p_h264_hd.mp4`;
+    }
+  }
+
+  return null;
+}
+
+function RecipeVideoPlayer({ video, title }) {
+  const player = useVideoPlayer(video.url, (videoPlayer) => {
+    videoPlayer.loop = false;
+  });
+
+  return (
+    <View style={styles.videoCard}>
+      <VideoView
+        player={player}
+        style={styles.videoPlayer}
+        contentFit="contain"
+        nativeControls
+      />
+      {title ? <Text style={styles.videoTitle}>{title}</Text> : null}
+    </View>
+  );
+}
 
 export default function RecipeDetails({ route }) {
   const { recipe } = route.params;
   const [recipeDetails, setRecipeDetails] = useState(recipe);
   const [isLoading, setIsLoading] = useState(true);
+  const playableVideos = (recipeDetails.videos ?? []).flatMap((video) => {
+    try {
+      const url = getPlayableVideo(video);
+      return url ? [{ ...video, url }] : [];
+    } catch {
+      return [];
+    }
+  });
 
   useEffect(() => {
     async function loadRecipeDetails() {
@@ -35,24 +77,15 @@ export default function RecipeDetails({ route }) {
 
       <Text style={styles.title}>{recipeDetails.title}</Text>
 
-      {recipeDetails.videos?.length > 0 && (
+      {playableVideos.length > 0 && (
         <View>
           <Text style={styles.heading}>Recipe video</Text>
-          {recipeDetails.videos.map((video, index) => (
-            <Pressable
+          {playableVideos.map((video, index) => (
+            <RecipeVideoPlayer
               key={`${video.url}-${index}`}
-              accessibilityRole="link"
-              accessibilityLabel={`Watch ${video.title || 'recipe video'}`}
-              onPress={() => Linking.openURL(video.url)}
-              style={styles.videoCard}
-            >
-              {video.thumbnailUrl ? (
-                <Image source={{ uri: video.thumbnailUrl }} style={styles.videoThumbnail} />
-              ) : null}
-              <Text style={styles.videoLink}>
-                {video.title || (recipeDetails.videos.length > 1 ? `Watch video ${index + 1}` : 'Watch recipe video')}
-              </Text>
-            </Pressable>
+              video={video}
+              title={video.title || (playableVideos.length > 1 ? `Recipe video ${index + 1}` : 'Watch recipe video')}
+            />
           ))}
         </View>
       )}
@@ -108,16 +141,19 @@ const styles = StyleSheet.create({
   videoCard: {
     marginBottom: 10,
     overflow: 'hidden',
+    borderWidth: 4,
+    borderColor: '#4f2e1f',
     borderRadius: 12,
     backgroundColor: '#f8f5f2',
   },
-  videoThumbnail: {
+  videoPlayer: {
     width: '100%',
     aspectRatio: 16 / 9,
+    backgroundColor: '#1f1f1f',
   },
-  videoLink: {
+  videoTitle: {
     padding: 14,
-    color: '#a84f2d',
+    color: '#4f3b31',
     fontSize: 16,
     fontWeight: '600',
   },
