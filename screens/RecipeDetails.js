@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
+  Linking,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -32,6 +34,28 @@ export default function RecipeDetails({ route }) {
       <Image source={{ uri: recipeDetails.image }} style={styles.image} />
 
       <Text style={styles.title}>{recipeDetails.title}</Text>
+
+      {recipeDetails.videos?.length > 0 && (
+        <View>
+          <Text style={styles.heading}>Recipe video</Text>
+          {recipeDetails.videos.map((video, index) => (
+            <Pressable
+              key={`${video.url}-${index}`}
+              accessibilityRole="link"
+              accessibilityLabel={`Watch ${video.title || 'recipe video'}`}
+              onPress={() => Linking.openURL(video.url)}
+              style={styles.videoCard}
+            >
+              {video.thumbnailUrl ? (
+                <Image source={{ uri: video.thumbnailUrl }} style={styles.videoThumbnail} />
+              ) : null}
+              <Text style={styles.videoLink}>
+                {video.title || (recipeDetails.videos.length > 1 ? `Watch video ${index + 1}` : 'Watch recipe video')}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
+      )}
 
       <Text style={styles.heading}>Ingredients</Text>
       {recipeDetails.ingredients?.map((ingredient, index) => (
@@ -80,6 +104,22 @@ const styles = StyleSheet.create({
     marginTop: 18,
     fontSize: 26,
     fontWeight: 'bold',
+  },
+  videoCard: {
+    marginBottom: 10,
+    overflow: 'hidden',
+    borderRadius: 12,
+    backgroundColor: '#f8f5f2',
+  },
+  videoThumbnail: {
+    width: '100%',
+    aspectRatio: 16 / 9,
+  },
+  videoLink: {
+    padding: 14,
+    color: '#a84f2d',
+    fontSize: 16,
+    fontWeight: '600',
   },
   heading: {
     marginTop: 24,
