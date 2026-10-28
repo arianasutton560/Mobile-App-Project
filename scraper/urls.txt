@@ -1,4 +1,4 @@
-https://www.delish.com/cooking/recipe-ideas/
+﻿https://www.delish.com/cooking/recipe-ideas/
 https://www.delish.com/breakfast-ideas/
 https://www.delish.com/lunch/
 https://www.delish.com/best-cocktail-recipes/
@@ -51,3 +51,10 @@ https://www.delish.com/keto-recipes/
 https://www.delish.com/paleo-recipes/
 https://www.delish.com/vegetarian-recipes-meals/
 https://www.delish.com/high-protein-recipes/
+https://www.delish.com/appetizers/
+https://www.delish.com/cooking/
+https://www.delish.com/cooking/holiday-recipes/
+https://www.delish.com/winter-recipes/
+https://www.delish.com/fall-recipes/
+https://www.delish.com/best-spring-recipes/
+https://www.delish.com/summer-favorites/

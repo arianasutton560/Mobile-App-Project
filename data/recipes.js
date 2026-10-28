@@ -8,10 +8,10 @@ const supportedCategories = new Set([
   'autumn',
   'winter',
   'vegan',
-  'indian',
   'asian',
   'italian',
   'side-dish',
+  'seafood',
   'latin-american',
   'german',
   'european',
@@ -35,6 +35,7 @@ function formatRecipe(recipe) {
       instructions: (recipe.instructions ?? []).join('\n\n'),
       servings: recipe.servings,
       description: recipe.description,
+      videos: recipe.videos ?? [],
   };
 }
 
