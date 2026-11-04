@@ -13,3 +13,10 @@
 - **Action/input:** Tap that recipe's heart again.
 - **Expected result:** The recipe disappears from Favorites, and the empty-state message appears.
 - **Method:** Manual
+
+## TC-FAV-03: Favorite when haptics fail
+- **Type:** Failure
+- **Starting conditions:** App is open on Home. The recipe is not favorited. Haptics are unavailable or fail.
+- **Action/input:** Tap the recipe's heart.
+- **Expected result:** The recipe is still favorited and appears in Favorites.
+- **Method:** Manual; simulate unavailable haptics if your test setup supports it.
