@@ -15,6 +15,7 @@ function playFavoriteHeartbeat() {
 export default function RecipeCard({ 
   recipe,
   onPress,
+  isBestMatch = false,
   isFavorite,
   onToggleFavorite,
 }){
@@ -24,6 +25,11 @@ return (
         <Image source={{ uri: recipe.image }} style={styles.image} />
 
         <View style={styles.content}>
+          {isBestMatch && (
+            <View style={styles.bestMatchBadge}>
+              <Text style={styles.bestMatchText}>Best match</Text>
+            </View>
+          )}
           <Text numberOfLines={2} style={styles.title}>
             {recipe.title}
           </Text>
@@ -75,6 +81,19 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 10,
+  },
+  bestMatchBadge: {
+    alignSelf: 'flex-start',
+    marginBottom: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+    backgroundColor: '#fff1e8',
+  },
+  bestMatchText: {
+    color: '#b84f1c',
+    fontSize: 11,
+    fontWeight: '700',
   },
   title: {
     fontSize: 15,
