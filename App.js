@@ -9,6 +9,9 @@ import WhatCanIMake from './screens/WhatCanIMake';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  // State to manage favorite recipes
+  // favoriteIds is an array of recipe IDs that the user has marked as favorites.
+  // The toggleFavorite function updates this array when a recipe is added or removed from favorites.
   const [favoriteIds, setFavoriteIds] = useState([]);
 
   function toggleFavorite(recipeId) {
