@@ -6,3 +6,10 @@
 - **Action/input:** Tap the recipe's heart, then open Favorites.
 - **Expected result:** The heart shows as saved, and the recipe appears in Favorites.
 - **Method:** Manual
+
+## TC-FAV-02: Remove the only favorite
+- **Type:** Boundary
+- **Starting conditions:** Exactly one recipe is favorited.
+- **Action/input:** Tap that recipe's heart again.
+- **Expected result:** The recipe disappears from Favorites, and the empty-state message appears.
+- **Method:** Manual
