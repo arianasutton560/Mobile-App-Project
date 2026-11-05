@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
+import { ingredientMatches } from '../data/ingredientMatching';
 import { getRecipeDetails } from '../data/recipes';
 
 function getPlayableVideo(video) {
@@ -46,7 +47,7 @@ function RecipeVideoPlayer({ video, title }) {
 }
 
 export default function RecipeDetails({ route }) {
-  const { recipe } = route.params;
+  const { recipe, highlightedIngredients = [] } = route.params;
   const [recipeDetails, setRecipeDetails] = useState(recipe);
   const [isLoading, setIsLoading] = useState(true);
   const playableVideos = (recipeDetails.videos ?? []).flatMap((video) => {
@@ -91,12 +92,31 @@ export default function RecipeDetails({ route }) {
       )}
 
       <Text style={styles.heading}>Ingredients</Text>
-      {recipeDetails.ingredients?.map((ingredient, index) => (
-        <View key={`${index}-${ingredient}`} style={styles.ingredientRow}>
-          <Text style={styles.bullet}>•</Text>
-          <Text style={styles.ingredient}>{ingredient}</Text>
-        </View>
-      ))}
+      {recipeDetails.ingredients?.map((ingredient, index) => {
+        const isHighlighted = highlightedIngredients.some((selectedIngredient) =>
+          ingredientMatches(ingredient, selectedIngredient)
+        );
+
+        return (
+          <View
+            key={`${index}-${ingredient}`}
+            style={[
+              styles.ingredientRow,
+              isHighlighted && styles.highlightedIngredientRow,
+            ]}
+          >
+            <Text style={styles.bullet}>•</Text>
+            <Text
+              style={[
+                styles.ingredient,
+                isHighlighted && styles.highlightedIngredient,
+              ]}
+            >
+              {ingredient}
+            </Text>
+          </View>
+        );
+      })}
 
       <View style={styles.recipeInfo}>
         <View style={styles.infoRow}>
@@ -168,6 +188,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 8,
   },
+  highlightedIngredientRow: {
+    marginHorizontal: -8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    backgroundColor: '#fff1e8',
+  },
   bullet: {
     width: 20,
     color: '#d97745',
@@ -179,6 +206,10 @@ const styles = StyleSheet.create({
     color: '#4f3b31',
     fontSize: 16,
     lineHeight: 24,
+  },
+  highlightedIngredient: {
+    color: '#b84f1c',
+    fontWeight: '700',
   },
   recipeInfo: {
     marginTop: 12,
