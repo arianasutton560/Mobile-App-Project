@@ -11,25 +11,26 @@ import {
 } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import RecipeRecommendationsStrip from '../components/RecipeRecommendationsStrip';
+import { useLanguage } from '../context/LanguageContext';
 import { ingredientMatches } from '../data/ingredientMatching';
 import { getRecipeRecommendations } from '../data/recipeRecommendations';
-import { getRecipeDetails, getRecipes } from '../data/recipes';
+import { getRecipeDetails, getRecipes, localizeRecipe } from '../data/recipes';
 
 const nutritionRows = [
-  ['calories', 'Calories'],
-  ['fatContent', 'Fat'],
-  ['saturatedFatContent', 'Saturated fat'],
-  ['transFatContent', 'Trans fat'],
-  ['cholesterolContent', 'Cholesterol'],
-  ['sodiumContent', 'Sodium'],
-  ['carbohydrateContent', 'Carbohydrates'],
-  ['fiberContent', 'Fiber'],
-  ['sugarContent', 'Sugar'],
-  ['proteinContent', 'Protein'],
-  ['vitaminDContent', 'Vitamin D'],
-  ['calciumContent', 'Calcium'],
-  ['ironContent', 'Iron'],
-  ['potassiumContent', 'Potassium'],
+  'calories',
+  'fatContent',
+  'saturatedFatContent',
+  'transFatContent',
+  'cholesterolContent',
+  'sodiumContent',
+  'carbohydrateContent',
+  'fiberContent',
+  'sugarContent',
+  'proteinContent',
+  'vitaminDContent',
+  'calciumContent',
+  'ironContent',
+  'potassiumContent',
 ];
 
 function formatNutritionValue(key, value) {
@@ -40,7 +41,10 @@ function formatNutritionValue(key, value) {
 }
 
 function formatServings(servings) {
-  return String(servings || '').replace(/\s*servings?\s*$/i, '').replace(/\s*serving\(s\)\s*$/i, '').trim();
+  return String(servings || '')
+    .replace(/\s*(?:servings?|porciones?)\s*$/i, '')
+    .replace(/\s*serving\(s\)\s*$/i, '')
+    .trim();
 }
 
 function getPlayableVideo(video) {
@@ -80,6 +84,7 @@ function RecipeVideoPlayer({ video, title }) {
 
 export default function RecipeDetails({ route, navigation }) {
   const { recipe, highlightedIngredients = [] } = route.params;
+  const { language, t } = useLanguage();
   const [recipeDetails, setRecipeDetails] = useState(recipe);
   const [recommendations, setRecommendations] = useState({
     dinners: [],
@@ -91,9 +96,10 @@ export default function RecipeDetails({ route, navigation }) {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isNutritionVisible, setIsNutritionVisible] = useState(false);
-  const nutrition = recipeDetails.nutrition;
-  const nutritionEntries = nutritionRows.filter(([key]) => nutrition?.[key]);
-  const playableVideos = (recipeDetails.videos ?? []).flatMap((video) => {
+  const displayRecipe = localizeRecipe(recipeDetails, language);
+  const nutrition = displayRecipe.nutrition;
+  const nutritionEntries = nutritionRows.filter((key) => nutrition?.[key]);
+  const playableVideos = (displayRecipe.videos ?? []).flatMap((video) => {
     try {
       const url = getPlayableVideo(video);
       return url ? [{ ...video, url }] : [];
@@ -122,18 +128,20 @@ export default function RecipeDetails({ route, navigation }) {
   return (
     <View style={styles.screen}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Image source={{ uri: recipeDetails.image }} style={styles.image} />
+        <Image source={{ uri: displayRecipe.image }} style={styles.image} />
 
-        <Text style={styles.title}>{recipeDetails.title}</Text>
+        <Text style={styles.title}>{displayRecipe.title}</Text>
 
         {playableVideos.length > 0 && (
           <View>
-            <Text style={styles.heading}>Recipe video</Text>
+            <Text style={styles.heading}>{t('recipe.video')}</Text>
             {playableVideos.map((video, index) => (
               <RecipeVideoPlayer
                 key={`${video.url}-${index}`}
                 video={video}
-                title={video.title || (playableVideos.length > 1 ? `Recipe video ${index + 1}` : 'Watch recipe video')}
+                title={video.title || (playableVideos.length > 1
+                  ? t('recipe.videoNumber', { number: index + 1 })
+                  : t('recipe.watchVideo'))}
               />
             ))}
           </View>
@@ -141,39 +149,42 @@ export default function RecipeDetails({ route, navigation }) {
 
         <View style={styles.recipeInfo}>
           <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Servings</Text>
-            <Text style={styles.infoValue}>{recipeDetails.servings || '—'}</Text>
+            <Text style={styles.infoLabel}>{t('recipe.servings')}</Text>
+            <Text style={styles.infoValue}>{displayRecipe.servings || '—'}</Text>
           </View>
           <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Prep time</Text>
-            <Text style={styles.infoValue}>{recipeDetails.prepTime || '—'}</Text>
+            <Text style={styles.infoLabel}>{t('recipe.prepTime')}</Text>
+            <Text style={styles.infoValue}>{displayRecipe.prepTime || '—'}</Text>
           </View>
           <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Cook time</Text>
-            <Text style={styles.infoValue}>{recipeDetails.cookTime || '—'}</Text>
+            <Text style={styles.infoLabel}>{t('recipe.cookTime')}</Text>
+            <Text style={styles.infoValue}>{displayRecipe.cookTime || '—'}</Text>
           </View>
           {nutrition?.calories ? (
             <View style={styles.nutritionSummary}>
               <View style={styles.nutritionSummaryText}>
-                <Text style={styles.infoLabel}>Calories per serving</Text>
-                <Text style={styles.calorieValue}>{nutrition.calories}</Text>
+                <Text style={styles.infoLabel}>{t('recipe.caloriesPerServing')}</Text>
+                <Text style={styles.calorieValue}>
+                  {formatNutritionValue('calories', nutrition.calories)}{t('recipe.calories')}
+                </Text>
               </View>
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel="Show nutrition information"
+                accessibilityLabel={t('recipe.showNutrition')}
                 style={styles.nutritionButton}
                 onPress={() => setIsNutritionVisible(true)}
               >
-                <Text style={styles.nutritionButtonText}>Nutrition details</Text>
+                <Text style={styles.nutritionButtonText}>{t('recipe.nutritionDetails')}</Text>
               </Pressable>
             </View>
           ) : null}
         </View>
 
-        <Text style={styles.heading}>Ingredients</Text>
-        {recipeDetails.ingredients?.map((ingredient, index) => {
+        <Text style={styles.heading}>{t('recipe.ingredients')}</Text>
+        {displayRecipe.ingredients?.map((ingredient, index) => {
+          const canonicalIngredient = recipeDetails.ingredients?.[index] ?? ingredient;
           const isHighlighted = highlightedIngredients.some((selectedIngredient) =>
-            ingredientMatches(ingredient, selectedIngredient)
+            ingredientMatches(canonicalIngredient, selectedIngredient)
           );
 
           return (
@@ -207,15 +218,17 @@ export default function RecipeDetails({ route, navigation }) {
             <View style={styles.nutritionModal}>
               <View style={styles.modalHeader}>
                 <View style={styles.modalTitleBlock}>
-                  <Text style={styles.modalTitle}>Nutrition Information</Text>
+                  <Text style={styles.modalTitle}>{t('recipe.nutritionInformation')}</Text>
                   <Text style={styles.modalSubtitle}>
-                    Per serving
-                    {recipeDetails.servings ? ` (Serves ${formatServings(recipeDetails.servings)})` : ''}
+                    {t('recipe.perServing')}
+                    {displayRecipe.servings
+                      ? t('recipe.serves', { count: formatServings(displayRecipe.servings) })
+                      : ''}
                   </Text>
                 </View>
                 <Pressable
                   accessibilityRole="button"
-                  accessibilityLabel="Close nutrition information"
+                  accessibilityLabel={t('recipe.closeNutrition')}
                   hitSlop={10}
                   onPress={() => setIsNutritionVisible(false)}
                 >
@@ -223,29 +236,31 @@ export default function RecipeDetails({ route, navigation }) {
                 </Pressable>
               </View>
               <ScrollView>
-                {nutritionEntries.map(([key, label]) => (
+                {nutritionEntries.map((key) => (
                   <View style={styles.nutritionRow} key={key}>
-                    <Text style={styles.nutritionLabel}>{label}</Text>
+                    <Text style={styles.nutritionLabel}>{t(`nutrition.${key}`)}</Text>
                     <Text style={styles.nutritionValue}>
                       {formatNutritionValue(key, nutrition[key])}
-                      {key === 'calories' ? ' calories' : ''}
+                      {key === 'calories' ? t('recipe.calories') : ''}
                     </Text>
                   </View>
                 ))}
                 {nutrition?.servingSize ? (
-                  <Text style={styles.servingSize}>Serving size: {nutrition.servingSize}</Text>
+                  <Text style={styles.servingSize}>
+                    {t('recipe.servingSize', { size: nutrition.servingSize })}
+                  </Text>
                 ) : null}
               </ScrollView>
             </View>
           </View>
         </Modal>
 
-        <Text style={styles.heading}>Instructions</Text>
+        <Text style={styles.heading}>{t('recipe.instructions')}</Text>
 
         {isLoading ? (
           <ActivityIndicator size="large" color="#d97745" />
         ) : (
-          <Text style={styles.instructions}>{recipeDetails.instructions}</Text>
+          <Text style={styles.instructions}>{displayRecipe.instructions}</Text>
         )}
       </ScrollView>
       <RecipeRecommendationsStrip

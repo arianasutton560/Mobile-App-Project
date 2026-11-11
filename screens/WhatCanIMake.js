@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import RecipeCard from '../components/RecipeCard';
+import { useLanguage } from '../context/LanguageContext';
 import { ingredientMatches } from '../data/ingredientMatching';
 import { getRecipes } from '../data/recipes';
 
@@ -114,6 +115,7 @@ export default function WhatCanIMake({
   favoriteIds,
   onToggleFavorite,
 }) {
+  const { localizeIngredient, t } = useLanguage();
   const [recipes, setRecipes] = useState([]);
   const [ingredientChoices, setIngredientChoices] = useState({});
   const [ingredientSearch, setIngredientSearch] = useState('');
@@ -144,9 +146,13 @@ export default function WhatCanIMake({
       : ingredientGroups.find(
           ({ label }) => label === selectedIngredientCategory
         )?.ingredients ?? [];
-  const visibleIngredients = ingredientsInCategory.filter((ingredient) =>
-    ingredient.toLowerCase().includes(ingredientSearch.trim().toLowerCase())
-  );
+  const normalizedIngredientSearch = ingredientSearch.trim().toLocaleLowerCase();
+  const visibleIngredients = ingredientsInCategory.filter((ingredient) => {
+    if (!normalizedIngredientSearch) return true;
+    const translatedIngredient = localizeIngredient(ingredient).toLocaleLowerCase();
+    return ingredient.toLocaleLowerCase().includes(normalizedIngredientSearch) ||
+      translatedIngredient.includes(normalizedIngredientSearch);
+  });
 
   const matchedRecipes = useMemo(() => {
     if (includedIngredients.length === 0) {
@@ -239,15 +245,20 @@ export default function WhatCanIMake({
         <>
           <View style={styles.checklistHeader}>
             <View>
-              <Text style={styles.checklistHeading}>Ingredients</Text>
+              <Text style={styles.checklistHeading}>{t('whatCanIMake.ingredients')}</Text>
               <Text style={styles.selectionCount}>
-                {includedIngredients.length} included · {excludedIngredients.length} excluded
+                {t('whatCanIMake.includedExcluded', {
+                  included: `${includedIngredients.length} ${t('whatCanIMake.included')}`,
+                  excluded: `${excludedIngredients.length} ${t('whatCanIMake.excluded')}`,
+                })}
               </Text>
             </View>
 
             <Pressable onPress={() => setShowChecklist(!showChecklist)}>
               <Text style={styles.actionText}>
-                {showChecklist ? 'Hide ingredients' : 'Show ingredients'}
+                {t(showChecklist
+                  ? 'whatCanIMake.hideIngredients'
+                  : 'whatCanIMake.showIngredients')}
               </Text>
             </Pressable>
           </View>
@@ -280,7 +291,7 @@ export default function WhatCanIMake({
                           isSelected && styles.categoryPillTextSelected,
                         ]}
                       >
-                        {category}
+                        {t(`ingredientGroup.${category}`)}
                       </Text>
                     </Pressable>
                   );
@@ -289,9 +300,9 @@ export default function WhatCanIMake({
               <TextInput
                 value={ingredientSearch}
                 onChangeText={setIngredientSearch}
-                placeholder="Search ingredients"
+                placeholder={t('whatCanIMake.searchPlaceholder')}
                 placeholderTextColor="#9a7765"
-                accessibilityLabel="Search ingredients"
+                accessibilityLabel={t('whatCanIMake.searchAccessibility')}
                 style={styles.searchInput}
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -319,13 +330,13 @@ export default function WhatCanIMake({
                       {isExcluded && <Text style={styles.checkmark}>✕</Text>}
                     </View>
 
-                    <Text style={styles.ingredientText}>{ingredient}</Text>
+                    <Text style={styles.ingredientText}>{localizeIngredient(ingredient)}</Text>
                   </Pressable>
                 );
               })}
               </View>
               {visibleIngredients.length === 0 && (
-                <Text style={styles.emptyText}>No ingredients found.</Text>
+                <Text style={styles.emptyText}>{t('whatCanIMake.noIngredients')}</Text>
               )}
             </>
           )}
@@ -335,21 +346,21 @@ export default function WhatCanIMake({
               style={styles.clearButton}
               onPress={() => setIngredientChoices({})}
             >
-              <Text style={styles.clearText}>Clear selection</Text>
+              <Text style={styles.clearText}>{t('whatCanIMake.clearSelection')}</Text>
             </Pressable>
           )}
 
           <Text style={styles.heading}>
             {includedIngredients.length
-              ? `Recipes (${matchedRecipes.length})`
-              : 'Select ingredients to see recipes'}
+              ? t('whatCanIMake.recipeCount', { count: matchedRecipes.length })
+              : t('whatCanIMake.selectIngredients')}
           </Text>
         </>
       }
       ListEmptyComponent={
         includedIngredients.length > 0 ? (
           <Text style={styles.emptyText}>
-            No recipes match the selected ingredients.
+            {t('whatCanIMake.noMatches')}
           </Text>
         ) : null
       }

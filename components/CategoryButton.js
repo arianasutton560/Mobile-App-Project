@@ -1,4 +1,5 @@
 import { Image, Pressable, StyleSheet, Text } from 'react-native';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CategoryButton({
   label,
@@ -7,10 +8,11 @@ export default function CategoryButton({
   isSelected,
   onPress,
 }) {
+  const { t } = useLanguage();
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`${label} category`}
+      accessibilityLabel={t('category.accessibility', { category: label })}
       accessibilityState={{ selected: isSelected }}
       onPress={onPress}
       style={[styles.button, isSelected && styles.selectedButton]}

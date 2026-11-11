@@ -10,8 +10,10 @@ import {
   View,
 } from 'react-native';
 import CategoryButton from '../components/CategoryButton';
+import LanguageSettingsButton from '../components/LanguageSettingsButton';
 import RecipeCard from '../components/RecipeCard';
-import { getRecipes } from '../data/recipes';
+import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedRecipeTitle, getRecipes } from '../data/recipes';
 
 const categories = [
   {
@@ -66,9 +68,9 @@ const categories = [
 ];
 
 const drinkTypes = [
-  { id: 'non-alcoholic', label: 'Non-alcoholic' },
-  { id: 'alcoholic', label: 'Alcoholic' },
-  { id: 'smoothie', label: 'Smoothies' },
+  { id: 'non-alcoholic', labelKey: 'home.nonAlcoholic' },
+  { id: 'alcoholic', labelKey: 'home.alcoholic' },
+  { id: 'smoothie', labelKey: 'home.smoothies' },
 ];
 
 function shuffleRecipes(recipes) {
@@ -83,6 +85,7 @@ function shuffleRecipes(recipes) {
 }
 
 export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
+  const { language, localizeCategory, t } = useLanguage();
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedDrinkType, setSelectedDrinkType] = useState(null);
@@ -96,7 +99,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
         const importedRecipes = await getRecipes();
         setRecipes(shuffleRecipes(importedRecipes));
       } catch {
-        setError('Unable to load recipes. Please try again.');
+        setError(true);
       } finally {
         setIsLoading(false);
       }
@@ -118,9 +121,11 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
       !selectedDrinkType ||
       recipe.drinkType === selectedDrinkType;
 
-    const matchesSearch = recipe.title
-      .toLowerCase()
-      .includes(searchText.toLowerCase());
+    const localizedTitle = getLocalizedRecipeTitle(recipe, language);
+    const normalizedSearch = searchText.trim().toLocaleLowerCase();
+    const matchesSearch = !normalizedSearch ||
+      localizedTitle.toLocaleLowerCase().includes(normalizedSearch) ||
+      recipe.title.toLocaleLowerCase().includes(normalizedSearch);
 
     return matchesCategory && matchesDrinkType && matchesSearch;
   });
@@ -138,24 +143,29 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     <View style={styles.container}>
       <View style={styles.headerRow}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('home.favorites')}
           style={styles.favoritesLink}
           onPress={() => navigation.navigate('Favorites')}
         >
           <Text style={styles.favoritesHeart}>♥</Text>
         </Pressable>
 
-          <Text style={styles.title}>PantryPal</Text>
+        <Text style={styles.title}>PantryPal</Text>
+        <View style={styles.settingsButton}>
+          <LanguageSettingsButton />
         </View>
+      </View>
 
         <View style={styles.mainContent}>
           <TextInput
             style={styles.searchInput}
-            placeholder="Search recipes..."
+            placeholder={t('home.searchPlaceholder')}
             value={searchText}
             onChangeText={setSearchText}
           />
 
-          <Text style={styles.heading}>Categories</Text>
+          <Text style={styles.heading}>{t('home.categories')}</Text>
 
           <View style={styles.categorySection}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -163,7 +173,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
                 {categories.map((category) => (
                   <CategoryButton
                     key={category.name}
-                    label={category.name}
+                    label={localizeCategory(category.category ?? category.name.toLowerCase())}
                     image={category.image}
                     isSelected={selectedCategory === category.name}
                     onPress={() => handleCategoryPress(category.name)}
@@ -174,7 +184,11 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
           </View>
 
           <Text style={[styles.heading, styles.recipesHeading]}>
-            {selectedCategory ? `${selectedCategory} recipes` : 'All recipes'}
+            {selectedCategory
+              ? t('home.categoryRecipes', {
+                  category: localizeCategory(selectedCategoryValue),
+                })
+              : t('home.allRecipes')}
           </Text>
 
           {selectedCategory === 'Drinks' && (
@@ -202,7 +216,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
                         isSelected && styles.selectedDrinkTypeLabel,
                       ]}
                     >
-                      {drinkType.label}
+                      {t(drinkType.labelKey)}
                     </Text>
                   </Pressable>
                 );
@@ -213,7 +227,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
           {isLoading ? (
             <ActivityIndicator size="large" color="#d97745" />
           ) : error ? (
-            <Text style={styles.emptyText}>{error}</Text>
+            <Text style={styles.emptyText}>{t('home.loadError')}</Text>
           ) : (
             <FlatList
               data={filteredRecipes}
@@ -232,7 +246,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
                 />
               )}
               ListEmptyComponent={
-                <Text style={styles.emptyText}>No recipes found.</Text>
+                <Text style={styles.emptyText}>{t('home.noRecipes')}</Text>
               }
             />
           )}
@@ -241,11 +255,11 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
         <View style={styles.bottomTabBar}>
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="What Can I Make"
+            accessibilityLabel={t('home.whatCanIMake')}
             style={styles.bottomTab}
             onPress={() => navigation.navigate('WhatCanIMake')}
           >
-            <Text style={styles.bottomTabLabel}>What Can I Make?</Text>
+            <Text style={styles.bottomTabLabel}>{t('home.whatCanIMake')}</Text>
           </Pressable>
         </View>
     </View>
@@ -359,6 +373,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     padding: 6,
+  },
+  settingsButton: {
+    position: 'absolute',
+    right: 0,
   },
   favoritesHeart: {
     fontSize: 36,

@@ -8,10 +8,13 @@ import {
   Text,
   useWindowDimensions,
 } from 'react-native';
+import { useLanguage } from '../context/LanguageContext';
+import { localizeRecipe } from '../data/recipes';
 
 export default function RecipeRecommendationsStrip({ recommendations, onSelectRecipe }) {
   const [isOpen, setIsOpen] = useState(false);
   const { width: viewportWidth } = useWindowDimensions();
+  const { language, t } = useLanguage();
   const panelProgress = useRef(new Animated.Value(0)).current;
   const recipes = [...new Map(
     Object.values(recommendations)
@@ -58,30 +61,33 @@ export default function RecipeRecommendationsStrip({ recommendations, onSelectRe
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.cards}
             >
-              {recipes.map((recipe) => (
-                <Pressable
-                  key={recipe.id}
-                  accessibilityRole="button"
-                  accessibilityLabel={`Open recommended recipe ${recipe.title}`}
-                  style={styles.card}
-                  onPress={() => onSelectRecipe(recipe)}
-                >
-                  <Image source={{ uri: recipe.image }} style={styles.image} />
-                  <Text numberOfLines={2} style={styles.title}>
-                    {recipe.title}
-                  </Text>
-                </Pressable>
-              ))}
+              {recipes.map((recipe) => {
+                const displayRecipe = localizeRecipe(recipe, language);
+                return (
+                  <Pressable
+                    key={recipe.id}
+                    accessibilityRole="button"
+                    accessibilityLabel={t('recipe.open', { title: displayRecipe.title })}
+                    style={styles.card}
+                    onPress={() => onSelectRecipe(recipe)}
+                  >
+                    <Image source={{ uri: displayRecipe.image }} style={styles.image} />
+                    <Text numberOfLines={2} style={styles.title}>
+                      {displayRecipe.title}
+                    </Text>
+                  </Pressable>
+                );
+              })}
             </ScrollView>
           ) : (
-            <Text style={styles.emptyMessage}>No recommendations available for this recipe.</Text>
+            <Text style={styles.emptyMessage}>{t('recommendations.empty')}</Text>
           )}
         </Animated.View>
       ) : null}
 
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={isOpen ? 'Close recipe recommendations' : 'Open recipe recommendations'}
+        accessibilityLabel={t(isOpen ? 'recommendations.close' : 'recommendations.open')}
         accessibilityState={{ expanded: isOpen }}
         style={[
           styles.sideTab,
@@ -92,7 +98,7 @@ export default function RecipeRecommendationsStrip({ recommendations, onSelectRe
         <Text accessible={false} style={styles.sideTabArrow}>
           {isOpen ? '\u203a' : '\u2039'}
         </Text>
-        <Text style={styles.sideTabText}>Recommendations</Text>
+        <Text style={styles.sideTabText}>{t('recommendations.title')}</Text>
       </Pressable>
     </>
   );

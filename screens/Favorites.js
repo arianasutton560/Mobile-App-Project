@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import RecipeCard from '../components/RecipeCard';
+import { useLanguage } from '../context/LanguageContext';
 import { getRecipes } from '../data/recipes';
 
 export default function Favorites({
@@ -14,6 +15,7 @@ export default function Favorites({
   favoriteIds,
   onToggleFavorite,
 }) {
+  const { t } = useLanguage();
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -59,7 +61,7 @@ export default function Favorites({
         )}
         ListEmptyComponent={
           <Text style={styles.emptyText}>
-            No favorite recipes yet. Tap a heart on a recipe to save it.
+            {t('favorites.empty')}
           </Text>
         }
       />

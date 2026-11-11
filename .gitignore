@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+.translation-tools/
 
 # Expo generated state and exports
 .expo/

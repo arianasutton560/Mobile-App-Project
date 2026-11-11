@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LanguageSettingsButton from './components/LanguageSettingsButton';
+import LanguageSettingsModal from './components/LanguageSettingsModal';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import Home from './screens/Home';
 import Favorites from './screens/Favorites';
 import RecipeDetails from './screens/RecipeDetails';
@@ -9,61 +12,80 @@ import WhatCanIMake from './screens/WhatCanIMake';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // State to manage favorite recipes
-  // favoriteIds is an array of recipe IDs that the user has marked as favorites.
-  // The toggleFavorite function updates this array when a recipe is added or removed from favorites.
-  const [favoriteIds, setFavoriteIds] = useState([]);
-
-  function toggleFavorite(recipeId) {
-    setFavoriteIds((currentIds) => currentIds.includes(recipeId) ? 
-    currentIds.filter((id) => id !== recipeId) : 
-    [...currentIds, recipeId]
+  return (
+    <LanguageProvider>
+      <AppNavigation />
+    </LanguageProvider>
   );
 }
 
+function AppNavigation() {
+  const [favoriteIds, setFavoriteIds] = useState([]);
+  const { language } = useLanguage();
+
+  function toggleFavorite(recipeId) {
+    setFavoriteIds((currentIds) => currentIds.includes(recipeId)
+      ? currentIds.filter((id) => id !== recipeId)
+      : [...currentIds, recipeId]);
+  }
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" options={{ headerShown: false}}>
-          {(props) => (
-            <Home
-            {...props}
-            favoriteIds={favoriteIds}
-            onToggleFavorite={toggleFavorite}
-            />
-          )}
-        </Stack.Screen>
-
-        <Stack.Screen 
-        name="Favorites"
-        options={{ title: 'Favorites' }}>
-        {(props) => (
-          <Favorites
-            {...props}
-            favoriteIds={favoriteIds}
-            onToggleFavorite={toggleFavorite}
+    <>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" options={{ headerShown: false }}>
+            {(props) => (
+              <Home
+                {...props}
+                favoriteIds={favoriteIds}
+                onToggleFavorite={toggleFavorite}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Favorites"
+            options={{
+              title: language === 'es' ? 'Favoritos' : 'Favorites',
+              headerBackTitle: language === 'es' ? 'Inicio' : 'Home',
+              headerRight: () => <LanguageSettingsButton />,
+            }}
+          >
+            {(props) => (
+              <Favorites
+                {...props}
+                favoriteIds={favoriteIds}
+                onToggleFavorite={toggleFavorite}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="RecipeDetails"
+            component={RecipeDetails}
+            options={{
+              title: language === 'es' ? 'Detalles de la receta' : 'Recipe Details',
+              headerBackTitle: language === 'es' ? 'Inicio' : 'Home',
+              headerRight: () => <LanguageSettingsButton />,
+            }}
           />
-        )}
-        </Stack.Screen>
-
-        <Stack.Screen
-          name="RecipeDetails"
-          component={RecipeDetails}
-          options={{ title: 'Recipe Details' }}
-        />
-        <Stack.Screen
-          name="WhatCanIMake"
-          options={{ title: 'What Can I Make?' }}
-        >
-          {(props) => (
-            <WhatCanIMake
-              {...props}
-              favoriteIds={favoriteIds}
-              onToggleFavorite={toggleFavorite}
-            />
-          )}
-        </Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name="WhatCanIMake"
+            options={{
+              title: language === 'es' ? '¿Qué puedo preparar?' : 'What Can I Make?',
+              headerBackTitle: language === 'es' ? 'Inicio' : 'Home',
+              headerRight: () => <LanguageSettingsButton />,
+            }}
+          >
+            {(props) => (
+              <WhatCanIMake
+                {...props}
+                favoriteIds={favoriteIds}
+                onToggleFavorite={toggleFavorite}
+              />
+            )}
+          </Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+      <LanguageSettingsModal />
+    </>
   );
 }

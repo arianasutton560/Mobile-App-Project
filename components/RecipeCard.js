@@ -1,5 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import * as Haptics from 'expo-haptics';
+import { useLanguage } from '../context/LanguageContext';
+import { localizeRecipe } from '../data/recipes';
 
 function playFavoriteHeartbeat() {
   try {
@@ -19,28 +21,44 @@ export default function RecipeCard({
   isFavorite,
   onToggleFavorite,
 }){
+  const { language, localizeCategory, t } = useLanguage();
+  const displayRecipe = localizeRecipe(recipe, language);
+  const categoryLabels = recipe.categories.map(localizeCategory);
+  const recipeTime = [displayRecipe.prepTime, displayRecipe.cookTime]
+    .filter(Boolean)
+    .join(' · ');
+
 return (
     <View style={styles.card}>
-      <Pressable style={styles.recipeButton} onPress={onPress}>
-        <Image source={{ uri: recipe.image }} style={styles.image} />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={t('recipe.open', { title: displayRecipe.title })}
+        style={styles.recipeButton}
+        onPress={onPress}
+      >
+        <Image source={{ uri: displayRecipe.image }} style={styles.image} />
 
         <View style={styles.content}>
           {isBestMatch && (
             <View style={styles.bestMatchBadge}>
-              <Text style={styles.bestMatchText}>Best match</Text>
+            <Text style={styles.bestMatchText}>{t('match.best')}</Text>
             </View>
           )}
           <Text numberOfLines={2} style={styles.title}>
-            {recipe.title}
+            {displayRecipe.title}
           </Text>
-          <Text style={styles.meta}>{recipe.time}</Text>
-          <Text style={styles.category}>{recipe.categories.join('/')}</Text>
+          <Text style={styles.meta}>{recipeTime}</Text>
+          <Text style={styles.category}>{categoryLabels.join('/')}</Text>
         </View>
       </Pressable>
 
       <Pressable
         style={styles.favoriteButton}
         hitSlop={10}
+        accessibilityRole="button"
+        accessibilityLabel={t(isFavorite ? 'recipe.removeFavorite' : 'recipe.addFavorite', {
+          title: displayRecipe.title,
+        })}
         onPress={() => {
           void playFavoriteHeartbeat();
           onToggleFavorite(recipe.id);
