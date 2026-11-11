@@ -24,9 +24,6 @@ export default function RecipeCard({
   const { language, localizeCategory, t } = useLanguage();
   const displayRecipe = localizeRecipe(recipe, language);
   const categoryLabels = recipe.categories.map(localizeCategory);
-  const recipeTime = [displayRecipe.prepTime, displayRecipe.cookTime]
-    .filter(Boolean)
-    .join(' · ');
 
 return (
     <View style={styles.card}>
@@ -47,7 +44,6 @@ return (
           <Text numberOfLines={2} style={styles.title}>
             {displayRecipe.title}
           </Text>
-          <Text style={styles.meta}>{recipeTime}</Text>
           <Text style={styles.category}>{categoryLabels.join('/')}</Text>
         </View>
       </Pressable>
@@ -116,10 +112,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     fontWeight: '700',
-  },
-  meta: {
-    marginTop: 5,
-    color: '#765c4d',
   },
   category: {
     marginTop: 3,

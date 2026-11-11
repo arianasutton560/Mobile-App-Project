@@ -1,6 +1,7 @@
 import recipes from './recipes.json';
 import spanishTranslations from './recipeTranslations.es.json';
 import spanishTitleOverrides from './recipeTitleOverrides.es.json';
+import { localizeUntranslatedIngredient } from './ingredientFallbacks.es';
 
 const supportedCategories = new Set([
   'breakfast',
@@ -75,7 +76,12 @@ export function localizeRecipe(recipe, language = 'en') {
     cookTime: localizeTime(translation.cookTime || recipe.cookTime),
     servings: translation.servings || recipe.servings,
     ingredients: Array.isArray(translation.ingredients)
-      ? recipe.ingredients.map((ingredient, index) => translation.ingredients[index] || ingredient)
+      ? recipe.ingredients.map((ingredient, index) => {
+          const translated = translation.ingredients[index] || ingredient;
+          return translated === ingredient
+            ? localizeUntranslatedIngredient(ingredient)
+            : translated;
+        })
       : recipe.ingredients,
     instructions: Array.isArray(translatedInstructions)
       ? translatedInstructions.join('\n\n')

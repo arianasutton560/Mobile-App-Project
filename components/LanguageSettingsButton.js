@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Image, Pressable, StyleSheet } from 'react-native';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function LanguageSettingsButton() {
@@ -12,7 +12,12 @@ export default function LanguageSettingsButton() {
       onPress={openLanguageSettings}
       style={styles.button}
     >
-      <Text accessible={false} style={styles.icon}>⚙</Text>
+      <Image
+        accessible={false}
+        source={require('../images/categories/gear.png')}
+        style={styles.icon}
+        resizeMode="contain"
+      />
     </Pressable>
   );
 }
@@ -25,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    color: '#4f2e1f',
-    fontSize: 27,
+    width: 28,
+    height: 28,
   },
 });

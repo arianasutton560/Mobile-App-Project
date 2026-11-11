@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { en } from '../data/locales/en';
 import { es } from '../data/locales/es';
 import spanishIngredientNames from '../data/ingredientNames.es.json';
+import spanishIngredientNameOverrides from '../data/ingredientNames.es.overrides';
 
 const LANGUAGE_STORAGE_KEY = 'pantrypal.language';
 const supportedLanguages = new Set(['en', 'es']);
@@ -63,7 +64,9 @@ export function LanguageProvider({ children }) {
 
   const localizeIngredient = useCallback((ingredient) => {
     if (language === 'es') {
-      return spanishIngredientNames[ingredient] ?? ingredient;
+      return spanishIngredientNameOverrides[ingredient]
+        ?? spanishIngredientNames[ingredient]
+        ?? ingredient;
     }
     const key = `ingredient.${ingredient}`;
     return dictionaries[language]?.[key] ?? dictionaries.en[key] ?? ingredient;

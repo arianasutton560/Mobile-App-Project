@@ -244,23 +244,25 @@ export default function WhatCanIMake({
       ListHeaderComponent={
         <>
           <View style={styles.checklistHeader}>
-            <View>
+            <View style={styles.checklistTitleRow}>
               <Text style={styles.checklistHeading}>{t('whatCanIMake.ingredients')}</Text>
-              <Text style={styles.selectionCount}>
-                {t('whatCanIMake.includedExcluded', {
-                  included: `${includedIngredients.length} ${t('whatCanIMake.included')}`,
-                  excluded: `${excludedIngredients.length} ${t('whatCanIMake.excluded')}`,
-                })}
-              </Text>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => setShowChecklist(!showChecklist)}
+              >
+                <Text style={styles.actionText}>
+                  {t(showChecklist
+                    ? 'whatCanIMake.hideIngredients'
+                    : 'whatCanIMake.showIngredients')}
+                </Text>
+              </Pressable>
             </View>
-
-            <Pressable onPress={() => setShowChecklist(!showChecklist)}>
-              <Text style={styles.actionText}>
-                {t(showChecklist
-                  ? 'whatCanIMake.hideIngredients'
-                  : 'whatCanIMake.showIngredients')}
-              </Text>
-            </Pressable>
+            <Text style={styles.selectionCount}>
+              {t('whatCanIMake.includedExcluded', {
+                included: `${includedIngredients.length} ${t('whatCanIMake.included')}`,
+                excluded: `${excludedIngredients.length} ${t('whatCanIMake.excluded')}`,
+              })}
+            </Text>
           </View>
 
           {showChecklist && (
@@ -389,11 +391,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   checklistHeader: {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  marginTop: 16,
-  marginBottom: 12,
+    marginTop: 16,
+    marginBottom: 12,
+  },
+  checklistTitleRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   checklistHeading: {
     fontSize: 18,
@@ -413,10 +417,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginTop: 16,
     marginBottom: 12,
-  },
-  actionText: {
-    color: '#d97745',
-    fontWeight: '700',
   },
   checklist: {
     flexDirection: 'row',
