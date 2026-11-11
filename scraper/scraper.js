@@ -10,6 +10,53 @@ const urls = fs.readFileSync("urls.txt", "utf8")
 
 const outputPath = "../data/recipes.json";
 
+const nutritionFields = {
+    calories: "calories",
+    fatContent: "fatContent",
+    saturatedFatContent: "saturatedFatContent",
+    transFatContent: "transFatContent",
+    cholesterolContent: "cholesterolContent",
+    sodiumContent: "sodiumContent",
+    carbohydrateContent: "carbohydrateContent",
+    fiberContent: "fiberContent",
+    sugarContent: "sugarContent",
+    proteinContent: "proteinContent",
+    vitaminDContent: "vitaminDContent",
+    calciumContent: "calciumContent",
+    ironContent: "ironContent",
+    potassiumContent: "potassiumContent",
+};
+
+function normalizeNutrition(nutrition) {
+    if (!nutrition || typeof nutrition !== "object" || Array.isArray(nutrition)) {
+        return null;
+    }
+
+    const result = {};
+    for (const [outputKey, sourceKey] of Object.entries(nutritionFields)) {
+        const value = nutrition[sourceKey];
+        if ((typeof value === "string" || typeof value === "number") && String(value).trim()) {
+            result[outputKey] = String(value).trim();
+        }
+    }
+
+    const servingSize = nutrition.servingSize;
+    if ((typeof servingSize === "string" || typeof servingSize === "number") && String(servingSize).trim()) {
+        result.servingSize = String(servingSize).trim();
+    }
+
+    return Object.keys(result).length ? result : null;
+}
+
+function normalizeRecipeName(name) {
+    return String(name || "")
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+}
+
 function convertTime(time) {
     if (!time) {
         return 0;
@@ -296,6 +343,7 @@ async function scrapeRecipe(url) {
 
         const recipeCategories = getCategory(recipe);
         const videos = getRecipeVideos(recipe, $, url);
+        const nutrition = normalizeNutrition(recipe.nutrition);
         const cleanedRecipe = {
             id: Date.now().toString(),
             name: recipe.name || recipe.headline || "",
@@ -318,6 +366,8 @@ async function scrapeRecipe(url) {
             instructions: getInstructions(recipe.recipeInstructions),
 
             servings: recipe.recipeYield || "",
+
+            ...(nutrition && { nutrition }),
 
             description: recipe.description || "",
             ...(videos.length > 0 && { videos }),
@@ -392,5 +442,100 @@ async function scrapeAllRecipes() {
     console.log("-----------------------------");
 }
 
+async function refreshRecipeNutrition() {
+    const existingRecipes = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    if (!Array.isArray(existingRecipes)) {
+        throw new Error("recipes.json must contain a recipe array.");
+    }
 
-scrapeAllRecipes();
+    const allRecipeLinks = new Set();
+    for (const url of urls) {
+        const recipeLinks = await findRecipeLinks(url);
+        recipeLinks.forEach(link => allRecipeLinks.add(link));
+    }
+
+    if (allRecipeLinks.size === 0) {
+        console.error("No recipe links were found; leaving recipes.json unchanged.");
+        return;
+    }
+
+    const recipeUrls = [...allRecipeLinks];
+    const scrapedRecipes = [];
+    let nextRecipeIndex = 0;
+    const workerCount = Math.min(6, recipeUrls.length);
+    await Promise.all(Array.from({ length: workerCount }, async () => {
+        while (nextRecipeIndex < recipeUrls.length) {
+            const recipeUrl = recipeUrls[nextRecipeIndex++];
+            const recipe = await scrapeRecipe(recipeUrl);
+            if (recipe) scrapedRecipes.push(recipe);
+        }
+    }));
+
+    if (scrapedRecipes.length === 0) {
+        console.error("No recipes were scraped; leaving recipes.json unchanged.");
+        return;
+    }
+
+    const existingCounts = new Map();
+    const scrapedByName = new Map();
+    for (const recipe of existingRecipes) {
+        const name = normalizeRecipeName(recipe.name);
+        existingCounts.set(name, (existingCounts.get(name) || 0) + 1);
+    }
+    for (const recipe of scrapedRecipes) {
+        const name = normalizeRecipeName(recipe.name);
+        if (!name) continue;
+        if (!scrapedByName.has(name)) scrapedByName.set(name, []);
+        scrapedByName.get(name).push(recipe);
+    }
+
+    let updated = 0;
+    let unmatched = 0;
+    let ambiguous = 0;
+    let withoutNutrition = 0;
+    const updatedRecipes = existingRecipes.map(recipe => {
+        const name = normalizeRecipeName(recipe.name);
+        const matches = scrapedByName.get(name) || [];
+        if (matches.length === 0) {
+            unmatched += 1;
+            return recipe;
+        }
+        if (matches.length !== 1 || existingCounts.get(name) !== 1) {
+            ambiguous += 1;
+            return recipe;
+        }
+        if (!matches[0].nutrition) {
+            withoutNutrition += 1;
+            return recipe;
+        }
+
+        updated += 1;
+        return { ...recipe, nutrition: matches[0].nutrition };
+    });
+
+    const temporaryPath = `${outputPath}.${process.pid}.tmp`;
+    const backupPath = `${outputPath}.pre-nutrition-${new Date().toISOString().replace(/[:.]/g, "-")}.backup`;
+    try {
+        fs.writeFileSync(temporaryPath, JSON.stringify(updatedRecipes, null, 2));
+        fs.copyFileSync(outputPath, backupPath);
+        fs.renameSync(temporaryPath, outputPath);
+    } catch (error) {
+        if (fs.existsSync(temporaryPath)) fs.unlinkSync(temporaryPath);
+        throw error;
+    }
+
+    console.log(`Nutrition updated: ${updated}`);
+    console.log(`Unmatched existing recipes: ${unmatched}`);
+    console.log(`Ambiguous name matches skipped: ${ambiguous}`);
+    console.log(`Matched recipes without source nutrition: ${withoutNutrition}`);
+}
+
+if (process.argv.includes("--nutrition-refresh")) {
+    refreshRecipeNutrition().catch(error => {
+        console.error("Nutrition refresh failed; recipes.json was not intentionally modified.");
+        console.error(error.message);
+        process.exitCode = 1;
+    });
+} else {
+    scrapeAllRecipes();
+}

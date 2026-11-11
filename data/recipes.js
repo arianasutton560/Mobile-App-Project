@@ -35,6 +35,7 @@ function formatRecipe(recipe) {
       instructions: (recipe.instructions ?? []).join('\n\n'),
       servings: recipe.servings,
       description: recipe.description,
+      nutrition: recipe.nutrition ?? null,
       videos: recipe.videos ?? [],
   };
 }

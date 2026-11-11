@@ -4,6 +4,7 @@
   "description": "",
   "main": "scraper.js",
   "scripts": {
+    "refresh-nutrition": "node scraper.js --nutrition-refresh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

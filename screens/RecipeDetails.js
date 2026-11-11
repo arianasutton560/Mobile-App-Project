@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Image,
+  Modal,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,6 +12,34 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { ingredientMatches } from '../data/ingredientMatching';
 import { getRecipeDetails } from '../data/recipes';
+
+const nutritionRows = [
+  ['calories', 'Calories'],
+  ['fatContent', 'Fat'],
+  ['saturatedFatContent', 'Saturated fat'],
+  ['transFatContent', 'Trans fat'],
+  ['cholesterolContent', 'Cholesterol'],
+  ['sodiumContent', 'Sodium'],
+  ['carbohydrateContent', 'Carbohydrates'],
+  ['fiberContent', 'Fiber'],
+  ['sugarContent', 'Sugar'],
+  ['proteinContent', 'Protein'],
+  ['vitaminDContent', 'Vitamin D'],
+  ['calciumContent', 'Calcium'],
+  ['ironContent', 'Iron'],
+  ['potassiumContent', 'Potassium'],
+];
+
+function formatNutritionValue(key, value) {
+  if (key === 'calories') {
+    return String(value).replace(/\s*calories?\s*$/i, '').trim();
+  }
+  return String(value);
+}
+
+function formatServings(servings) {
+  return String(servings || '').replace(/\s*servings?\s*$/i, '').replace(/\s*serving\(s\)\s*$/i, '').trim();
+}
 
 function getPlayableVideo(video) {
   if (/\.(mp4|m4v|mov|webm|m3u8|mpd)(?:$|[?#])/i.test(video.url || '')) {
@@ -50,6 +80,9 @@ export default function RecipeDetails({ route }) {
   const { recipe, highlightedIngredients = [] } = route.params;
   const [recipeDetails, setRecipeDetails] = useState(recipe);
   const [isLoading, setIsLoading] = useState(true);
+  const [isNutritionVisible, setIsNutritionVisible] = useState(false);
+  const nutrition = recipeDetails.nutrition;
+  const nutritionEntries = nutritionRows.filter(([key]) => nutrition?.[key]);
   const playableVideos = (recipeDetails.videos ?? []).flatMap((video) => {
     try {
       const url = getPlayableVideo(video);
@@ -131,7 +164,66 @@ export default function RecipeDetails({ route }) {
           <Text style={styles.infoLabel}>Cook time</Text>
           <Text style={styles.infoValue}>{recipeDetails.cookTime || '—'}</Text>
         </View>
+        {nutrition?.calories ? (
+          <View style={styles.nutritionSummary}>
+            <View style={styles.nutritionSummaryText}>
+              <Text style={styles.infoLabel}>Calories per serving</Text>
+              <Text style={styles.calorieValue}>{nutrition.calories}</Text>
+            </View>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Show nutrition information"
+              style={styles.nutritionButton}
+              onPress={() => setIsNutritionVisible(true)}
+            >
+              <Text style={styles.nutritionButtonText}>Nutrition details</Text>
+            </Pressable>
+          </View>
+        ) : null}
       </View>
+
+      <Modal
+        visible={isNutritionVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setIsNutritionVisible(false)}
+      >
+        <View style={styles.modalBackdrop}>
+          <View style={styles.nutritionModal}>
+            <View style={styles.modalHeader}>
+              <View style={styles.modalTitleBlock}>
+                <Text style={styles.modalTitle}>Nutrition Information</Text>
+                <Text style={styles.modalSubtitle}>
+                  Per serving
+                  {recipeDetails.servings ? ` (Serves ${formatServings(recipeDetails.servings)})` : ''}
+                </Text>
+              </View>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Close nutrition information"
+                hitSlop={10}
+                onPress={() => setIsNutritionVisible(false)}
+              >
+                <Text style={styles.closeButton}>×</Text>
+              </Pressable>
+            </View>
+            <ScrollView>
+              {nutritionEntries.map(([key, label]) => (
+                <View style={styles.nutritionRow} key={key}>
+                  <Text style={styles.nutritionLabel}>{label}</Text>
+                  <Text style={styles.nutritionValue}>
+                    {formatNutritionValue(key, nutrition[key])}
+                    {key === 'calories' ? ' calories' : ''}
+                  </Text>
+                </View>
+              ))}
+              {nutrition?.servingSize ? (
+                <Text style={styles.servingSize}>Serving size: {nutrition.servingSize}</Text>
+              ) : null}
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
 
       <Text style={styles.heading}>Instructions</Text>
 
@@ -231,6 +323,94 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     color: '#4f3b31',
     textAlign: 'right',
+  },
+  nutritionSummary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 10,
+    paddingTop: 12,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#dccfc7',
+  },
+  nutritionSummaryText: {
+    flex: 1,
+  },
+  calorieValue: {
+    marginTop: 3,
+    color: '#4f3b31',
+    fontSize: 18,
+    fontWeight: '700',
+  },
+  nutritionButton: {
+    marginLeft: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+    borderRadius: 9,
+    backgroundColor: '#4f2e1f',
+  },
+  nutritionButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  modalBackdrop: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: 'rgba(25, 18, 14, 0.45)',
+  },
+  nutritionModal: {
+    width: '100%',
+    maxHeight: '80%',
+    alignSelf: 'center',
+    padding: 20,
+    borderRadius: 16,
+    backgroundColor: '#fff',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  modalTitleBlock: {
+    flex: 1,
+  },
+  modalTitle: {
+    color: '#3d2b22',
+    fontSize: 21,
+    fontWeight: '700',
+  },
+  modalSubtitle: {
+    marginTop: 4,
+    color: '#765c4d',
+  },
+  closeButton: {
+    marginLeft: 12,
+    color: '#765c4d',
+    fontSize: 28,
+    lineHeight: 30,
+  },
+  nutritionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#d8d2ce',
+  },
+  nutritionLabel: {
+    flex: 1,
+    color: '#675f5b',
+  },
+  nutritionValue: {
+    marginLeft: 12,
+    color: '#4f4a47',
+    textAlign: 'right',
+  },
+  servingSize: {
+    marginTop: 10,
+    color: '#765c4d',
+    fontSize: 13,
   },
   instructions: {
     fontSize: 16,
