@@ -10,8 +10,10 @@ import {
   View,
 } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
+import RecipeRecommendationsDrawer from '../components/RecipeRecommendationsDrawer';
 import { ingredientMatches } from '../data/ingredientMatching';
-import { getRecipeDetails } from '../data/recipes';
+import { getRecipeRecommendations } from '../data/recipeRecommendations';
+import { getRecipeDetails, getRecipes } from '../data/recipes';
 
 const nutritionRows = [
   ['calories', 'Calories'],
@@ -76,9 +78,17 @@ function RecipeVideoPlayer({ video, title }) {
   );
 }
 
-export default function RecipeDetails({ route }) {
+export default function RecipeDetails({ route, navigation }) {
   const { recipe, highlightedIngredients = [] } = route.params;
   const [recipeDetails, setRecipeDetails] = useState(recipe);
+  const [recommendations, setRecommendations] = useState({
+    dinners: [],
+    lunches: [],
+    breakfasts: [],
+    desserts: [],
+    sides: [],
+    drinks: [],
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [isNutritionVisible, setIsNutritionVisible] = useState(false);
   const nutrition = recipeDetails.nutrition;
@@ -95,8 +105,12 @@ export default function RecipeDetails({ route }) {
   useEffect(() => {
     async function loadRecipeDetails() {
       try {
-        const details = await getRecipeDetails(recipe.id);
+        const [details, recipes] = await Promise.all([
+          getRecipeDetails(recipe.id),
+          getRecipes(),
+        ]);
         setRecipeDetails(details);
+        setRecommendations(getRecipeRecommendations(recipes, recipe.id));
       } finally {
         setIsLoading(false);
       }
@@ -106,137 +120,149 @@ export default function RecipeDetails({ route }) {
   }, [recipe]);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Image source={{ uri: recipeDetails.image }} style={styles.image} />
+    <View style={styles.screen}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Image source={{ uri: recipeDetails.image }} style={styles.image} />
 
-      <Text style={styles.title}>{recipeDetails.title}</Text>
+        <Text style={styles.title}>{recipeDetails.title}</Text>
 
-      {playableVideos.length > 0 && (
-        <View>
-          <Text style={styles.heading}>Recipe video</Text>
-          {playableVideos.map((video, index) => (
-            <RecipeVideoPlayer
-              key={`${video.url}-${index}`}
-              video={video}
-              title={video.title || (playableVideos.length > 1 ? `Recipe video ${index + 1}` : 'Watch recipe video')}
-            />
-          ))}
-        </View>
-      )}
-
-      <Text style={styles.heading}>Ingredients</Text>
-      {recipeDetails.ingredients?.map((ingredient, index) => {
-        const isHighlighted = highlightedIngredients.some((selectedIngredient) =>
-          ingredientMatches(ingredient, selectedIngredient)
-        );
-
-        return (
-          <View
-            key={`${index}-${ingredient}`}
-            style={[
-              styles.ingredientRow,
-              isHighlighted && styles.highlightedIngredientRow,
-            ]}
-          >
-            <Text style={styles.bullet}>•</Text>
-            <Text
-              style={[
-                styles.ingredient,
-                isHighlighted && styles.highlightedIngredient,
-              ]}
-            >
-              {ingredient}
-            </Text>
+        {playableVideos.length > 0 && (
+          <View>
+            <Text style={styles.heading}>Recipe video</Text>
+            {playableVideos.map((video, index) => (
+              <RecipeVideoPlayer
+                key={`${video.url}-${index}`}
+                video={video}
+                title={video.title || (playableVideos.length > 1 ? `Recipe video ${index + 1}` : 'Watch recipe video')}
+              />
+            ))}
           </View>
-        );
-      })}
+        )}
 
-      <View style={styles.recipeInfo}>
-        <View style={styles.infoRow}>
-          <Text style={styles.infoLabel}>Servings</Text>
-          <Text style={styles.infoValue}>{recipeDetails.servings || '—'}</Text>
-        </View>
-        <View style={styles.infoRow}>
-          <Text style={styles.infoLabel}>Prep time</Text>
-          <Text style={styles.infoValue}>{recipeDetails.prepTime || '—'}</Text>
-        </View>
-        <View style={styles.infoRow}>
-          <Text style={styles.infoLabel}>Cook time</Text>
-          <Text style={styles.infoValue}>{recipeDetails.cookTime || '—'}</Text>
-        </View>
-        {nutrition?.calories ? (
-          <View style={styles.nutritionSummary}>
-            <View style={styles.nutritionSummaryText}>
-              <Text style={styles.infoLabel}>Calories per serving</Text>
-              <Text style={styles.calorieValue}>{nutrition.calories}</Text>
-            </View>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Show nutrition information"
-              style={styles.nutritionButton}
-              onPress={() => setIsNutritionVisible(true)}
-            >
-              <Text style={styles.nutritionButtonText}>Nutrition details</Text>
-            </Pressable>
+        <View style={styles.recipeInfo}>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>Servings</Text>
+            <Text style={styles.infoValue}>{recipeDetails.servings || '—'}</Text>
           </View>
-        ) : null}
-      </View>
-
-      <Modal
-        visible={isNutritionVisible}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setIsNutritionVisible(false)}
-      >
-        <View style={styles.modalBackdrop}>
-          <View style={styles.nutritionModal}>
-            <View style={styles.modalHeader}>
-              <View style={styles.modalTitleBlock}>
-                <Text style={styles.modalTitle}>Nutrition Information</Text>
-                <Text style={styles.modalSubtitle}>
-                  Per serving
-                  {recipeDetails.servings ? ` (Serves ${formatServings(recipeDetails.servings)})` : ''}
-                </Text>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>Prep time</Text>
+            <Text style={styles.infoValue}>{recipeDetails.prepTime || '—'}</Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>Cook time</Text>
+            <Text style={styles.infoValue}>{recipeDetails.cookTime || '—'}</Text>
+          </View>
+          {nutrition?.calories ? (
+            <View style={styles.nutritionSummary}>
+              <View style={styles.nutritionSummaryText}>
+                <Text style={styles.infoLabel}>Calories per serving</Text>
+                <Text style={styles.calorieValue}>{nutrition.calories}</Text>
               </View>
               <Pressable
                 accessibilityRole="button"
-                accessibilityLabel="Close nutrition information"
-                hitSlop={10}
-                onPress={() => setIsNutritionVisible(false)}
+                accessibilityLabel="Show nutrition information"
+                style={styles.nutritionButton}
+                onPress={() => setIsNutritionVisible(true)}
               >
-                <Text style={styles.closeButton}>×</Text>
+                <Text style={styles.nutritionButtonText}>Nutrition details</Text>
               </Pressable>
             </View>
-            <ScrollView>
-              {nutritionEntries.map(([key, label]) => (
-                <View style={styles.nutritionRow} key={key}>
-                  <Text style={styles.nutritionLabel}>{label}</Text>
-                  <Text style={styles.nutritionValue}>
-                    {formatNutritionValue(key, nutrition[key])}
-                    {key === 'calories' ? ' calories' : ''}
+          ) : null}
+        </View>
+
+        <Text style={styles.heading}>Ingredients</Text>
+        {recipeDetails.ingredients?.map((ingredient, index) => {
+          const isHighlighted = highlightedIngredients.some((selectedIngredient) =>
+            ingredientMatches(ingredient, selectedIngredient)
+          );
+
+          return (
+            <View
+              key={`${index}-${ingredient}`}
+              style={[
+                styles.ingredientRow,
+                isHighlighted && styles.highlightedIngredientRow,
+              ]}
+            >
+              <Text style={styles.bullet}>•</Text>
+              <Text
+                style={[
+                  styles.ingredient,
+                  isHighlighted && styles.highlightedIngredient,
+                ]}
+              >
+                {ingredient}
+              </Text>
+            </View>
+          );
+        })}
+
+        <Modal
+          visible={isNutritionVisible}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setIsNutritionVisible(false)}
+        >
+          <View style={styles.modalBackdrop}>
+            <View style={styles.nutritionModal}>
+              <View style={styles.modalHeader}>
+                <View style={styles.modalTitleBlock}>
+                  <Text style={styles.modalTitle}>Nutrition Information</Text>
+                  <Text style={styles.modalSubtitle}>
+                    Per serving
+                    {recipeDetails.servings ? ` (Serves ${formatServings(recipeDetails.servings)})` : ''}
                   </Text>
                 </View>
-              ))}
-              {nutrition?.servingSize ? (
-                <Text style={styles.servingSize}>Serving size: {nutrition.servingSize}</Text>
-              ) : null}
-            </ScrollView>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Close nutrition information"
+                  hitSlop={10}
+                  onPress={() => setIsNutritionVisible(false)}
+                >
+                  <Text style={styles.closeButton}>×</Text>
+                </Pressable>
+              </View>
+              <ScrollView>
+                {nutritionEntries.map(([key, label]) => (
+                  <View style={styles.nutritionRow} key={key}>
+                    <Text style={styles.nutritionLabel}>{label}</Text>
+                    <Text style={styles.nutritionValue}>
+                      {formatNutritionValue(key, nutrition[key])}
+                      {key === 'calories' ? ' calories' : ''}
+                    </Text>
+                  </View>
+                ))}
+                {nutrition?.servingSize ? (
+                  <Text style={styles.servingSize}>Serving size: {nutrition.servingSize}</Text>
+                ) : null}
+              </ScrollView>
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
 
-      <Text style={styles.heading}>Instructions</Text>
+        <Text style={styles.heading}>Instructions</Text>
 
-      {isLoading ? (
-        <ActivityIndicator size="large" color="#d97745" />
-      ) : (
-        <Text style={styles.instructions}>{recipeDetails.instructions}</Text>
-      )}
-    </ScrollView>
+        {isLoading ? (
+          <ActivityIndicator size="large" color="#d97745" />
+        ) : (
+          <Text style={styles.instructions}>{recipeDetails.instructions}</Text>
+        )}
+      </ScrollView>
+      <RecipeRecommendationsDrawer
+        selectedRecipe={recipeDetails}
+        recommendations={recommendations}
+        onSelectRecipe={(selectedRecipe) =>
+          navigation.push('RecipeDetails', { recipe: selectedRecipe })
+        }
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   container: {
     padding: 20,
   },

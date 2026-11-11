@@ -27,15 +27,6 @@ const categories = [
     image: require('../images/categories/dinner.png'),
   },
   {
-    name: 'Spanish',
-    category: 'latin-american',
-    image: require('../images/categories/spanish.png'),
-  },
-  {
-    name: 'Seafood',
-    image: require('../images/categories/seafood.png'),
-  },
-  {
     name: 'Dessert',
     image: require('../images/categories/dessert.png'),
   },
@@ -46,6 +37,15 @@ const categories = [
   {
     name: 'Drinks',
     image: require('../images/categories/drinks.png'),
+  },
+  {
+    name: 'Spanish',
+    category: 'latin-american',
+    image: require('../images/categories/spanish.png'),
+  },
+  {
+    name: 'Seafood',
+    image: require('../images/categories/seafood.png'),
   },
   {
     name: 'Asian',

@@ -79,12 +79,21 @@ function convertTime(time) {
 }
 
 function getCategory(recipe) {
-    // Search the recipe's own labels and title. Site-wide keywords can include
-    // unrelated links and seasonal collections, which create false categories.
+    // Retain source labels for broad cuisine/diet categories, but derive drinks
+    // and desserts from recipe-specific text. Source category labels are often
+    // broad or incorrect, and words such as "pie" can describe savory meals.
     const values = [recipe.recipeCategory, recipe.recipeCuisine, recipe.name]
         .flatMap(value => Array.isArray(value) ? value : [value])
         .filter(Boolean);
     const text = values.join(" ").toLowerCase();
+    const recipeText = [recipe.name, recipe.description]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+    const drinkPattern = /\b(?:drink|cocktail|beverage|mocktail|smoothie|milkshake|frappuccino|margarita|martini|spritz|mimosa|sangria|horchata|lemonade|latte|juice|punch|negroni|mojito|paloma|wassail|eggnog|bloody mary|jell[- ]?o shots?|shots?|cold brew|hot chocolate|hot cocoa|coffee|tea|soda|beer|mulled wine|float|shamrock shake)\b/;
+    const dessertPattern = /\b(?:dessert|cake|cookies?|brownies?|tarts?|blondies?|cupcakes?|puddings?|fudge|candy|cobblers?|crumbles?|ice cream|shortcake|donuts?|doughnuts?|truffles?|macarons?|tiramisu|churros?|baklava|flan|custard|mousse|sorbet|sundae|cheesecake|cinnamon rolls?|sticky buns?|babka|danish|cannoli|biscotti|macaroons?|meringue|snickerdoodles?|s'mores|smores|popsicles?|rice krispies|sweet potato pie|apple pie|pumpkin pie|pecan pie|key lime pie|chess pie|cream pie|lemon meringue pie|hand pies?|hot cocoa fluff|dessert dip|cookie dough dip|cake dip)\b/;
+    const nonDessertFormat = /\b(?:pancakes?|waffles?|granola|bagels?|strata|savory pie|shepherd'?s pie|tomato pie|apple pie bourbon shots|chickpeas?|dumplings?|skewers?|sandwiches?|falafel|tofu|tempeh|fries|gratin|muffins?|scones?|oatmeal|breakfast bowl|corn dogs?|pizzagna|sweet potato pudding)\b/;
+    const nonDrinkFormat = /\b(?:syrup|fluff|dip|cheesecake|cookies?|brownies?|skewers?|dumplings?|board|balls?)\b/;
     const categoryRules = [
         ["vegan", /\bvegan\b/],
         ["italian", /\bitalian\b/],
@@ -94,17 +103,22 @@ function getCategory(recipe) {
         ["german", /\bgerman\b|\bgermany\b/],
         ["european", /\beuropean\b|\bgerman\b|\bgermany\b|\bitalian\b|\bgreek\b|\bgreece\b|\bfrench\b|\bfrance\b|\bspanish\b|\bspain\b|\bbritish\b|\birish\b|\bdutch\b|\bpolish\b|\baustrian\b|\bscandinavian\b|\bswedish\b|\bnorwegian\b|\bswiss\b|\bportuguese\b/],
         ["asian", /\basian\b|chinese|japanese|korean|thai|filipino/],
-        ["drinks", /drink|cocktail|beverage|mocktail|smoothie|milkshake|frappuccino|margarita|martini|spritz|mimosa|sangria|horchata|lemonade|latte|juice|punch|negroni|mojito|paloma|wassail|eggnog|bloody mary/],
         ["autumn", /autumn|fall/],
         ["winter", /\bwinter\b/],
         ["breakfast", /breakfast|brunch/],
         ["lunch", /\blunch\b/],
         ["dinner", /\bdinner\b|main dish|main course/],
-        ["dessert", /dessert|cake|cookies?|brownies?|pies?|tarts?|bars?|blondies?|cupcakes?|puddings?|fudge|candy|cobblers?|crumbles?|ice cream|shortcake|donuts?|doughnuts?|truffles?|macarons?|tiramisu|churros?|baklava|flan|custard|mousse|sorbet|sundae|cheesecake|cinnamon rolls?|sticky buns?|babka|danish|scones?|muffins?|cannoli|biscotti|macaroons?|meringue|snickerdoodles?|s'mores|smores|popsicles?|rice krispies/],
     ];
     const categories = categoryRules
         .filter(([, pattern]) => pattern.test(text))
         .map(([category]) => category);
+
+    if (drinkPattern.test(recipeText) && !/\bcoffee cake\b/.test(recipeText) && !nonDrinkFormat.test(String(recipe.name || "").toLowerCase())) {
+        categories.push("drinks");
+    }
+    if (dessertPattern.test(recipeText) && !nonDessertFormat.test(String(recipe.name || "").toLowerCase())) {
+        categories.push("dessert");
+    }
 
     return categories.length ? categories : ["dinner"];
 }
