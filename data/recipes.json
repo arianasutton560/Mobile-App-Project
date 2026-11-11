@@ -1473,7 +1473,6 @@
       "lunch",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "1hr 25min",
     "ingredients": [
@@ -1639,7 +1638,10 @@
     "id": "1793153666021",
     "name": "E-40  Emari Stevens’s Hot Honey Chicken Wings",
     "image": "https://hips.hearstapps.com/hmg-prod/images/41e5a50e-7046-4d28-b2c2-d7ce86fd181f.jpg?crop=0.5xw:1xh;center,top&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "dinner",
+      "lunch"
+    ],
     "prepTime": "15 min",
     "cookTime": "25 min",
     "ingredients": [
@@ -4136,8 +4138,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/eggs-benedict-rolls-index-660ada44624b1.jpg?crop=0.503xw:1.00xh;0.249xw,0&resize=1200:*",
     "categories": [
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "30 min",
     "cookTime": "30 min",
@@ -4467,8 +4468,7 @@
     "categories": [
       "european",
       "breakfast",
-      "lunch",
-      "dessert"
+      "lunch"
     ],
     "prepTime": "20 min",
     "cookTime": "40 min",
@@ -4576,8 +4576,7 @@
     "name": "Homemade Pancakes",
     "image": "https://hips.hearstapps.com/hmg-prod/images/best-homemade-pancakes-index-640775a2dbad8.jpg?crop=0.503xw:1.00xh;0.235xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "25 min",
@@ -4680,8 +4679,7 @@
     "name": "Classic Homemade Waffles",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-230313-classic-waffles-3375-index-6425c67554407.jpg?crop=0.502xw:1.00xh;0.327xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "5 min",
     "cookTime": "25 min",
@@ -4954,8 +4952,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/huevos-rancheros-breakfast-bowls-ndex-67804c455aced.jpg?crop=0.503xw:1.00xh;0.250xw,0&resize=1200:*",
     "categories": [
       "latin-american",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "35 min",
@@ -5792,8 +5789,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/645c3108-c67e-432d-ae27-644da0b8dd21.jpg?crop=0.562529832936xw:1xh;center,top&resize=1200:*",
     "categories": [
       "autumn",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "15 min",
     "cookTime": "1hr 5min",
@@ -5904,8 +5900,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-pancakes-index-68d6bd7ab0c96.jpeg?crop=0.563xw:1xh;0.309xw,0xh&resize=1200:*",
     "categories": [
       "autumn",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "5 min",
     "cookTime": "15 min",
@@ -8051,7 +8046,6 @@
     "categories": [
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "5 min",
     "cookTime": "8hr 5min",
     "ingredients": [
@@ -8183,8 +8177,7 @@
     "name": "Spiked Chips Ahoy \"Egg\" Cream",
     "image": "https://hips.hearstapps.com/hmg-prod/images/spiked-chips-ahoy-egg-cream-index-670599f340c2f.jpg?crop=0.500xw:1.00xh;0.213xw,0&resize=1200:*",
     "categories": [
-      "drinks",
-      "dessert"
+      "drinks"
     ],
     "drinkType": "alcoholic",
     "prepTime": "2 min",
@@ -8551,7 +8544,6 @@
       "vegan",
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "10 min",
     "cookTime": "5hr 0min",
     "ingredients": [
@@ -9553,7 +9545,6 @@
       "autumn",
       "dessert"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "30 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -12965,7 +12956,6 @@
       "european",
       "winter"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "20 min",
     "cookTime": "40 min",
     "ingredients": [
@@ -13737,7 +13727,10 @@
     "id": "1793153691222",
     "name": "Best Tomato Soup",
     "image": "https://hips.hearstapps.com/hmg-prod/images/del069923-tomato-soup-131-rv-index-649ded2d7fcd3.jpg?crop=0.503xw:1.00xh;0.394xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "lunch",
+      "dinner"
+    ],
     "prepTime": "10 min",
     "cookTime": "40 min",
     "ingredients": [
@@ -15508,7 +15501,6 @@
     "categories": [
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "20 min",
     "cookTime": "25 min",
     "ingredients": [
@@ -15605,7 +15597,9 @@
     "id": "1793153695143",
     "name": "Football Field Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/221011-delish-seo-football-field-dip-0509-eb-1-1666065463.jpg?crop=0.681xw:1.00xh;0.279xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "10 min",
     "cookTime": "20 min",
     "ingredients": [
@@ -15654,7 +15648,9 @@
     "id": "1793153695241",
     "name": "Spinach Artichoke Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/spinach-artichoke-dip-index-656a2fbcd2255.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "10 min",
     "cookTime": "35 min",
     "ingredients": [
@@ -15859,7 +15855,6 @@
       "european",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "40 min",
     "ingredients": [
@@ -16772,7 +16767,6 @@
     "categories": [
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -17529,7 +17523,9 @@
     "id": "1793153700004",
     "name": "7-Layer Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/seven-layer-dip-index-6595ae3eb8906.jpg?crop=0.503xw:1.00xh;0.0641xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "15 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -17568,10 +17564,9 @@
     "name": "Pigs In A Blanket",
     "image": "https://hips.hearstapps.com/hmg-prod/images/pigs-in-a-blanket-index-657cac59d58db.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
     "categories": [
-      "drinks",
-      "dinner"
+      "dinner",
+      "side-dish"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -17619,10 +17614,8 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-spice-syrup1-1661194464.jpg?crop=0.671xw:1.00xh;0.166xw,0&resize=1200:*",
     "categories": [
       "vegan",
-      "drinks",
       "autumn"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "5 min",
     "cookTime": "35 min",
     "ingredients": [
@@ -18034,7 +18027,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/apple-pie-bourbon-shots-index-654e906810f20.jpg?crop=0.502xw:1.00xh;0.216xw,0&resize=1200:*",
     "categories": [
       "autumn",
-      "dessert"
+      "drinks"
     ],
     "drinkType": "alcoholic",
     "prepTime": "0 min",
@@ -18191,8 +18184,7 @@
     "categories": [
       "european",
       "drinks",
-      "autumn",
-      "dessert"
+      "autumn"
     ],
     "drinkType": "alcoholic",
     "prepTime": "5 min",
@@ -18320,7 +18312,6 @@
     "categories": [
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "5 min",
     "cookTime": "8hr 5min",
     "ingredients": [
@@ -18428,8 +18419,7 @@
     "categories": [
       "european",
       "drinks",
-      "autumn",
-      "dessert"
+      "autumn"
     ],
     "drinkType": "alcoholic",
     "prepTime": "5 min",
@@ -20007,8 +19997,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/del099923-shepherds-pie-0734-eb-hi-res-index-65247dfb3fd78.jpg?crop=0.500xw:0.997xh;0.0293xw,0&resize=1200:*",
     "categories": [
       "european",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "20 min",
     "cookTime": "1hr 40min",
@@ -22194,8 +22183,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/del069924-scones-web-848-jg-index-667b06569cb4f.jpg?crop=0.502xw:1.00xh;0.272xw,0&resize=1200:*",
     "categories": [
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "5 min",
     "cookTime": "50 min",
@@ -22459,8 +22447,7 @@
     "name": "Pumpkin Pie Spice",
     "image": "https://hips.hearstapps.com/hmg-prod/images/5c0ef8d4-1d3f-49a4-a09a-6ab3cc12c395.jpg?crop=0.562xw:1xh;0.236xw,0xh&resize=1200:*",
     "categories": [
-      "autumn",
-      "dessert"
+      "autumn"
     ],
     "prepTime": "5 min",
     "cookTime": "0 min",
@@ -23367,7 +23354,6 @@
       "autumn",
       "dessert"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "50 min",
     "ingredients": [
@@ -23935,8 +23921,7 @@
     "name": "Apple Pie Filling",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-190619-apple-pie-filling-018-landscape-pf-1561754469.jpg?crop=0.669xw:1.00xh;0.114xw,0&resize=1200:*",
     "categories": [
-      "vegan",
-      "dessert"
+      "vegan"
     ],
     "prepTime": "10 min",
     "cookTime": "10 min",
@@ -25429,8 +25414,7 @@
       "autumn",
       "breakfast",
       "lunch",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "20 min",
     "cookTime": "3hr 30min",
@@ -26214,8 +26198,7 @@
     "categories": [
       "side-dish",
       "european",
-      "autumn",
-      "dessert"
+      "autumn"
     ],
     "prepTime": "25 min",
     "cookTime": "1hr 5min",
@@ -28172,7 +28155,6 @@
       "italian",
       "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "30 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -28224,7 +28206,6 @@
       "breakfast",
       "dinner"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "10 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -28274,9 +28255,8 @@
     "name": "Hot Cocoa Fluff",
     "image": "https://hips.hearstapps.com/hmg-prod/images/hot-cocoa-dip-index-67005e50d1fe7.jpg?crop=0.503xw:1.00xh;0.339xw,0&resize=1200:*",
     "categories": [
-      "side-dish",
       "winter",
-      "drinks"
+      "dessert"
     ],
     "prepTime": "5 min",
     "cookTime": "5 min",
@@ -28839,7 +28819,6 @@
       "european",
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "10 min",
     "cookTime": "1hr 5min",
     "ingredients": [
@@ -29226,8 +29205,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/challah-index-64f7539505e78.jpg?crop=0.503xw:1.00xh;0.171xw,0&resize=1200:*",
     "categories": [
       "side-dish",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "5hr 20min",
@@ -30365,8 +30343,9 @@
     "id": "1793153740280",
     "name": "Whipped Brie",
     "image": "https://hips.hearstapps.com/hmg-prod/images/whipped-brie-socialindex-web-005-mg-del109925-691ca4eb8ebc6.jpg?crop=0.503xw:1.00xh;0.249xw,0&resize=1200:*",
-    "categories": [],
-    "drinkType": "non-alcoholic",
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "5 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -30393,8 +30372,9 @@
     "id": "1793153740442",
     "name": "Pretzel Pigs In A Blanket",
     "image": "https://hips.hearstapps.com/hmg-prod/images/pretzel-pigs-in-a-blanket-socialindex-web-0035-lp-del079925-68b9ef5badcc0.jpg?crop=0.502xw:1.00xh;0.242xw,0&resize=1200:*",
-    "categories": [],
-    "drinkType": "non-alcoholic",
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "10 min",
     "cookTime": "20 min",
     "ingredients": [
@@ -30491,9 +30471,8 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/del119924-smashdumplings-web-025-lp-index-6751bb093c790.jpg?crop=0.502xw:1.00xh;0.194xw,0&resize=1200:*",
     "categories": [
       "asian",
-      "drinks"
+      "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "40 min",
     "ingredients": [
@@ -30587,7 +30566,6 @@
     "categories": [
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "5 min",
     "cookTime": "55 min",
     "ingredients": [
@@ -30631,7 +30609,6 @@
     "categories": [
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "55 min",
     "ingredients": [
@@ -30679,7 +30656,6 @@
     "categories": [
       "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -30735,7 +30711,6 @@
       "european",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -31318,8 +31293,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/marry-me-chickpeas-index-67d1a39f1833f.jpeg?crop=0.502xw:1.00xh;0.139xw,0&resize=1200:*",
     "categories": [
       "european",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "10 min",
@@ -32009,7 +31983,9 @@
     "id": "1793153747235",
     "name": "Fried Buffalo Artichoke Hearts",
     "image": "https://hips.hearstapps.com/hmg-prod/images/ried-buffalo-artichoke-hearts-1671720344.jpeg?crop=0.542xw:0.813xh;0.293xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "10 min",
     "cookTime": "25 min",
     "ingredients": [
@@ -32083,8 +32059,9 @@
     "id": "1793153747610",
     "name": "Brie Crisps",
     "image": "https://hips.hearstapps.com/hmg-prod/images/brie-crisps-index-695e8b220a5ff.jpg?crop=0.565xw:1.00xh;0.134xw,0&resize=1200:*",
-    "categories": [],
-    "drinkType": "non-alcoholic",
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "3 min",
     "cookTime": "2 min",
     "ingredients": [
@@ -32124,7 +32101,6 @@
     "categories": [
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "20 min",
     "ingredients": [
@@ -33096,12 +33072,10 @@
     "name": "Bourbon Balls",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-220909-bourbon-balls-003-ab-web-1-1663592190.jpg?crop=0.585xw:0.877xh;0.147xw,0.0240xh&resize=1200:*",
     "categories": [
-      "drinks",
       "autumn",
       "dinner",
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "20 min",
     "cookTime": "2hr 10min",
     "ingredients": [
@@ -34447,8 +34421,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/pastrami-matzo-kugel-1-1676325999.jpg?crop=0.737xw:1.00xh;0.255xw,0&resize=1200:*",
     "categories": [
       "side-dish",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "10 min",
     "cookTime": "2hr 0min",
@@ -34506,8 +34479,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-230131-matzo-granola-029rl-1-square-1676072885.jpg?crop=0.829xw:0.829xh;0,0.171xh&resize=1200:*",
     "categories": [
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "40 min",
@@ -34874,7 +34846,8 @@
     "name": "Homemade Matzo",
     "image": "https://hips.hearstapps.com/hmg-prod/images/slightly-kosher-matzah3-1616182768.jpg?crop=0.564xw:1.00xh;0.372xw,0&resize=1200:*",
     "categories": [
-      "dessert"
+      "side-dish",
+      "vegan"
     ],
     "prepTime": "5 min",
     "cookTime": "13 min",
@@ -36098,8 +36071,7 @@
     "categories": [
       "italian",
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "20 min",
     "cookTime": "1hr 0min",
@@ -36844,7 +36816,6 @@
       "latin-american",
       "breakfast"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "5 min",
     "cookTime": "5 min",
     "ingredients": [
@@ -37668,8 +37639,7 @@
     "categories": [
       "side-dish",
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "15 min",
     "cookTime": "45 min",
@@ -37815,8 +37785,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/irish-soda-bread-index-65cfd941c7c81.jpg?crop=0.502xw:1.00xh;0.309xw,0&resize=1200:*",
     "categories": [
       "side-dish",
-      "european",
-      "dessert"
+      "european"
     ],
     "prepTime": "10 min",
     "cookTime": "1hr 0min",
@@ -37956,8 +37925,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/boxty-index-67d34bcc0f760.jpg?crop=0.565xw:1.00xh;0.221xw,0&resize=1200:*",
     "categories": [
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "5 min",
     "cookTime": "1hr 20min",
@@ -38276,9 +38244,8 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/del029925-shamrockuterieboard-web-0062-lp-index-67c1e5cc7f857.jpg?crop=0.503xw:1.00xh;0.249xw,0&resize=1200:*",
     "categories": [
       "european",
-      "drinks"
+      "side-dish"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "5 min",
     "ingredients": [
@@ -39778,7 +39745,7 @@
     "name": "Espresso Martini Cheesecake",
     "image": "https://hips.hearstapps.com/hmg-prod/images/espressomartinicheesecake-index-65985f339d7ca.jpg?crop=0.502xw:1.00xh;0.178xw,0&resize=1200:*",
     "categories": [
-      "drinks"
+      "dessert"
     ],
     "prepTime": "20 min",
     "cookTime": "7hr 40min",
@@ -42466,8 +42433,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/del069924-pestozucchiniroses-web-0176-bjg-index-6681faa2d88f9.jpg?crop=0.502xw:1.00xh;0.205xw,0&resize=1200:*",
     "categories": [
       "italian",
-      "european",
-      "dessert"
+      "european"
     ],
     "prepTime": "5 min",
     "cookTime": "1hr 40min",
@@ -42553,7 +42519,7 @@
     "name": "Mini Corn Dogs",
     "image": "https://hips.hearstapps.com/hmg-prod/images/corn-dog-pigs-in-a-blanket-socialindex-web-0064-lp-del079925-68926f733e61f.jpg?crop=0.502xw:1.00xh;0.308xw,0&resize=1200:*",
     "categories": [
-      "dessert"
+      "side-dish"
     ],
     "prepTime": "20 min",
     "cookTime": "20 min",
@@ -42679,7 +42645,10 @@
     "id": "1793153791596",
     "name": "Bacon-Wrapped Hot Dogs",
     "image": "https://hips.hearstapps.com/hmg-prod/images/bacon-wrapped-hot-dogs-socialindex-web-517-rv-del069925-687e88c6183b1.jpg?crop=0.502xw:1.00xh;0.266xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "lunch",
+      "dinner"
+    ],
     "prepTime": "10 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -43776,11 +43745,9 @@
     "name": "Grilled Watermelon",
     "image": "https://hips.hearstapps.com/hmg-prod/images/ce1a4b24-0d88-485c-a94a-b1a71a11f73f.jpg?crop=0.49983338887xw:1xh;center,top&resize=1200:*",
     "categories": [
-      "drinks",
       "dinner",
-      "dessert"
+      "side-dish"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -44128,7 +44095,6 @@
       "breakfast",
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "25 min",
     "cookTime": "5hr 15min",
     "ingredients": [
@@ -45498,7 +45464,6 @@
     "categories": [
       "dessert"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "1hr 0min",
     "ingredients": [
@@ -45642,7 +45607,6 @@
     "categories": [
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "5 min",
     "cookTime": "4hr 25min",
     "ingredients": [
@@ -46587,8 +46551,7 @@
     "name": "Blueberry Cornbread",
     "image": "https://hips.hearstapps.com/hmg-prod/images/220615-delish-seo-02-cast-iron-blueberry-cornbread-horizontal-v4-1721-eb-1656350582.jpg?crop=0.686xw:1.00xh;0.160xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "30 min",
@@ -47359,7 +47322,9 @@
     "id": "1793153814049",
     "name": "Spicy Mango Whipped Goat Cheese",
     "image": "https://hips.hearstapps.com/hmg-prod/images/del049924-spicy-mango-whipped-goat-cheese-web-069-rl-hi-res-index-66296a3815577.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "5 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -47838,7 +47803,9 @@
     "id": "1793153816134",
     "name": "7-Layer Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/seven-layer-dip-index-6595ae3eb8906.jpg?crop=0.503xw:1.00xh;0.0641xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "15 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -48258,8 +48225,7 @@
     "name": "Rocket Jell-O Shots",
     "image": "https://hips.hearstapps.com/hmg-prod/images/rocket-jello-shots-index-64874f4cbcbac.jpg?crop=0.502xw:1.00xh;0.246xw,0&resize=1200:*",
     "categories": [
-      "drinks",
-      "dessert"
+      "drinks"
     ],
     "drinkType": "alcoholic",
     "prepTime": "20 min",
@@ -48687,10 +48653,8 @@
     "name": "Boozy Cherry Bombs",
     "image": "https://hips.hearstapps.com/hmg-prod/images/20191031-boozy-cherry-bombs-delish-ehg-2754-1583760916.jpg?crop=0.668xw:1.00xh;0.224xw,0&resize=1200:*",
     "categories": [
-      "drinks",
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "10 min",
     "cookTime": "1hr 35min",
     "ingredients": [
@@ -49126,7 +49090,6 @@
       "italian",
       "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "20 min",
     "cookTime": "25 min",
     "ingredients": [
@@ -49212,7 +49175,6 @@
     "categories": [
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "35 min",
     "ingredients": [
@@ -49335,7 +49297,6 @@
     "categories": [
       "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "30 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -49754,8 +49715,7 @@
     "name": "Frappuccino Pancakes",
     "image": "https://hips.hearstapps.com/hmg-prod/images/coffee-pancakes-horizontal-1-jpg-1623430186.jpg?crop=0.737xw:0.985xh;0.135xw,0.0150xh&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "20 min",
     "cookTime": "30 min",
@@ -49958,7 +49918,9 @@
     "id": "1793153825729",
     "name": "Baked Feta And Blueberries",
     "image": "https://hips.hearstapps.com/hmg-prod/images/baked-feta-and-blueberries-8-1656097125.jpeg?crop=0.684xw:1.00xh;0.155xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "5 min",
     "cookTime": "40 min",
     "ingredients": [
@@ -50004,7 +49966,6 @@
       "side-dish",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "1hr 0min",
     "ingredients": [
@@ -50106,10 +50067,8 @@
     "categories": [
       "italian",
       "side-dish",
-      "european",
-      "drinks"
+      "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "5 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -52921,8 +52880,7 @@
     "categories": [
       "side-dish",
       "breakfast",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "10 min",
     "cookTime": "2hr 50min",
@@ -53441,8 +53399,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/one-pan-creamy-harissa-chickpeas-socialindex-web-045-lp-del029926-6994d8d4be96b.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
     "categories": [
       "vegan",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "10 min",
     "cookTime": "20 min",
@@ -53818,8 +53775,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/air-fryer-oat-flour-pancakes1-1653485147.jpg?crop=0.716xw:1.00xh;0.144xw,0&resize=1200:*",
     "categories": [
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "5 min",
     "cookTime": "15 min",
@@ -54953,7 +54909,9 @@
     "id": "1793153844749",
     "name": "Nashville Hot Chicken Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/nashville-hot-chicken-dip-2-1673041469.jpg?crop=0.668xw:1.00xh;0.162xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "20 min",
     "cookTime": "40 min",
     "ingredients": [
@@ -56146,7 +56104,9 @@
     "id": "1793153849636",
     "name": "Chicken Noodle Soup Casserole",
     "image": "https://hips.hearstapps.com/hmg-prod/images/8a47e1cd-f6e7-4e48-98de-467bee845b7d.jpg?crop=0.500163185379xw:1xh;center,top&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "dinner"
+    ],
     "prepTime": "10 min",
     "cookTime": "45 min",
     "ingredients": [
@@ -56403,8 +56363,7 @@
     "name": "Copycat Acai Playa Bowl",
     "image": "https://hips.hearstapps.com/hmg-prod/images/acai-playa-bowl-socialindex-web-543-rv-del029925-682cb51b456e3.jpg?crop=0.502xw:1.00xh;0.494xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "5 min",
     "cookTime": "5 min",
@@ -58648,8 +58607,7 @@
     "categories": [
       "side-dish",
       "european",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "35 min",
@@ -58893,7 +58851,6 @@
     "categories": [
       "dessert"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "5 min",
     "cookTime": "30 min",
     "ingredients": [
@@ -58941,7 +58898,6 @@
       "european",
       "dessert"
     ],
-    "drinkType": "alcoholic",
     "prepTime": "15 min",
     "cookTime": "1hr 45min",
     "ingredients": [
@@ -60625,8 +60581,7 @@
       "italian",
       "european",
       "lunch",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "20 min",
     "cookTime": "1hr 30min",
@@ -60956,8 +60911,7 @@
     "categories": [
       "vegan",
       "asian",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "1hr 0min",
@@ -62111,8 +62065,7 @@
     "categories": [
       "vegan",
       "lunch",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "15 min",
     "cookTime": "1hr 5min",
@@ -62442,8 +62395,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-210225-bbq-tempeh-sandwich-001-ab-1624472287.jpg?crop=0.6668444444444445xw:1xh;center,top&resize=1200:*",
     "categories": [
       "vegan",
-      "lunch",
-      "dessert"
+      "lunch"
     ],
     "prepTime": "10 min",
     "cookTime": "1hr 0min",
@@ -62502,8 +62454,7 @@
     "categories": [
       "vegan",
       "lunch",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "20 min",
     "cookTime": "40 min",
@@ -62822,10 +62773,8 @@
     "name": "Chocolate Pom Poms",
     "image": "https://hips.hearstapps.com/hmg-prod/images/chocolate-pom-poms-socialindex-web-707-rv-del069925-6938542221c33.jpg?crop=0.503xw:1.00xh;0.249xw,0&resize=1200:*",
     "categories": [
-      "drinks",
       "dessert"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "5 min",
     "cookTime": "20 min",
     "ingredients": [
@@ -63340,8 +63289,7 @@
       "vegan",
       "side-dish",
       "european",
-      "autumn",
-      "dessert"
+      "autumn"
     ],
     "prepTime": "10 min",
     "cookTime": "50 min",
@@ -63448,7 +63396,6 @@
     "categories": [
       "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -64967,7 +64914,9 @@
     "id": "1793153884995",
     "name": "Bacon Guac Bombs",
     "image": "https://hips.hearstapps.com/hmg-prod/images/221107-delish-seo-bacon-guac-bombs-1783-eb-1668643454.jpg?crop=0.683xw:1.00xh;0.160xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "10 min",
     "cookTime": "35 min",
     "ingredients": [
@@ -65015,11 +64964,9 @@
     "name": "BLT Egglets",
     "image": "https://hips.hearstapps.com/hmg-prod/images/blt-egglets1-1657202805.jpg?crop=0.668xw:1.00xh;0.188xw,0&resize=1200:*",
     "categories": [
-      "drinks",
       "breakfast",
       "lunch"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "25 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -65201,8 +65148,7 @@
     "name": "Everything Keto Bagels",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-keto-bagels-horizontal-2-1543886532.jpg?crop=0.668xw:1.00xh;0.333xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "15 min",
     "cookTime": "20 min",
@@ -65694,8 +65640,7 @@
     "name": "Perfect Paleo Granola",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-paleo-granola-053-1544143399.jpg?crop=0.833xw:0.833xh;0.0785xw,0.0144xh&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "25 min",
@@ -65745,8 +65690,7 @@
     "name": "Best Paleo Pancakes",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-paleo-pancakes-032-1543599634.jpg?crop=0.505xw:1.00xh;0.191xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "15 min",
     "cookTime": "15 min",
@@ -65844,8 +65788,7 @@
     "name": "Best-Ever Paleo Bread",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-paleo-bread-059-2-1543599927.jpg?crop=0.668xw:1.00xh;0.154xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "35 min",
@@ -66014,8 +65957,7 @@
     "name": "Almond Flour Keto Waffles",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-keto-waffle-horizontal-034-1543784709.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "10 min",
@@ -66774,7 +66716,9 @@
     "id": "1793153892302",
     "name": "Crispy Hot Honey Cauliflower Nuggets",
     "image": "https://hips.hearstapps.com/hmg-prod/images/del059924-crispy-hot-honey-cauliflower-nuggets-web-418-rv-hires-index-666235dddd513.jpg?crop=0.502xw:1.00xh;0.365xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "10 min",
     "cookTime": "50 min",
     "ingredients": [
@@ -67104,8 +67048,7 @@
       "autumn",
       "breakfast",
       "lunch",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "10 min",
     "cookTime": "35 min",
@@ -67935,7 +67878,6 @@
       "european",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "35 min",
     "ingredients": [
@@ -68543,7 +68485,6 @@
       "european",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "5 min",
     "ingredients": [
@@ -68637,7 +68578,6 @@
       "side-dish",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "2hr 15min",
     "ingredients": [
@@ -68688,7 +68628,9 @@
     "id": "1793153900712",
     "name": "Ro-Tel Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/rotel-dip-horizontal-1674070291.jpg?crop=0.670xw:1.00xh;0.103xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "5 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -68940,7 +68882,9 @@
     "id": "1793153901646",
     "name": "Cinnamon Pretzel Bites",
     "image": "https://hips.hearstapps.com/hmg-prod/images/cinnamon-pretzel-bites-index-6626acfa9b485.jpg?crop=0.500xw:1.00xh;0.300xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "dessert"
+    ],
     "prepTime": "10 min",
     "cookTime": "1hr 50min",
     "ingredients": [
@@ -69248,7 +69192,6 @@
       "european",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "1hr 10min",
     "ingredients": [
@@ -69291,7 +69234,6 @@
     "categories": [
       "european"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "1hr 0min",
     "ingredients": [
@@ -69377,11 +69319,9 @@
       "italian",
       "side-dish",
       "european",
-      "drinks",
       "lunch",
       "dinner"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "15 min",
     "cookTime": "35 min",
     "ingredients": [
@@ -69435,7 +69375,6 @@
       "european",
       "breakfast"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "20 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -69649,8 +69588,9 @@
     "id": "1793153905242",
     "name": "Million-Dollar Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/million-dollar-dip-socialindex-68bb131b8e8b2.jpg?crop=0.502xw:1.00xh;0.205xw,0&resize=1200:*",
-    "categories": [],
-    "drinkType": "non-alcoholic",
+    "categories": [
+      "appetizer"
+    ],
     "prepTime": "10 min",
     "cookTime": "15 min",
     "ingredients": [
@@ -69695,8 +69635,10 @@
     "id": "1793153905432",
     "name": "Jalapeño Popper-Stuffed Mushrooms",
     "image": "https://hips.hearstapps.com/hmg-prod/images/jalapeno-popper-stuffed-mushrooms-socialindex-web-1251-jg-del099925-68f009cc2a8fc.jpg?crop=0.503xw:1.00xh;0.195xw,0&resize=1200:*",
-    "categories": [],
-    "drinkType": "non-alcoholic",
+    "categories": [
+      "appetizer",
+      "latin-american"
+    ],
     "prepTime": "0 min",
     "cookTime": "25 min",
     "ingredients": [
@@ -69786,7 +69728,9 @@
     "id": "1793153906075",
     "name": "Chicken Noodle Soup Casserole",
     "image": "https://hips.hearstapps.com/hmg-prod/images/8a47e1cd-f6e7-4e48-98de-467bee845b7d.jpg?crop=0.500163185379xw:1xh;center,top&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "dinner"
+    ],
     "prepTime": "10 min",
     "cookTime": "45 min",
     "ingredients": [
@@ -70159,8 +70103,7 @@
     "name": "Perfect Fruit Scones",
     "image": "https://hips.hearstapps.com/hmg-prod/images/190314-fruit-scones-horizontal-1-1553117837.png?crop=0.668xw:1.00xh;0.155xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "30 min",
@@ -70204,8 +70147,7 @@
     "categories": [
       "side-dish",
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "1hr 0min",
     "cookTime": "18hr 0min",
@@ -70297,8 +70239,7 @@
     "name": "Banana Muffins",
     "image": "https://hips.hearstapps.com/hmg-prod/images/banana-muffins-index-657ce3f94f021.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "20 min",
     "cookTime": "50 min",
@@ -70387,8 +70328,7 @@
     "name": "Blueberry Muffins",
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-23-03-29-blueberrymuffins-ls-012-index-64358f5ed4f79.jpg?crop=0.502xw:1.00xh;0.239xw,0&resize=1200:*",
     "categories": [
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "10 min",
     "cookTime": "35 min",
@@ -70621,7 +70561,9 @@
     "id": "1793153909330",
     "name": "Spiral Ham",
     "image": "https://hips.hearstapps.com/hmg-prod/images/spiral-ham-horizontal-640f9dfccd82a.jpg?crop=0.670xw:1.00xh;0.157xw,0&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "dinner"
+    ],
     "prepTime": "10 min",
     "cookTime": "2hr 5min",
     "ingredients": [
@@ -71025,8 +70967,7 @@
     "name": "Sweet Potato Pudding",
     "image": "https://hips.hearstapps.com/hmg-prod/images/sweet-potato-pudding1-1664985659.jpg?crop=0.6793333333333333xw:1xh;center,top&resize=1200:*",
     "categories": [
-      "autumn",
-      "dessert"
+      "autumn"
     ],
     "prepTime": "15 min",
     "cookTime": "2hr 25min",
@@ -71127,8 +71068,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-202210-sweetpotatogratin-186-1666972220.jpg?crop=0.668xw:1.00xh;0.0721xw,0&resize=1200:*",
     "categories": [
       "side-dish",
-      "european",
-      "dessert"
+      "european"
     ],
     "prepTime": "30 min",
     "cookTime": "1hr 30min",
@@ -71453,8 +71393,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/delish-091621-apple-cinnamon-muffins-02-jg-1632846304.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=1200:*",
     "categories": [
       "autumn",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "15 min",
     "cookTime": "45 min",
@@ -71957,8 +71896,7 @@
     "categories": [
       "autumn",
       "lunch",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "20 min",
     "cookTime": "40 min",
@@ -72642,8 +72580,7 @@
     "categories": [
       "side-dish",
       "european",
-      "dinner",
-      "dessert"
+      "dinner"
     ],
     "prepTime": "30 min",
     "cookTime": "30 min",
@@ -72774,7 +72711,6 @@
     "categories": [
       "dessert"
     ],
-    "drinkType": "non-alcoholic",
     "prepTime": "10 min",
     "cookTime": "1hr 50min",
     "ingredients": [
@@ -73317,8 +73253,9 @@
     "id": "1793153920074",
     "name": "Spring Pea & Feta Dip",
     "image": "https://hips.hearstapps.com/hmg-prod/images/del049924-spring-pea-feta-dip-web-2677-jg-hi-res-1-index-662c2d72197e5.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*",
-    "categories": [],
-    "drinkType": "non-alcoholic",
+    "categories": [
+      "side-dish"
+    ],
     "prepTime": "5 min",
     "cookTime": "10 min",
     "ingredients": [
@@ -73800,8 +73737,7 @@
     "image": "https://hips.hearstapps.com/hmg-prod/images/0ab2d61c-da2f-447a-bcf8-4ea549ea3b8e.jpg?crop=0.502xw:1.00xh;0.212xw,0&resize=1200:*",
     "categories": [
       "european",
-      "breakfast",
-      "dessert"
+      "breakfast"
     ],
     "prepTime": "15 min",
     "cookTime": "1hr 10min",
@@ -73956,7 +73892,9 @@
     "id": "1793153922486",
     "name": "No-Bake Strawberries  Cream Delight",
     "image": "https://hips.hearstapps.com/hmg-prod/images/da5585c7-3616-4b72-8a0b-3e89a53d97c8.jpg?crop=0.5xw:1xh;0.432xw,0xh&resize=1200:*",
-    "categories": [],
+    "categories": [
+      "dessert"
+    ],
     "prepTime": "10 min",
     "cookTime": "2hr 30min",
     "ingredients": [
@@ -75144,8 +75082,7 @@
     "name": "Dalgona Whipped Chocolate",
     "image": "https://hips.hearstapps.com/hmg-prod/images/dalgona-whipped-chocolate-index-662feb57a2989.jpg?crop=0.502xw:1.00xh;0.208xw,0&resize=1200:*",
     "categories": [
-      "drinks",
-      "dessert"
+      "drinks"
     ],
     "drinkType": "non-alcoholic",
     "prepTime": "2 min",

@@ -6,9 +6,8 @@ Help someone viewing a recipe find a side dish or drink that goes well with it, 
 
 ## Goals
 
-- Add a vertical Recommendations button fixed to the right edge of Recipe Details.
-- Open a dismissible drawer that slides in from the right.
-- Show relevant recommendation groups with up to three tappable recipe cards per group.
+- Show a right-edge Recommendations tab that opens a compact horizontal strip of tappable mini recipe cards.
+- Keep all eligible recommendations in one general row without labels separating dinners, sides, drinks, or desserts.
 - For desserts, recommend Dinners and Drinks. For lunch or dinner recipes, recommend Desserts, Sides, and Drinks.
 - For side-dish recipes, recommend Dinners and Drinks.
 - For drink recipes, recommend Dinners, Lunches, and Sides.
@@ -34,12 +33,11 @@ Help someone viewing a recipe find a side dish or drink that goes well with it, 
 
 ## Interaction and layout
 
-- Keep a narrow vertical Recommendations tab anchored to the right edge while the recipe page scrolls.
-- Pressing the tab opens a right-side drawer over a dimmed backdrop. The drawer has a close control and can also close by tapping the backdrop.
-- The drawer content scrolls independently and shows groups allowed for the selected recipe type.
-- The selected recipe's image and title appear above the recommendation groups for context.
-- Each card shows the recipe image and name. Selecting one closes the drawer and navigates to that recipe's details.
-- Use a responsive drawer width: most of the viewport on phones and a capped panel width on larger screens.
+- Keep a narrow vertical tab fixed to the right edge of Recipe Details. Tapping it opens or closes a compact recommendation strip near the bottom of the screen.
+- Keep the open strip short so it does not cover the full screen; the cards scroll horizontally within it.
+- Show each suggestion as a miniature image-and-title card in a horizontally scrolling row.
+- Merge eligible categories into one list and remove duplicate recipe IDs; do not show category labels.
+- Selecting a card opens that recipe's details.
 
 ## Ranking behavior
 
@@ -51,6 +49,6 @@ Help someone viewing a recipe find a side dish or drink that goes well with it, 
 
 ## Constraints and remaining choices
 
-- Recipe cards and recipe navigation already exist; reuse their visual language and the current recipe formatter.
+- Recipe navigation and formatted recipe cards already exist; reuse the current recipe formatter.
 - The collection contains side-dish and drinks categories, but individual recipes may have incomplete metadata; fallback ranking must handle this.
-- Use React Native animation and modal primitives already available in the project; do not add a dependency.
+- Use existing React Native scrolling and pressable components; do not add a dependency.

@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
-import RecipeRecommendationsDrawer from '../components/RecipeRecommendationsDrawer';
+import RecipeRecommendationsStrip from '../components/RecipeRecommendationsStrip';
 import { ingredientMatches } from '../data/ingredientMatching';
 import { getRecipeRecommendations } from '../data/recipeRecommendations';
 import { getRecipeDetails, getRecipes } from '../data/recipes';
@@ -248,8 +248,7 @@ export default function RecipeDetails({ route, navigation }) {
           <Text style={styles.instructions}>{recipeDetails.instructions}</Text>
         )}
       </ScrollView>
-      <RecipeRecommendationsDrawer
-        selectedRecipe={recipeDetails}
+      <RecipeRecommendationsStrip
         recommendations={recommendations}
         onSelectRecipe={(selectedRecipe) =>
           navigation.push('RecipeDetails', { recipe: selectedRecipe })

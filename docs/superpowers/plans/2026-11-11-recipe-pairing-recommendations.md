@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a right-edge vertical Recommendations tab that opens a right-sliding drawer with recipe suggestions allowed by the selected recipe's category.
+**Goal:** Keep recommendations collapsed behind a right-edge tab that opens a compact horizontal strip of mini recipe cards.
 
-**Architecture:** Add a pure ranking helper that accepts the formatted recipe collection and current recipe ID, returning up to three candidates per allowed group. Desserts and side dishes allow dinner and drink candidates; lunch or dinner recipes allow dessert, side, and drink candidates; other recipes retain side and drink candidates. Recipe Details loads that list and owns card navigation. A focused drawer component renders the fixed vertical tab, dimmed backdrop, animated panel, and tappable recipe cards.
+**Architecture:** Add a pure ranking helper that accepts the formatted recipe collection and current recipe ID, returning up to three candidates per allowed category. Recipe Details loads that list. A fixed tab toggles a short, bottom-anchored horizontal strip that merges eligible categories and removes duplicate IDs; selecting a card navigates to its details.
 
 **Tech Stack:** React Native, Expo, existing recipe JSON and React Navigation.
 
@@ -28,8 +28,8 @@
 ## File Map
 
 - Create `data/recipeRecommendations.js`: category and ingredient scoring plus top candidate selection.
-- Create `components/RecipeRecommendationsDrawer.js`: fixed tab, animated right drawer, backdrop, and recommendation cards.
-- Modify `screens/RecipeDetails.js`: load recommendation data, wrap screen content for the fixed tab, and navigate to selected recipe details.
+- Create `components/RecipeRecommendationsStrip.js`: fixed right-edge tab and compact horizontally scrolling mini recipe cards.
+- Modify `screens/RecipeDetails.js`: position the tab and open strip over the details page without a full-screen modal.
 
 ## Tasks
 
@@ -49,12 +49,11 @@
 **Files:**
 - Create: `components/RecipeRecommendationsDrawer.js`
 
-- [x] Render a narrow vertical Recommendations tab fixed on the right edge.
-- [x] Use React Native Modal plus Animated translateX for a panel that slides in from the right over a dim backdrop; size it to 88% of viewport width, capped at 420 px.
-- [x] Add a close button and backdrop dismissal; make drawer contents independently scrollable.
-- [x] Render only non-empty allowed recommendation groups, with up to three image-and-title cards each.
-- [x] Show the selected recipe image and title above the recommendation groups.
-- [x] Animate closed before invoking the selected-recipe callback.
+- [x] Render a right-edge tab that opens and closes one compact horizontal recommendation strip.
+- [x] Render all eligible recommendations in that strip with no category headings.
+- [x] Deduplicate candidate recipes by ID and show miniature image-and-title cards.
+- [x] Keep the opened strip short and separate from the full-screen drawer/modal flow.
+- [x] Navigate to a selected recommendation's recipe details.
 
 ### Task 3: Connect recommendations to Recipe Details
 
