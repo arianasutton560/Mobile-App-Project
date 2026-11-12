@@ -1,0 +1,3 @@
+# Install Argos Translate and its English-to-Spanish model using
+# scripts/generate-spanish-translations.py; this file adds speech recognition.
+faster-whisper>=1.1,<2

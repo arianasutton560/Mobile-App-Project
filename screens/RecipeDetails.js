@@ -9,12 +9,13 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useVideoPlayer, VideoView } from 'expo-video';
 import RecipeRecommendationsStrip from '../components/RecipeRecommendationsStrip';
+import RecipeVideoPlayer from '../components/RecipeVideoPlayer';
 import { useLanguage } from '../context/LanguageContext';
 import { ingredientMatches } from '../data/ingredientMatching';
 import { getRecipeRecommendations } from '../data/recipeRecommendations';
 import { getRecipeDetails, getRecipes, localizeRecipe } from '../data/recipes';
+import { getPlayableVideo } from '../data/recipeVideo';
 
 const nutritionRows = [
   'calories',
@@ -45,41 +46,6 @@ function formatServings(servings) {
     .replace(/\s*(?:servings?|porciones?)\s*$/i, '')
     .replace(/\s*serving\(s\)\s*$/i, '')
     .trim();
-}
-
-function getPlayableVideo(video) {
-  if (/\.(mp4|m4v|mov|webm|m3u8|mpd)(?:$|[?#])/i.test(video.url || '')) {
-    return video.url;
-  }
-
-  // Older scraper output saved the recipe page URL. Delish's video poster URL
-  // contains the media ID needed to rebuild its direct MP4 stream URL.
-  if (/www\.delish\.com$/i.test(new URL(video.url).hostname)) {
-    const videoId = video.thumbnailUrl?.match(/\/vidthumb\/([\da-f-]{36})\//i)?.[1];
-    if (videoId) {
-      return `https://mos-streaming.hearst.io/${videoId}/video_9x16_1080p_h264_hd.mp4`;
-    }
-  }
-
-  return null;
-}
-
-function RecipeVideoPlayer({ video, title }) {
-  const player = useVideoPlayer(video.url, (videoPlayer) => {
-    videoPlayer.loop = false;
-  });
-
-  return (
-    <View style={styles.videoCard}>
-      <VideoView
-        player={player}
-        style={styles.videoPlayer}
-        contentFit="contain"
-        nativeControls
-      />
-      {title ? <Text style={styles.videoTitle}>{title}</Text> : null}
-    </View>
-  );
 }
 
 export default function RecipeDetails({ route, navigation }) {
@@ -139,6 +105,8 @@ export default function RecipeDetails({ route, navigation }) {
               <RecipeVideoPlayer
                 key={`${video.url}-${index}`}
                 video={video}
+                language={language}
+                t={t}
                 title={video.title || (playableVideos.length > 1
                   ? t('recipe.videoNumber', { number: index + 1 })
                   : t('recipe.watchVideo'))}
@@ -260,7 +228,19 @@ export default function RecipeDetails({ route, navigation }) {
         {isLoading ? (
           <ActivityIndicator size="large" color="#d97745" />
         ) : (
-          <Text style={styles.instructions}>{displayRecipe.instructions}</Text>
+          <>
+            <Text style={styles.instructions}>{displayRecipe.instructions}</Text>
+            {displayRecipe.instructions?.split(/\n\s*\n/).some((step) => step.trim()) ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('cook.action')}
+                onPress={() => navigation.navigate('CookMode', { recipe: recipeDetails })}
+                style={styles.cookButton}
+              >
+                <Text style={styles.cookButtonText}>{t('cook.action')}</Text>
+              </Pressable>
+            ) : null}
+          </>
         )}
       </ScrollView>
       <RecipeRecommendationsStrip
@@ -279,6 +259,7 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 20,
+    paddingBottom: 260,
   },
   image: {
     width: '100%',
@@ -289,25 +270,6 @@ const styles = StyleSheet.create({
     marginTop: 18,
     fontSize: 26,
     fontWeight: 'bold',
-  },
-  videoCard: {
-    marginBottom: 10,
-    overflow: 'hidden',
-    borderWidth: 4,
-    borderColor: '#4f2e1f',
-    borderRadius: 12,
-    backgroundColor: '#f8f5f2',
-  },
-  videoPlayer: {
-    width: '100%',
-    aspectRatio: 16 / 9,
-    backgroundColor: '#1f1f1f',
-  },
-  videoTitle: {
-    padding: 14,
-    color: '#4f3b31',
-    fontSize: 16,
-    fontWeight: '600',
   },
   heading: {
     marginTop: 24,
@@ -455,5 +417,18 @@ const styles = StyleSheet.create({
   instructions: {
     fontSize: 16,
     lineHeight: 24,
+  },
+  cookButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 24,
+    paddingVertical: 16,
+    borderRadius: 12,
+    backgroundColor: '#16852f',
+  },
+  cookButtonText: {
+    color: '#fff',
+    fontSize: 17,
+    fontWeight: '700',
   },
 });

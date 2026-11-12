@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import Favorites from './screens/Favorites';
 import RecipeDetails from './screens/RecipeDetails';
 import WhatCanIMake from './screens/WhatCanIMake';
+import CookMode from './screens/CookMode';
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +65,15 @@ function AppNavigation() {
             options={{
               title: language === 'es' ? 'Detalles de la receta' : 'Recipe Details',
               headerBackTitle: language === 'es' ? 'Inicio' : 'Home',
+              headerRight: () => <LanguageSettingsButton />,
+            }}
+          />
+          <Stack.Screen
+            name="CookMode"
+            component={CookMode}
+            options={{
+              title: language === 'es' ? 'Modo de cocina' : 'Cook Mode',
+              headerBackTitle: language === 'es' ? 'Receta' : 'Recipe',
               headerRight: () => <LanguageSettingsButton />,
             }}
           />

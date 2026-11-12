@@ -1,6 +1,8 @@
 # Dependencies
 node_modules/
 .translation-tools/
+.subtitle-work/
+__pycache__/
 
 # Expo generated state and exports
 .expo/
