@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     paddingVertical: 16,
     borderRadius: 12,
-    backgroundColor: '#16852f',
+    backgroundColor: '#d97745',
   },
   cookButtonText: {
     color: '#fff',
