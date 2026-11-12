@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import * as Haptics from 'expo-haptics';
+import { useAudioPlayer } from 'expo-audio';
 import { formatCountdown } from '../data/cookTimer';
 
 export default function CookTimer({ durations, stepKey, t }) {
+  const chimePlayer = useAudioPlayer(require('../assets/audio/timer-chime.wav'));
   const isFocused = useIsFocused();
   const durationKey = durations.map((duration) => duration.seconds).join(',');
   const [selection, setSelection] = useState(() => ({
@@ -33,6 +35,7 @@ export default function CookTimer({ durations, stepKey, t }) {
         setStatus('done');
         if (isFocused && AppState.currentState === 'active') {
           Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+          chimePlayer.seekTo(0).then(() => chimePlayer.play()).catch(() => {});
         }
       }
     };
@@ -47,7 +50,7 @@ export default function CookTimer({ durations, stepKey, t }) {
       clearInterval(interval);
       appStateSubscription.remove();
     };
-  }, [deadline, isFocused]);
+  }, [deadline, isFocused, chimePlayer]);
 
   useEffect(() => {
     if (deadline !== null || status === 'paused' || status === 'done') return;
