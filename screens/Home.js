@@ -65,6 +65,11 @@ const categories = [
     name: 'Winter',
     image: require('../images/categories/winter.png'),
   },
+   {
+    name: 'Cooking Appliance',
+    category: 'cooking-appliance',
+    image: require('../images/categories/cook.png'),
+  },
 ];
 
 const drinkTypes = [
@@ -72,6 +77,22 @@ const drinkTypes = [
   { id: 'alcoholic', labelKey: 'home.alcoholic' },
   { id: 'smoothie', labelKey: 'home.smoothies' },
 ];
+
+const cookTypes = [
+  { id: 'oven', labelKey: 'home.oven' },
+  { id: 'stove', labelKey: 'home.stove' },
+  { id: 'microwave', labelKey: 'home.microwave' },
+  { id: 'airfryer', labelKey: 'home.airfryer' },
+  { id: 'slowcooker', labelKey: 'home.slowcooker' },
+];
+
+const applianceSearchTerms = {
+  oven: /\b(oven|bake|bakes|baked|baking|broil|broils|broiled|broiling)\b/i,
+  stove: /\b(stove|stovetop|skillet|saucepan)\b/i,
+  microwave: /\bmicrowave\b/i,
+  airfryer: /\bair[ -]?fryer\b/i,
+  slowcooker: /\bslow[ -]?cooker|crock[ -]?pot\b/i,
+};
 
 function shuffleRecipes(recipes) {
   const shuffled = [...recipes];
@@ -89,6 +110,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedDrinkType, setSelectedDrinkType] = useState(null);
+  const [selectedCookType, setSelectedCookType] = useState(null);
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -116,11 +138,18 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesCategory =
       !selectedCategoryValue ||
+      selectedCategory === 'Cooking Appliance' ||
       recipe.categories.includes(selectedCategoryValue);
     const matchesDrinkType =
       selectedCategory !== 'Drinks' ||
       !selectedDrinkType ||
       recipe.drinkType === selectedDrinkType;
+    const matchesCookType =
+      selectedCategory !== 'Cooking Appliance' ||
+      !selectedCookType ||
+      applianceSearchTerms[selectedCookType]?.test(
+        `${recipe.title} ${recipe.instructions}`
+      );
 
     const localizedTitle = getLocalizedRecipeTitle(recipe, language);
     const matchesSearch = !normalizedSearch ||
@@ -130,7 +159,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
         ingredient.toLocaleLowerCase().includes(normalizedSearch)
       );
 
-    return matchesCategory && matchesDrinkType && matchesSearch;
+    return matchesCategory && matchesDrinkType && matchesCookType && matchesSearch;
   }).sort((firstRecipe, secondRecipe) => {
     if (!normalizedSearch) return 0;
 
@@ -147,6 +176,9 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     );
     if (category !== 'Drinks' || selectedCategory === 'Drinks') {
       setSelectedDrinkType(null);
+    }
+    if (category !== 'Cooking Appliance' || selectedCategory === 'Cooking Appliance') {
+      setSelectedCookType(null);
     }
   }
 
@@ -233,6 +265,44 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
                 );
               })}
             </View>
+          )}
+
+          {selectedCategory === 'Cooking Appliance' && (
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              style={styles.cookTypeScroll}
+              contentContainerStyle={styles.cookTypeRow}
+            >
+              {cookTypes.map((cookType) => {
+                const isSelected = selectedCookType === cookType.id;
+                return (
+                  <Pressable
+                    key={cookType.id}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: isSelected }}
+                    onPress={() =>
+                      setSelectedCookType((current) =>
+                        current === cookType.id ? null : cookType.id
+                      )
+                    }
+                    style={[
+                      styles.drinkTypeButton,
+                      isSelected && styles.selectedDrinkTypeButton,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.drinkTypeLabel,
+                        isSelected && styles.selectedDrinkTypeLabel,
+                      ]}
+                    >
+                      {t(cookType.labelKey)}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
           )}
 
           {isLoading ? (
@@ -338,9 +408,18 @@ const styles = StyleSheet.create({
   },
   drinkTypeRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     gap: 8,
     marginTop: 2,
+  },
+  cookTypeScroll: {
+    flexGrow: 0,
+    minHeight: 52,
+    marginTop: 2,
+  },
+  cookTypeRow: {
+    alignItems: 'center',
+    gap: 10,
+    paddingRight: 12,
   },
   drinkTypeButton: {
     borderWidth: 1,
