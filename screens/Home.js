@@ -125,7 +125,10 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     const normalizedSearch = searchText.trim().toLocaleLowerCase();
     const matchesSearch = !normalizedSearch ||
       localizedTitle.toLocaleLowerCase().includes(normalizedSearch) ||
-      recipe.title.toLocaleLowerCase().includes(normalizedSearch);
+      recipe.title.toLocaleLowerCase().includes(normalizedSearch) ||
+      recipe.ingredients.some((ingredient) =>
+        ingredient.toLocaleLowerCase().includes(normalizedSearch)
+      );
 
     return matchesCategory && matchesDrinkType && matchesSearch;
   });
