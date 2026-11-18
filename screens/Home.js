@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -211,7 +212,11 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
           <Text style={styles.heading}>{t('home.categories')}</Text>
 
           <View style={styles.categorySection}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={Platform.OS === 'web'}
+              persistentScrollbar={Platform.OS === 'web'}
+            >
               <View style={styles.categoryRow}>
                 {categories.map((category) => (
                   <CategoryButton
@@ -311,6 +316,8 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
             <Text style={styles.emptyText}>{t('home.loadError')}</Text>
           ) : (
             <FlatList
+              showsVerticalScrollIndicator={Platform.OS === 'web'}
+              persistentScrollbar={Platform.OS === 'web'}
               data={filteredRecipes}
               keyExtractor={(recipe) => recipe.id}
               numColumns={2}
@@ -350,7 +357,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 55,
+    paddingTop: Platform.OS === 'web' ? 10 : 55,
     paddingRight: 20,
     paddingBottom: 20,
     paddingLeft: 8,
@@ -404,7 +411,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   categorySection: {
-    height: 100,
+    height: Platform.OS === 'web' ? 135 : 100,
   },
   drinkTypeRow: {
     flexDirection: 'row',

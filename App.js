@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LanguageSettingsButton from './components/LanguageSettingsButton';
 import LanguageSettingsModal from './components/LanguageSettingsModal';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { Platform, Pressable, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Home from './screens/Home';
 import Favorites from './screens/Favorites';
 import RecipeDetails from './screens/RecipeDetails';
@@ -20,6 +22,28 @@ export default function App() {
   );
 }
 
+function WebBackButton() {
+  const navigation = useNavigation();
+
+  if (Platform.OS !== 'web') return null;
+
+  return (
+    <Pressable
+      onPress={() => navigation.goBack()}
+      accessibilityRole="button"
+      accessibilityLabel="Go back"
+      style={{
+        paddingHorizontal: 14,
+        paddingVertical: 6,
+      }}
+    >
+      <Text style={{ fontSize: 30, color: '#000' }}>
+        {'‹'}
+      </Text>
+    </Pressable>
+  );
+}
+
 function AppNavigation() {
   const [favoriteIds, setFavoriteIds] = useState([]);
   const { language } = useLanguage();
@@ -33,7 +57,16 @@ function AppNavigation() {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+              headerBackVisible: Platform.OS !== 'web',
+              headerLeft: () =>
+                Platform.OS === 'web'
+                  ? <WebBackButton />
+                  : undefined,
+              headerTintColor: '#000',
+            }}
+          >
           <Stack.Screen name="Home" options={{ headerShown: false }}>
             {(props) => (
               <Home

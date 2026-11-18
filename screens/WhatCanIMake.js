@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   FlatList,
   Pressable,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -269,7 +270,8 @@ export default function WhatCanIMake({
             <>
               <ScrollView
                 horizontal
-                showsHorizontalScrollIndicator={false}
+                showsHorizontalScrollIndicator={Platform.OS === 'web'}
+                persistentScrollbar={Platform.OS === 'web'}
                 style={styles.categoryScroll}
                 contentContainerStyle={styles.categoryPills}
               >
@@ -423,7 +425,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   categoryScroll: {
+    flexGrow: 0,
     marginBottom: 12,
+    paddingBottom: Platform.OS === 'web' ? 8 : 0,
   },
   categoryPills: {
     flexDirection: 'row',
