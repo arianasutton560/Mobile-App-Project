@@ -112,6 +112,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
     categories.find((category) => category.name === selectedCategory)?.category ??
     selectedCategory?.toLowerCase();
 
+  const normalizedSearch = searchText.trim().toLocaleLowerCase();
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesCategory =
       !selectedCategoryValue ||
@@ -122,7 +123,6 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
       recipe.drinkType === selectedDrinkType;
 
     const localizedTitle = getLocalizedRecipeTitle(recipe, language);
-    const normalizedSearch = searchText.trim().toLocaleLowerCase();
     const matchesSearch = !normalizedSearch ||
       localizedTitle.toLocaleLowerCase().includes(normalizedSearch) ||
       recipe.title.toLocaleLowerCase().includes(normalizedSearch) ||
@@ -131,6 +131,14 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
       );
 
     return matchesCategory && matchesDrinkType && matchesSearch;
+  }).sort((firstRecipe, secondRecipe) => {
+    if (!normalizedSearch) return 0;
+
+    const matchesTitle = (recipe) =>
+      getLocalizedRecipeTitle(recipe, language).toLocaleLowerCase().includes(normalizedSearch) ||
+      recipe.title.toLocaleLowerCase().includes(normalizedSearch);
+
+    return Number(matchesTitle(secondRecipe)) - Number(matchesTitle(firstRecipe));
   });
 
   function handleCategoryPress(category) {
