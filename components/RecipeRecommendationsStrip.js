@@ -3,6 +3,7 @@ import {
   Animated,
   Image,
   Pressable,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -58,7 +59,8 @@ export default function RecipeRecommendationsStrip({ recommendations, onSelectRe
             <ScrollView
               horizontal
               nestedScrollEnabled
-              showsHorizontalScrollIndicator={false}
+              showsHorizontalScrollIndicator={Platform.OS === 'web'}
+              persistentScrollbar={Platform.OS === 'web'}
               contentContainerStyle={styles.cards}
             >
               {recipes.map((recipe) => {
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
   },
   emptyMessage: {
     paddingHorizontal: 10,
-    paddingBottom: 4,
+    paddingBottom: Platform.OS === 'web' ? 10 : 0,
     color: '#765c4d',
     fontSize: 12,
   },

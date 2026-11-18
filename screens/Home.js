@@ -239,6 +239,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
               : t('home.allRecipes')}
           </Text>
 
+          
           {selectedCategory === 'Drinks' && (
             <View style={styles.drinkTypeRow}>
               {drinkTypes.map((drinkType) => {
@@ -275,7 +276,8 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
           {selectedCategory === 'Cooking Appliance' && (
             <ScrollView
               horizontal
-              showsHorizontalScrollIndicator={false}
+              showsHorizontalScrollIndicator={Platform.OS === 'web'}
+              persistentScrollbar={Platform.OS === 'web'}
               style={styles.cookTypeScroll}
               contentContainerStyle={styles.cookTypeRow}
             >
@@ -309,6 +311,7 @@ export default function Home({ navigation, favoriteIds, onToggleFavorite, }) {
               })}
             </ScrollView>
           )}
+
 
           {isLoading ? (
             <ActivityIndicator size="large" color="#d97745" />
@@ -415,15 +418,19 @@ const styles = StyleSheet.create({
   },
   drinkTypeRow: {
     flexDirection: 'row',
+    alignItems: 'center',
     gap: 8,
-    marginTop: 2,
+    paddingRight: 12,
   },
   cookTypeScroll: {
     flexGrow: 0,
-    minHeight: 52,
+    minHeight: Platform.OS === 'web' ? 65 : 52,
     marginTop: 2,
+    paddingTop: Platform.OS === 'web' ? 6 : 0,
+    paddingBottom: Platform.OS === 'web' ? 10 : 0,
   },
   cookTypeRow: {
+    flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
     paddingRight: 12,
